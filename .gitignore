@@ -1,0 +1,8 @@
+**node_modules/
+**bundle.js
+**bundle.js.map
+**package-lock.json
+**.DS_Store
+**tmp/
+**vendor/
+**log/
