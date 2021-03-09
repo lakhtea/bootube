@@ -1,0 +1,17 @@
+body {
+  background-color: darkslateblue;
+}
+div {
+  display: inline;
+}
+
+.logo img {
+  width: 150px;
+  height: 150px;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
