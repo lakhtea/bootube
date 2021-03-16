@@ -1,7 +1,10 @@
+const path = require("path");
+
 module.exports = {
   entry: "./frontend/bootube_entry.jsx",
   output: {
-    filename: "app/assets/javascripts/bundle.js",
+    path: path.join(__dirname, "app", "assets", "javascripts"),
+    filename: "bundle.js",
   },
   module: {
     rules: [
