@@ -1,7 +1,11 @@
 class Api::UsersController < ApplicationController
 
     def new
-        render :new
+
+    end
+
+    def index
+        @users = User.all
     end
     
     def create
