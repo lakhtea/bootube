@@ -23,3 +23,5 @@ config/master.key
 /app/assets/javascripts/bundle.js
 app/assets/images/
 public/assets
+
+**.byebug_history

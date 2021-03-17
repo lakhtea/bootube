@@ -4,7 +4,7 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.form;
-
+    console.log(this.props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -17,6 +17,16 @@ class Form extends React.Component {
 
   update(type) {
     return (e) => this.setState({ [type]: e.target.value });
+  }
+
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>{error}</li>
+        ))}
+      </ul>
+    );
   }
 
   render() {
@@ -34,9 +44,11 @@ class Form extends React.Component {
         ""
       );
     };
+
     return (
       <form onSubmit={this.handleSubmit}>
         <h2>{this.props.formType}</h2>
+        {this.renderErrors()}
         <label>
           Username:
           <input

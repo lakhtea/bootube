@@ -5,6 +5,7 @@ import Form from "./form";
 const mapStateToProps = (state) => ({
   form: { username: "", email: "", password: "" },
   formType: "Sign Up",
+  errors: state.errors,
 });
 
 const mapDispatchToProps = (dispatch) => ({

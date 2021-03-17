@@ -14,7 +14,7 @@ export const createSession = (user) => {
   });
 };
 
-export const deleteSession = (user) => {
+export const deleteSession = () => {
   return $.ajax({
     method: "delete",
     url: "/api/session",
