@@ -21,7 +21,7 @@ config/master.key
 !/tmp/.keep
 
 /app/assets/javascripts/bundle.js
-app/assets/images/
+# app/assets/images/
 public/assets
 
 **.byebug_history
