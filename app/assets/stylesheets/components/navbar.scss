@@ -1,0 +1,29 @@
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.burger *,
+.nav-elements * {
+  display: inline;
+  padding: 5px;
+}
+
+.fa-bars {
+  padding: 8px;
+  font-size: 1.5rem;
+}
+
+.search * {
+  display: inline;
+  padding: 3px;
+}
+
+.search-bar {
+  width: 40vw;
+}
+
+.logo {
+  width: 75px;
+  height: 75px;
+}

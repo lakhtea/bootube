@@ -3,8 +3,9 @@ import React from "react";
 class Form extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = this.props.form;
-    console.log(this.props);
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -46,8 +47,18 @@ class Form extends React.Component {
     };
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="form" onSubmit={this.handleSubmit}>
+        <h1>
+          <span>B</span>
+          <span>o</span>
+          <span>o</span>
+          <span>g</span>
+          <span>l</span>
+          <span>e</span>
+        </h1>
         <h2>{this.props.formType}</h2>
+        <h3>to continue to bootube</h3>
+
         {this.renderErrors()}
         <label>
           Username:
