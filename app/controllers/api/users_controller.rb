@@ -4,6 +4,15 @@ class Api::UsersController < ApplicationController
 
     end
 
+    def show
+        @user = User.find_username(params[:username])
+        if @user 
+            render json: @user
+        else 
+            render json: ["Invalid credentials"], status: 422
+        end
+    end
+
     def index
         @users = User.all
     end
@@ -12,7 +21,6 @@ class Api::UsersController < ApplicationController
         @user = User.new(user_params)
 
         if @user.save
-            
             login!(@user)
             render "api/users/show"
         else

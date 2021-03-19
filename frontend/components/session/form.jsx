@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect, Link } from "react-router-dom";
 
 class Form extends React.Component {
   constructor(props) {
@@ -7,6 +8,7 @@ class Form extends React.Component {
     this.state = this.props.form;
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleUsernameSubmit = this.handleUsernameSubmit.bind(this);
   }
 
   handleSubmit(e) {
@@ -14,6 +16,17 @@ class Form extends React.Component {
     this.props
       .action(this.state)
       .then(() => this.props.history.push("/videos"));
+  }
+
+  handleUsernameSubmit(e) {
+    e.preventDefault();
+    this.props.validUser(this.state.username).then(() =>
+      this.setState({
+        username: this.props.form.username,
+        email: this.props.form.email,
+        password: "",
+      })
+    );
   }
 
   update(type) {
@@ -24,62 +37,84 @@ class Form extends React.Component {
     return (
       <ul>
         {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>{error}</li>
+          <li key={`error-${i}`}>
+            {" "}
+            <i className="fas fa-exclamation-circle"></i>
+            <span className="error">{error}</span>
+          </li>
         ))}
       </ul>
     );
   }
 
   render() {
-    const newUserForm = () => {
-      return this.props.formType === "Sign Up" ? (
-        <label>
-          Email:
-          <input
-            type="email"
-            value={this.state.email}
-            onChange={this.update("email")}
-          />
-        </label>
-      ) : (
-        ""
+    if (this.props.form.username != "") {
+      return (
+        <form onSubmit={this.handleSubmit} className="form">
+          <div>
+            <h1>
+              <span>B</span>
+              <span>o</span>
+              <span>o</span>
+              <span>g</span>
+              <span>l</span>
+              <span>e</span>
+            </h1>
+            <h2 className="form-header">{this.state.username}</h2>
+            <h3>{this.state.email}</h3>
+
+            <div className="form-input">
+              <input
+                type="text"
+                value={this.state.password}
+                onChange={this.update("password")}
+                placeholder="Enter your password"
+              />
+              <h5 className="errors">{this.renderErrors()}</h5>
+              <p></p>
+              <div>
+                <Link to="/signup">Forgot Password?</Link>
+                <button>Next</button>
+              </div>
+            </div>
+          </div>
+        </form>
       );
-    };
+    } else {
+      return (
+        <form onSubmit={this.handleUsernameSubmit} className="form">
+          <div>
+            <h1>
+              <span>B</span>
+              <span>o</span>
+              <span>o</span>
+              <span>g</span>
+              <span>l</span>
+              <span>e</span>
+            </h1>
+            <h2 className="form-header">{this.props.formType}</h2>
+            <h3>to continue to bootube</h3>
 
-    return (
-      <form className="form" onSubmit={this.handleSubmit}>
-        <h1>
-          <span>B</span>
-          <span>o</span>
-          <span>o</span>
-          <span>g</span>
-          <span>l</span>
-          <span>e</span>
-        </h1>
-        <h2>{this.props.formType}</h2>
-        <h3>to continue to bootube</h3>
-
-        {this.renderErrors()}
-        <label>
-          Username:
-          <input
-            type="text"
-            value={this.state.username}
-            onChange={this.update("username")}
-          />
-        </label>
-        {newUserForm()}
-        <label>
-          Password:
-          <input
-            type="password"
-            value={this.state.password}
-            onChange={this.update("password")}
-          />
-        </label>
-        <button>{this.props.formType}</button>
-      </form>
-    );
+            <div className="form-input">
+              <input
+                type="text"
+                value={this.state.username}
+                onChange={this.update("username")}
+                placeholder="Email or username"
+              />
+              <h5 className="errors">{this.renderErrors()}</h5>
+              <p>Not your computer? Please return it, thief.</p>
+              <div>
+                <Link to="/signup">Create Account</Link>
+                <button>Next</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      );
+    }
+    {
+    }
   }
 }
 

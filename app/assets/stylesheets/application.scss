@@ -13,15 +13,22 @@
  *= require_tree .
  *= require_self
  */
+$blue: #4285f4;
+$red: #ea4335;
+$yellow: #fbbc05;
+$green: #34a853;
+$black: #181818;
+$gray: #dadce0;
 
 body {
-  background-color: #303030;
+  font-family: "Noto Sans", sans-serif;
+  background-color: $black;
   color: white;
 }
 
 a {
   text-decoration: none;
-  color: white;
+  color: $red;
 }
 
 @font-face {
@@ -32,11 +39,6 @@ a {
     url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2)
       format("woff2");
 }
-
-$blue: #4285f4;
-$red: #ea4335;
-$yellow: #fbbc05;
-$green: #34a853;
 
 span {
   font-family: Product Sans;

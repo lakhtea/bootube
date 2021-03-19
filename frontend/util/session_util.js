@@ -6,6 +6,13 @@ export const postUser = (user) => {
   });
 };
 
+export const checkValidUser = (username) => {
+  return $.ajax({
+    method: "get",
+    url: `/api/users/${username}`,
+  });
+};
+
 export const createSession = (user) => {
   return $.ajax({
     method: "post",
