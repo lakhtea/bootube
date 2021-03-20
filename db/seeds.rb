@@ -9,3 +9,4 @@
 User.create!(username: "Lakhte", email: "Lakhte", password: "Lakhte")
 User.create!(username: "RyanNaing", email: "RyanNaing", password: "RyanNaing")
 User.create!(username: "JohnCheung", email: "JohnCheung", password: "JohnCheung")
+User.create!(username: "Demo User", email: "demo_user@demo.com", password: "password")

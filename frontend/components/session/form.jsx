@@ -9,6 +9,7 @@ class Form extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUsernameSubmit = this.handleUsernameSubmit.bind(this);
+    this.loginDemoUser = this.loginDemoUser.bind(this);
   }
 
   handleSubmit(e) {
@@ -26,6 +27,21 @@ class Form extends React.Component {
         email: this.props.form.email,
         password: "",
       })
+    );
+  }
+
+  loginDemoUser() {
+    let setState = (state) =>
+      new Promise((resolve) => {
+        resolve();
+        this.setState(state);
+      });
+    setState({
+      username: "Demo User",
+      email: "demo_user@demo.com",
+      password: "password",
+    }).then(() =>
+      this.props.action(this.state).then(() => this.props.history.push("/"))
     );
   }
 
@@ -48,7 +64,7 @@ class Form extends React.Component {
   }
 
   render() {
-    if (this.props.form.username != "") {
+    if (this.props.form.username) {
       return (
         <form onSubmit={this.handleSubmit} className="form">
           <div>
@@ -72,7 +88,7 @@ class Form extends React.Component {
               />
               <h5 className="errors">{this.renderErrors()}</h5>
               <p></p>
-              <div>
+              <div className="button">
                 <Link to="/signup">Forgot Password?</Link>
                 <button>Next</button>
               </div>
@@ -104,9 +120,14 @@ class Form extends React.Component {
               />
               <h5 className="errors">{this.renderErrors()}</h5>
               <p>Not your computer? Please return it, thief.</p>
-              <div>
+              <div className="button">
                 <Link to="/signup">Create Account</Link>
-                <button>Next</button>
+                <div>
+                  <button type="button" onClick={this.loginDemoUser}>
+                    Demo User
+                  </button>
+                  <button>Next</button>
+                </div>
               </div>
             </div>
           </div>

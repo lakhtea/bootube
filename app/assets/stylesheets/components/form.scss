@@ -58,12 +58,17 @@
     border-radius: 3.5px;
   }
 
-  div {
+  .button {
     font-size: 14px;
     margin-top: 55px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    div {
+      display: flex;
+      gap: 10px;
+    }
 
     button {
       cursor: pointer;
