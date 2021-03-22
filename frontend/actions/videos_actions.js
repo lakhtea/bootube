@@ -24,9 +24,10 @@ const receiveVideo = (video) => {
   };
 };
 
-const deleteVideo = (videoId) => {
+const removeVideo = (videoId) => {
   return {
     type: DELETE_VIDEO,
+    videoId,
   };
 };
 
@@ -49,4 +50,4 @@ export const postVideo = (video) => (dispatch) =>
   );
 
 export const deleteVideo = (videoId) => (dispatch) =>
-  deleteVideo(videoId).then((video) => dispatch(deleteVideo(video.id)));
+  deleteVideo(videoId).then((video) => dispatch(removeVideo(video.id)));
