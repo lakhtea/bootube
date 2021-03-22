@@ -1,16 +1,15 @@
 class Api::UsersController < ApplicationController
-
-    def new
-
-    end
-
-    def show
+    def validation
         @user = User.find_username(params[:username])
         if @user 
             render json: @user
         else 
             render json: ["Invalid credentials"], status: 422
         end
+    end
+
+    def show
+        
     end
     
     def create

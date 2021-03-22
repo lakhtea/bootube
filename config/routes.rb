@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   root to: 'static_pages#root'
   
   namespace :api, defaults: {format: :json} do
-    resources :users, param: :username, only: [:show]
-    resources :users, only: [:new, :create, :index]
-    resource :session, only: [:new, :create, :destroy]
+    get '/validation/:username', to: 'users#validation', param: :username
+    resources :users, only: [:create, :index, :show]
+    resources :videos, only: [:index, :create, :show, :patch, :delete]
+    resource :session, only: [:create, :destroy]
   end
 end

@@ -9,7 +9,7 @@ export const postUser = (user) => {
 export const checkValidUser = (username) => {
   return $.ajax({
     method: "get",
-    url: `/api/users/${username}`,
+    url: `/api/validation/${username}`,
   });
 };
 
