@@ -2,7 +2,7 @@ import {
   getVideos,
   getVideo,
   createVideo,
-  deleteVideo,
+  destroyVideo,
 } from "../util/video_util";
 import { receiveErrors } from "../actions/errors_actions";
 
@@ -50,4 +50,4 @@ export const postVideo = (video) => (dispatch) =>
   );
 
 export const deleteVideo = (videoId) => (dispatch) =>
-  deleteVideo(videoId).then((video) => dispatch(removeVideo(video.id)));
+  destroyVideo(videoId).then((video) => dispatch(removeVideo(video.id)));

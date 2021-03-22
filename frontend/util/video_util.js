@@ -17,7 +17,7 @@ export const createVideo = (video) =>
     data: { video },
   });
 
-export const deleteVideo = (videoId) =>
+export const destroyVideo = (videoId) =>
   $.ajax({
     method: "delete",
     url: `/api/videos/${videoId}`,
