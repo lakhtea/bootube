@@ -7,7 +7,12 @@ class User < ApplicationRecord
 
     attr_reader :password
 
-    has_many :videos
+    has_many :videos, foreign_key: :uploader_id, dependent: :destroy
+    has_many :comments, dependent: :destroy
+    has_many :likes
+
+    has_many :liked_videos, through: :likes, source: :likeable, source_type: "Video"
+    has_many :liked_comments, through: :likes, source: :likeable, source_type: "Comment"
 
     def self.find_username(username)
         user = User.find_by(username: username)

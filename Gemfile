@@ -37,6 +37,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 #required for AJAX requests
 gem 'jquery-rails'
 
+#required for aws s3
+gem 'aws-sdk-s3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a  console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -53,6 +56,7 @@ group :development do
   gem 'pry-rails'
   gem 'binding_of_caller'
   gem 'better_errors'
+  gem 'annotate'
 end
 
 group :test do
