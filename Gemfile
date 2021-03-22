@@ -59,10 +59,6 @@ group :development do
   gem 'annotate'
 end
 
-group :production do
-  
-end
-
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
