@@ -6,11 +6,11 @@ const Dropdown = ({ currentUser, logout }) => {
     <div className="dropdown">
       <div className="user-card">
         <button className="user-link-dummy">
-          {currentUser.username[0].toUpperCase()}
+          {/* {currentUser.username[0].toUpperCase()} */}
         </button>
         <div className="user-info">
-          <h5>{currentUser.username}</h5>
-          <span>{currentUser.email}</span>
+          {/* <h5>{currentUser.username}</h5> */}
+          {/* <span>{currentUser.email}</span> */}
         </div>
       </div>
       <div className="my-links">
