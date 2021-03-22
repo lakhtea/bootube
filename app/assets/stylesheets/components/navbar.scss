@@ -1,29 +1,231 @@
+@import "application";
+
+.nav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: $nav-gray;
+  border-bottom: 1px solid rgba(55, 55, 55, 1);
+}
+
 .main-nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  height: 56px;
+
+  .burger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a {
+      margin-left: 24px;
+    }
+  }
 }
 
-.burger *,
-.nav-elements * {
-  display: inline;
-  padding: 5px;
+.menu {
+  margin-left: 9px;
+  cursor: pointer;
 }
 
-.fa-bars {
-  padding: 8px;
-  font-size: 1.5rem;
+.nav-elements {
+  width: 204px;
 }
 
-.search * {
-  display: inline;
-  padding: 3px;
+.nav-elements .elements {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  > span {
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
+
+.search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40vw;
+  max-width: 566px;
+  border: 1px solid rgba(55, 55, 55, 1);
+  background-color: black;
+  padding: 2px 0 2px 6px;
+  box-sizing: border-box;
+  height: 32px;
+  * {
+    display: inline;
+    padding: 3px;
+  }
+
+  button {
+    box-sizing: content-box;
+    height: 30px;
+    width: 65px;
+    padding: 1px 6px;
+    background-color: #303030;
+    border-style: none;
+    span {
+      color: rgba(107, 107, 107, 1);
+      font-size: 20px;
+    }
+  }
 }
 
 .search-bar {
-  width: 40vw;
+  box-sizing: border-box;
+  border-style: none;
+  width: 100%;
+  background-color: inherit;
 }
 
-.logo {
-  width: 75px;
-  height: 75px;
+.sign-in {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid $red;
+  border-radius: 2px;
+  width: 105.3;
+  height: 40px;
+  padding: 5px 11px;
+  box-sizing: border-box;
+  span:first-of-type {
+    font-size: 30px;
+    padding: 0;
+  }
+  span:nth-of-type(2) {
+    font-size: 14px;
+  }
+}
+
+.user-link button {
+  height: 32px;
+  width: 32px;
+  border-style: none;
+  box-sizing: border-box;
+  background-color: $red;
+  border-radius: 25px;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
+}
+
+.user-link {
+  button:focus {
+    border-style: none;
+    border: 1px solid $blue;
+  }
+  button:focus + .dropdown,
+  button + .dropdown:hover,
+  button + .dropdown:focus-within {
+    position: absolute;
+    z-index: 1;
+    top: 48px;
+    right: 20px;
+    width: 300px;
+    height: 714px;
+    background-color: #202020ee;
+    border: 1px solid rgba(55, 55, 55, 1);
+    border-top: none;
+
+    display: flex;
+    flex-direction: column;
+
+    .my-links {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 298px;
+      height: 217px;
+      box-sizing: border-box;
+      border-bottom: 1px solid rgba(55, 55, 55, 1);
+      a {
+        height: 40px;
+        display: flex;
+        align-items: center;
+        color: white;
+        font-size: 16px;
+        gap: 14px;
+        padding: 0 36px 0 16px;
+        i {
+          font-size: 21px;
+          padding-left: 3px;
+        }
+      }
+      a:hover {
+        background-color: rgb(60, 56, 56);
+      }
+    }
+
+    .dummy-links {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 298px;
+      height: 393px;
+      box-sizing: border-box;
+      a {
+        height: 40px;
+        display: flex;
+        align-items: center;
+        color: white;
+        font-size: 16px;
+        gap: 14px;
+        padding: 0 36px 0 16px;
+        i {
+          font-size: 21px;
+          padding-left: 3px;
+        }
+      }
+      a:hover {
+        background-color: rgb(60, 56, 56);
+      }
+    }
+  }
+}
+
+button + .dropdown {
+  display: none;
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  width: 298px;
+  height: 103px;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(55, 55, 55, 1);
+  padding: 16px;
+  gap: 16px;
+}
+
+button.user-link-dummy {
+  height: 40px;
+  width: 40px;
+  border-style: none;
+  box-sizing: border-box;
+  background-color: $red;
+  border-radius: 25px;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  cursor: auto;
+  outline: none;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  h5 {
+    font-size: 18px;
+  }
+  span {
+    font-size: 14px;
+  }
 }

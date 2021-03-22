@@ -16,9 +16,7 @@ class SignUpForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     if (this.state.password === this.confirmed) {
-      this.props
-        .action(this.state)
-        .then(() => this.props.history.push("/videos"));
+      this.props.action(this.state).then(() => this.props.history.push("/"));
     } else {
     }
   }
@@ -48,7 +46,7 @@ class SignUpForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="signup-form">
-        <h1>
+        <h1 className="boogle-logo">
           <span>B</span>
           <span>o</span>
           <span>o</span>

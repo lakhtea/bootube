@@ -1,37 +1,44 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../searchbar/searchbar";
+import Sidebar from "../sidebar/sidebar";
+import UserLink from "../user/user_link";
 
 export default ({ currentUser, logout }) => {
   const display = currentUser ? (
-    <div>
-      <h3>Welcome {currentUser.username}!</h3>
-      <button onClick={logout}>Logout</button>
+    <div className="elements">
+      {/* <h3>Welcome {currentUser.username}!</h3> */}
+      {/* <button onClick={logout}>Logout</button> */}
+      <span className="material-icons">video_call</span>
+      <span className="material-icons">notifications</span>
+      <UserLink logout={logout} currentUser={currentUser} />
     </div>
   ) : (
     <div>
-      <Link to="/login">Sign In</Link>
+      <Link className="sign-in" to="/login">
+        <span className="material-icons">account_circle</span>
+        <span>SIGN IN</span>
+      </Link>
     </div>
   );
+
   return (
-    <nav className="main-nav">
-      <i className="fas fa-bars"></i>
-      <h1>
-        <Link to="/">
-          <img className="logo" src={window.bootubeUrl} alt="bootube" />
-        </Link>
-      </h1>
+    <div className="nav-container">
+      <nav className="main-nav">
+        <div className="burger">
+          <span className="menu material-icons">menu</span>
+          <h1>
+            <Link to="/">bootube</Link>
+          </h1>
+        </div>
 
-      <div className="search">
-        <SearchBar />
-        <i className="fas fa-search"></i>
-      </div>
+        <div>
+          <SearchBar />
+        </div>
 
-      <div className="nav-elements">
-        <i className="fas fa-video"></i>
-        <i className="fas fa-bell"></i>
-        <div>{display}</div>
-      </div>
-    </nav>
+        <div className="nav-elements">{display}</div>
+      </nav>
+      <Sidebar />
+    </div>
   );
 };

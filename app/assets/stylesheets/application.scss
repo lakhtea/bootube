@@ -19,6 +19,7 @@ $yellow: #fbbc05;
 $green: #34a853;
 $black: #181818;
 $gray: #dadce0;
+$nav-gray: #202020;
 
 body {
   font-family: "Noto Sans", sans-serif;
@@ -29,6 +30,7 @@ body {
 a {
   text-decoration: none;
   color: $red;
+  font-family: Roboto, Arial, sans-serif;
 }
 
 @font-face {
@@ -40,32 +42,34 @@ a {
       format("woff2");
 }
 
-span {
-  font-family: Product Sans;
+h1.boogle-logo {
+  span {
+    font-family: Product Sans;
 
-  display: inline-block;
-  padding: 0.2px;
-  text-align: center;
+    display: inline-block;
+    padding: 0.2px;
+    text-align: center;
 
-  &:nth-child(7n + 1) {
-    color: $blue;
-  }
-  &:nth-child(7n + 2) {
-    color: $red;
-  }
-  &:nth-child(7n + 3) {
-    color: $yellow;
-  }
-  &:nth-child(7n + 4) {
-    color: $blue;
-  }
-  &:nth-child(7n + 5) {
-    color: $green;
-  }
-  &:nth-child(7n + 6) {
-    color: $red;
-  }
-  &:nth-child(7n + 7) {
-    color: $yellow;
+    &:nth-child(7n + 1) {
+      color: $blue;
+    }
+    &:nth-child(7n + 2) {
+      color: $red;
+    }
+    &:nth-child(7n + 3) {
+      color: $yellow;
+    }
+    &:nth-child(7n + 4) {
+      color: $blue;
+    }
+    &:nth-child(7n + 5) {
+      color: $green;
+    }
+    &:nth-child(7n + 6) {
+      color: $red;
+    }
+    &:nth-child(7n + 7) {
+      color: $yellow;
+    }
   }
 }

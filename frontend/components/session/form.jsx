@@ -14,9 +14,7 @@ class Form extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props
-      .action(this.state)
-      .then(() => this.props.history.push("/videos"));
+    this.props.action(this.state).then(() => this.props.history.push("/"));
   }
 
   handleUsernameSubmit(e) {
@@ -100,7 +98,7 @@ class Form extends React.Component {
       return (
         <form onSubmit={this.handleUsernameSubmit} className="form">
           <div>
-            <h1>
+            <h1 className="boogle-logo">
               <span>B</span>
               <span>o</span>
               <span>o</span>

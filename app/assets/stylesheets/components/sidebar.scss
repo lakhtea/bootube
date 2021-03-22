@@ -1,0 +1,35 @@
+@import "application";
+
+.sidebar {
+  width: 72px;
+  margin: 0;
+  position: fixed;
+  left: 0px;
+  z-index: 1;
+  height: 100vh;
+  text-align: center;
+  background-color: $nav-gray;
+
+  span {
+    margin-bottom: 6px;
+    width: 24px;
+    color: inherit;
+  }
+
+  a {
+    color: #909090;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 9px;
+    padding: 16px 0 14px;
+  }
+
+  a:hover {
+    background-color: rgb(60, 56, 56);
+  }
+
+  .active {
+    color: white;
+  }
+}
