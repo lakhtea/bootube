@@ -13,9 +13,9 @@ ApplicationRecord.connection.reset_pk_sequence!('users')
 Video.destroy_all
 ApplicationRecord.connection.reset_pk_sequence!('videos')
 
-lakhte = User.create!(username: "Lakhte", email: "Lakhte", password: "Lakhte")
-ryan = User.create!(username: "RyanNaing", email: "RyanNaing", password: "RyanNaing")
-john = User.create!(username: "JohnCheung", email: "JohnCheung", password: "JohnCheung")
+lakhte = User.create!(username: "Lakhte", email: "lakhte@lakhte", password: "Lakhte")
+ryan = User.create!(username: "RyanNaing", email: "ryan@ryan", password: "RyanNaing")
+john = User.create!(username: "JohnCheung", email: "john@john", password: "JohnCheung")
 demo = User.create!(username: "Demo User", email: "demo_user@demo.com", password: "password")
 dane = User.create!(username: "Dane the TA", email: "dane@appacademy.com", password: "stonks")
 

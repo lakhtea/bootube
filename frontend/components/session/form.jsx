@@ -19,6 +19,7 @@ class Form extends React.Component {
 
   handleUsernameSubmit(e) {
     e.preventDefault();
+    this.props.removeErrors();
     this.props.validUser(this.state.username).then(() =>
       this.setState({
         username: this.props.form.username,
@@ -66,7 +67,7 @@ class Form extends React.Component {
       return (
         <form onSubmit={this.handleSubmit} className="form">
           <div>
-            <h1>
+            <h1 className="boogle-logo">
               <span>B</span>
               <span>o</span>
               <span>o</span>

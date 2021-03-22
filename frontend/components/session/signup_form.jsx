@@ -13,6 +13,10 @@ class SignUpForm extends React.Component {
     this.updateConfirmed = this.updateConfirmed.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.removeErrors();
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     if (this.state.password === this.confirmed) {

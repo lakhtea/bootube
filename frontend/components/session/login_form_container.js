@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { login, validUser } from "../../actions/session_actions";
 import Form from "./form";
+import { clearErrors } from "../../actions/errors_actions";
 
 const mapStateToProps = (state) => {
   if (state.session.attemptedLogin) {
@@ -24,6 +25,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   action: (user) => dispatch(login(user)),
   validUser: (username) => dispatch(validUser(username)),
+  removeErrors: () => dispatch(clearErrors()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Form);
