@@ -1,6 +1,6 @@
 import {
-  fetchVideos,
-  fetchVideo,
+  getVideos,
+  getVideo,
   postVideo,
   deleteVideo,
 } from "../util/video_util";
@@ -32,13 +32,13 @@ const removeVideo = (videoId) => {
 };
 
 export const fetchVideos = () => (dispatch) =>
-  fetchVideos().then(
+  getVideos().then(
     (videos) => dispatch(receiveVideos(videos)),
     (err) => dispatch(receiveErrors(err.responseJSON))
   );
 
 export const fetchVideo = (videoId) => (dispatch) =>
-  fetchVideo(videoId).then(
+  getVideo(videoId).then(
     (video) => dispatch(receiveVideo(video)),
     (err) => dispatch(receiveErrors(err.responseJSON))
   );
