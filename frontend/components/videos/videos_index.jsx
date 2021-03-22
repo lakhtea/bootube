@@ -8,7 +8,7 @@ class VideosIndex extends React.Component {
 
   render() {
     <div>
-      {this.props.video.map((video) => {
+      {this.props.videos.map((video) => {
         <VideoItem video={video} />;
       })}
     </div>;
