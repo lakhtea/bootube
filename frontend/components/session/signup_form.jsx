@@ -26,7 +26,6 @@ class SignUpForm extends React.Component {
   }
 
   updateConfirmed(e) {
-    console.log(e.target.value);
     this.confirmed = e.target.value;
   }
 

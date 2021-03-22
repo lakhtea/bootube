@@ -4,7 +4,6 @@ import Dropdown from "./dropdown";
 class UserLink extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = { dropdownToggled: false };
     this.toggleDropdown = this.toggleDropdown.bind(this);
   }

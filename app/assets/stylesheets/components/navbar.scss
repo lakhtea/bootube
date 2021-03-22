@@ -83,18 +83,23 @@
   background-color: inherit;
 }
 
+.sign-in-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .sign-in {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   border: 1px solid $red;
   border-radius: 2px;
-  width: 105.3;
+  width: 105.3px;
   height: 40px;
   padding: 5px 11px;
   box-sizing: border-box;
   span:first-of-type {
-    font-size: 30px;
+    font-size: 28px;
     padding: 0;
   }
   span:nth-of-type(2) {

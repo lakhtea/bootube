@@ -7,14 +7,12 @@ import UserLink from "../user/user_link";
 export default ({ currentUser, logout }) => {
   const display = currentUser ? (
     <div className="elements">
-      {/* <h3>Welcome {currentUser.username}!</h3> */}
-      {/* <button onClick={logout}>Logout</button> */}
       <span className="material-icons">video_call</span>
       <span className="material-icons">notifications</span>
       <UserLink logout={logout} currentUser={currentUser} />
     </div>
   ) : (
-    <div>
+    <div className="sign-in-container">
       <Link className="sign-in" to="/login">
         <span className="material-icons">account_circle</span>
         <span>SIGN IN</span>
