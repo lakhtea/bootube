@@ -10,7 +10,7 @@ export const getVideo = (videoId) =>
     url: `/api/videos/${videoId}`,
   });
 
-export const postVideo = (video) =>
+export const createVideo = (video) =>
   $.ajax({
     method: "post",
     url: "/api/videos",

@@ -1,7 +1,7 @@
 import {
   getVideos,
   getVideo,
-  postVideo,
+  createVideo,
   deleteVideo,
 } from "../util/video_util";
 import { receiveErrors } from "../actions/errors_actions";
@@ -44,7 +44,7 @@ export const fetchVideo = (videoId) => (dispatch) =>
   );
 
 export const postVideo = (video) => (dispatch) =>
-  postVideo(video).then(
+  createVideo(video).then(
     (video) => dispatch(receiveVideo(video)),
     (err) => dispatch(receiveErrors(err.responseJSON))
   );
