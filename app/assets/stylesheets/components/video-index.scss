@@ -1,7 +1,14 @@
 @import "application";
 
 .video-index-container {
+  padding-left: 160px;
+  padding-right: 160px;
+  box-sizing: border-box;
   height: 86vh;
-  background: red;
+  background: $black;
   width: 96vw;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  justify-items: center;
 }

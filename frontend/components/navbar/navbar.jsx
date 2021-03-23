@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 import SearchBar from "../searchbar/searchbar";
 import Sidebar from "../sidebar/sidebar";
 import UserLink from "../user/user_link";
+import Tagbar from "./tagbar";
 
 export default ({ currentUser, logout }) => {
   const display = currentUser ? (
     <div className="elements">
-      <span className="material-icons">video_call</span>
+      <Link to="/videos/new">
+        <span className="material-icons">video_call</span>
+      </Link>
       <span className="material-icons">notifications</span>
       <UserLink logout={logout} currentUser={currentUser} />
     </div>
@@ -37,6 +40,7 @@ export default ({ currentUser, logout }) => {
         <div className="nav-elements">{display}</div>
       </nav>
       <Sidebar />
+      <Tagbar />
     </div>
   );
 };

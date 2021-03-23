@@ -4,7 +4,6 @@ import VideoItem from "./video_item";
 class VideosIndex extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
   }
 
   componentDidMount() {
@@ -14,8 +13,8 @@ class VideosIndex extends React.Component {
   render() {
     return (
       <div className="video-index-container">
-        {this.props.videos.map((video) => {
-          return <VideoItem key={video.id} video={video} />;
+        {this.props.videos.map((video, idx) => {
+          return <VideoItem key={video.id} idx={idx} video={video} />;
         })}
       </div>
     );
