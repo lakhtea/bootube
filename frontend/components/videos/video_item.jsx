@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import VideoDetail from "./video_detail";
-// import { ReactVideo, YoutubePlayer, Player } from "reactjs-media";
 
 class VideoItem extends React.Component {
   constructor(props) {
@@ -25,7 +24,7 @@ class VideoItem extends React.Component {
             muted
             loop
           >
-            <source src="https://bootube-seeds.s3.amazonaws.com/spiderweb.mp4" />
+            <source src={this.props.video.videoUrl} />
           </video>
         </Link>
         <VideoDetail video={this.props.video} />

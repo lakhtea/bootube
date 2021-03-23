@@ -27,6 +27,7 @@ const App = (props) => (
         path="/videos/new"
         component={VideoUploadContainer}
       />
+      <Route exact path="/channel/:username" component={ChannelShowContainer} />
     </Switch>
   </div>
 );
