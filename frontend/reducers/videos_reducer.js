@@ -11,6 +11,7 @@ const VideosReducer = (state = {}, action) => {
     case RECEIVE_VIDEOS:
       return action.videos;
     case RECEIVE_VIDEO:
+      console.log(action.video);
       nextState[action.video.id] = action.video;
       return nextState;
     case DELETE_VIDEO:

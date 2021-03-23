@@ -30,18 +30,13 @@ class Form extends React.Component {
   }
 
   loginDemoUser() {
-    let setState = (state) =>
-      new Promise((resolve) => {
-        resolve();
-        this.setState(state);
-      });
-    setState({
-      username: "Demo User",
-      email: "demo_user@demo.com",
-      password: "password",
-    }).then(() =>
-      this.props.action(this.state).then(() => this.props.history.push("/"))
-    );
+    this.props
+      .action({
+        username: "Demo User",
+        email: "demo_user@demo.com",
+        password: "password",
+      })
+      .then(() => this.props.history.push("/"));
   }
 
   update(type) {
@@ -80,7 +75,7 @@ class Form extends React.Component {
 
             <div className="form-input">
               <input
-                type="text"
+                type="password"
                 value={this.state.password}
                 onChange={this.update("password")}
                 placeholder="Enter your password"

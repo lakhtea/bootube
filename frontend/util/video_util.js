@@ -10,11 +10,13 @@ export const getVideo = (videoId) =>
     url: `/api/videos/${videoId}`,
   });
 
-export const createVideo = (video) =>
+export const createVideo = (formData) =>
   $.ajax({
     method: "post",
     url: "/api/videos",
-    data: { video },
+    data: formData,
+    contentType: false,
+    processData: false,
   });
 
 export const destroyVideo = (videoId) =>

@@ -13,7 +13,7 @@ class Api::VideosController < ApplicationController
     if @video.save
       render "api/videos/show"
     else
-      render json: @user.errors.full_messages, status: 422
+      render json: @video.errors.full_messages, status: 422
     end
   end
 
@@ -30,7 +30,7 @@ class Api::VideosController < ApplicationController
 
   private
   def video_params 
-    params.require(:video).permit(:title, :description, :uploader_id)
+    params.require(:video).permit(:title, :description, :vid, :uploader_id)
   end
 end
 

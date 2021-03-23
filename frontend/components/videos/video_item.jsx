@@ -4,15 +4,19 @@ import { Link } from "react-router-dom";
 class VideoItem extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props);
   }
 
   render() {
-    <div>
-      <Link to={`/videos/${this.props.video.id}`}>
-        <VideoGif videoId={this.props.video.id} />
-      </Link>
-      <VideoDetail videoId={this.props.video.id} />
-    </div>;
+    return (
+      <div>
+        <Link to={`/videos/${this.props.video.id}`}>
+          Video
+          {/* <VideoGif videoId={this.props.video.id} /> */}
+        </Link>
+        {/* <VideoDetail videoId={this.props.video.id} /> */}
+      </div>
+    );
   }
 }
 

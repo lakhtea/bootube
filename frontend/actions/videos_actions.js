@@ -7,7 +7,7 @@ import {
 import { receiveErrors } from "../actions/errors_actions";
 
 export const RECEIVE_VIDEOS = "RECEIVE_VIDEOS";
-export const RECEIVE_VIDEO = "RECEIVE_VIDEOS";
+export const RECEIVE_VIDEO = "RECEIVE_VIDEO";
 export const DELETE_VIDEO = "DELETE_VIDEO";
 
 const receiveVideos = (videos) => {
@@ -43,8 +43,8 @@ export const fetchVideo = (videoId) => (dispatch) =>
     (err) => dispatch(receiveErrors(err.responseJSON))
   );
 
-export const postVideo = (video) => (dispatch) =>
-  createVideo(video).then(
+export const postVideo = (formData) => (dispatch) =>
+  createVideo(formData).then(
     (video) => dispatch(receiveVideo(video)),
     (err) => dispatch(receiveErrors(err.responseJSON))
   );
