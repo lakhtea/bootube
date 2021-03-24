@@ -5,16 +5,21 @@ import LoginFormContainer from "./session/login_form_container";
 import NavbarContainer from "./navbar/navbar_container";
 import VideoIndexContainer from "./videos/video_index_container";
 import VideoUploadContainer from "./videos/video_upload_container";
+import VideoShowContainer from "./videos/video_show_container";
+import Sidebar from "./sidebar/sidebar";
+import Tagbar from "./navbar/tagbar";
 import { AuthRoute, ProtectedRoute } from "../util/auth_route";
 
 const App = (props) => (
   <div>
+    <NavbarContainer />
     <Route
       exact
       path="/"
       render={() => (
         <div className="home-page-container">
-          <NavbarContainer />
+          <Sidebar />
+          <Tagbar />
           <VideoIndexContainer />
         </div>
       )}
@@ -27,6 +32,7 @@ const App = (props) => (
         path="/videos/new"
         component={VideoUploadContainer}
       />
+      <Route exact path="/videos/:videoId" component={VideoShowContainer} />
     </Switch>
   </div>
 );

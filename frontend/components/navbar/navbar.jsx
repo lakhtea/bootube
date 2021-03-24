@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../searchbar/searchbar";
-import Sidebar from "../sidebar/sidebar";
 import UserLink from "../user/user_link";
-import Tagbar from "./tagbar";
 
 export default ({ currentUser, logout }) => {
   const display = currentUser ? (
@@ -39,8 +37,6 @@ export default ({ currentUser, logout }) => {
 
         <div className="nav-elements">{display}</div>
       </nav>
-      <Sidebar />
-      <Tagbar />
     </div>
   );
 };
