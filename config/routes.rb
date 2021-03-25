@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     resources :videos, only: [:index, :create, :show, :patch, :delete] do
       resources :comments, only: [:index, :create]
     end
-    resources :comments, only: [:delete]
+    resources :comments, only: [:destroy]
+    resources :likes, only: [:create, :destroy]
+    resources :dislikes, only: [:create, :destroy]
     resource :session, only: [:create, :destroy]
   end
 end
