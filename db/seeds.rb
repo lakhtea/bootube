@@ -20,18 +20,18 @@ demo = User.create!(username: "Demo User", email: "demo_user@demo.com", password
 dane = User.create!(username: "Dane the TA", email: "dane@appacademy.com", password: "stonks")
 
 demo_video = Video.create!(title: "Demo", description: "Demo", uploader_id: 4)
-file = open("https://bootube-seeds.s3.amazonaws.com/deadlift.mp4")
-# file = open("../videos/deadlift.mp4")
+# file = open("https://bootube-seeds.s3.amazonaws.com/deadlift.mp4")
+file = open("../videos/deadlift.mp4")
 demo_video.vid.attach(io: file, filename: 'Demo')
 
 spider_video = Video.create!(title: "Spider making web", description: "Imagine having arachnophobia 🤡", uploader_id: 5)
-file = open("https://bootube-seeds.s3.amazonaws.com/spiderweb.mp4")
-# file = open("../videos/spider.mp4")
+# file = open("https://bootube-seeds.s3.amazonaws.com/spiderweb.mp4")
+file = open("../videos/spider.mp4")
 spider_video.vid.attach(io: file, filename: 'spiderweb')
 
 grudge_video = Video.create!(title: "The Grudge (2004)", description: "Please hug me I'm scared", uploader_id: 1)
-file = open("https://bootube-seeds.s3.amazonaws.com/grudge.mp4")
-# file = open("../videos/bench.mp4")
+# file = open("https://bootube-seeds.s3.amazonaws.com/grudge.mp4")
+file = open("../videos/bench.mp4")
 grudge_video.vid.attach(io: file, filename: 'grudge')
 
 

@@ -16,7 +16,7 @@ const mstp = ({ entities, session }) => {
 
 const mdtp = (dispatch) => {
   return {
-    postComment: (comment) => dispatch(addComment(comment)),
+    postComment: (videoId, comment) => dispatch(addComment(videoId, comment)),
   };
 };
 

@@ -16,6 +16,10 @@ class Api::VideosController < ApplicationController
     end
   end
 
+  def search
+    @videos = Video.all
+  end
+
   def patch
   end
 

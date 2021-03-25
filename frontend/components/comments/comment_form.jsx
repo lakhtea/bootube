@@ -12,13 +12,15 @@ class CommentForm extends React.Component {
   }
 
   updateBody(e) {
-    this.setState({ body: e.target.value });
+    this.setState({ body: e.target.innerHTML });
   }
 
   handleSubmit(e) {
     e.preventDefault();
 
-    this.props.postComment(this.state);
+    this.props
+      .postComment(this.state.video_id, this.state)
+      .then(() => this.setState(this.props.form));
   }
 
   render() {
@@ -26,8 +28,9 @@ class CommentForm extends React.Component {
       <div
         className="comment-field"
         contentEditable
-        onChange={this.updateBody}
-      />
+        onInput={this.updateBody}
+        placeholder="Add a public comment..."
+      ></div>
     ) : (
       <Link className="dummy-comment-field" to="/login">
         <div className="comment-field" contentEditable></div>
@@ -37,8 +40,10 @@ class CommentForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} className="comment-form">
         {commentField}
-        <button type="button">CANCEL</button>
-        <button>COMMENT</button>
+        <button className="cancel-button" type="button">
+          CANCEL
+        </button>
+        <button className="comment-button">COMMENT</button>
       </form>
     );
   }

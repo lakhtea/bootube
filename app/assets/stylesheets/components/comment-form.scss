@@ -1,9 +1,62 @@
 .comment-form {
-  display: block;
-  position: relative;
-  margin: 0 0 0 5.5%;
+  margin-top: 30px;
+  margin-bottom: 100px;
 }
-
 .dummy-comment-field {
   cursor: text;
 }
+
+.comment-field {
+  border-bottom: 1px solid #737373;
+  line-height: 24px;
+  outline: 0px solid transparent;
+  font-size: 14px;
+}
+
+.comment-field:focus {
+  border-bottom: 1px solid black;
+}
+
+.comment-button,
+.cancel-button {
+  outline: none;
+  cursor: pointer;
+  border-radius: 2.5px;
+  margin: 10px;
+  float: right;
+  border-style: none;
+}
+
+.comment-button {
+  background-color: #606060;
+  color: #181818;
+  width: 101.53px;
+  height: 36px;
+}
+
+.cancel-button {
+  background-color: #181818;
+  color: #a8a8a8;
+  height: 36px;
+  width: 85.08px;
+}
+
+[placeholder]:empty::before {
+  content: attr(placeholder);
+  color: #a1a1a1;
+}
+
+// .comment-field::after {
+//   content: "";
+//   position: relative;
+//   left: 24px;
+//   display: inline-block;
+//   height: 1px;
+//   width: 0px;
+//   background: transparent;
+//   transition: width 0.5s ease, background-color 0.5s ease;
+// }
+// .comment-field:focus::after {
+//   width: 69.5%;
+//   background: blue;
+// }

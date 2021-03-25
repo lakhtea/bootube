@@ -1,12 +1,9 @@
-// import { connect } from "react-redux";
-// import Searchbar from "./searchbar";
+import { connect } from "react-redux";
+import Searchbar from "./searchbar";
+import { onQuery } from "../../actions/search_actions";
 
-// const mapStateToProps = (state) => {
-//   return {};
-// };
+const mapDispatchToProps = (dispatch) => ({
+  onTermSubmit: (term) => dispatch(onQuery(term)),
+});
 
-// const mapDispatchToProps = (dispatch) => ({
-//   onTermSubmit: (term) => dispatch(onTermSubmit(term)),
-// });
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Searchbar);
+export default connect(null, mapDispatchToProps)(Searchbar);

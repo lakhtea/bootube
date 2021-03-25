@@ -1,6 +1,6 @@
 class Api::CommentsController < ApplicationController
     def index
-        @comments = Comment.find_by(video_id: params[:video_id])
+        @comments = Video.find_by(id: params[:video_id]).comments
     end
 
     def create

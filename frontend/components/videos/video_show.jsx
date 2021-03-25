@@ -75,7 +75,7 @@ class VideoShow extends React.Component {
     if (this.state.videoUrl != "") {
       const video = this.props.video;
       return (
-        <div>
+        <div className="video-show-page">
           <div className="video-show-container">
             <div className="main-video-container">
               <video
@@ -142,8 +142,13 @@ class VideoShow extends React.Component {
               </div>
             </div>
           </div>
-          <CommentFormContainer currentUser={this.props.currentUser} />
-          {/* <CommentListContainer /> */}
+          <div className="comment-components-container">
+            <div className="comment-amount">
+              {this.props.numOfComments} comments
+            </div>
+            <CommentFormContainer currentUser={this.props.currentUser} />
+            <CommentListContainer />
+          </div>
         </div>
       );
     }

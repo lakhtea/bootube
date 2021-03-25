@@ -11,7 +11,7 @@ import Tagbar from "./navbar/tagbar";
 import { AuthRoute, ProtectedRoute } from "../util/auth_route";
 
 const App = (props) => (
-  <div>
+  <div className="app-container">
     <NavbarContainer />
     <Route
       exact

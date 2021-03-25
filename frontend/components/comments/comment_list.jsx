@@ -6,15 +6,21 @@ class CommentList extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchComments(this.props.videoId);
+  }
+
   render() {
-    return (
-      <ul className="comment-list">
-        <div className="comment-amount"></div>
-        {this.props.comments.map((comment) => {
-          <CommentItem key={comment.id} comment={comment} />;
+    const commentList = this.props.comments.length ? (
+      <div className="comment-list">
+        {this.props.comments.map((comment, idx) => {
+          return <CommentItem key={idx} comment={comment} />;
         })}
-      </ul>
+      </div>
+    ) : (
+      <div></div>
     );
+    return commentList;
   }
 }
 

@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SearchBar from "../searchbar/searchbar";
+import SearchBarContainer from "../searchbar/searchbar_container";
 import UserLink from "../user/user_link";
 
-export default ({ currentUser, logout }) => {
+export default ({ currentUser, logout, fetchVideos }) => {
   const display = currentUser ? (
     <div className="elements">
       <Link to="/videos/new">
@@ -27,12 +27,14 @@ export default ({ currentUser, logout }) => {
         <div className="burger">
           <span className="menu material-icons">menu</span>
           <h1>
-            <Link to="/">bootube</Link>
+            <Link onClick={fetchVideos} to="/">
+              bootube
+            </Link>
           </h1>
         </div>
 
         <div>
-          <SearchBar />
+          <SearchBarContainer />
         </div>
 
         <div className="nav-elements">{display}</div>

@@ -8,11 +8,13 @@ const mstp = (state, ownProps) => {
       video: Object.values(state.entities.videos)[0],
       videoId: ownProps.match.params.videoId,
       currentUser: state.session.currentUser,
+      numOfComments: Object.values(state.entities.comments).length,
     };
   }
   return {
     videoId: ownProps.match.params.videoId,
     currentUser: state.session.currentUser,
+    numOfComments: Object.values(state.entities.comments).length,
   };
 };
 

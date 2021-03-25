@@ -1,0 +1,121 @@
+@import "application";
+
+.video-upload-container {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-details {
+  margin-top: 150px;
+  height: 24px;
+  width: 30%;
+  color: black;
+  text-align: center;
+}
+
+.video-upload-form {
+  width: 50vw;
+  height: 90vh;
+  background-color: white;
+  position: fixed;
+  z-index: 3;
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-upload-header {
+  width: 100%;
+  height: 64px;
+  border-bottom: 1px solid #e0e0e0;
+  color: black;
+  padding: 0 16px 0 24px;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  span {
+    cursor: pointer;
+    color: #737373;
+  }
+}
+
+.video-upload-title,
+.video-upload-description {
+  outline: none;
+  border-style: none;
+  border: 2px solid #e0e0e0;
+  border-radius: 2.5px;
+  padding: 5px;
+}
+
+.video-upload-title {
+  margin-top: 24px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.video-upload-title:focus {
+  border: 2px solid #7e7c7c;
+}
+
+.video-upload-description {
+  margin-top: 4px;
+  font-size: 13px;
+  text-align: center;
+  width: 30%;
+}
+
+.video-upload-description:focus {
+  border: 2px solid #7e7c7c;
+}
+
+.video-upload-file {
+  outline: none;
+  border-style: none;
+  width: 0px;
+  height: 0px;
+}
+
+.upload-file {
+  outline: none;
+  margin-top: 26px;
+  line-height: 36px;
+  text-align: center;
+  width: 121.64px;
+  background-color: #065fd4;
+  border-style: none;
+  border-radius: 2.5px;
+  color: white;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 14px;
+}
+.video-upload-button {
+  margin-top: 16px;
+  border-style: none;
+  background-color: $green;
+  line-height: 20px;
+  border-radius: 2.5px;
+  color: white;
+  outline: none;
+  cursor: pointer;
+}
+#upload-icon {
+  margin-top: 24px;
+  font-size: 64px;
+  line-height: 136px;
+  width: 136px;
+  background-color: #ebebeb;
+  color: #949494;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
