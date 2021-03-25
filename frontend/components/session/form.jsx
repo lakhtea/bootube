@@ -4,7 +4,7 @@ import { Redirect, Link } from "react-router-dom";
 class Form extends React.Component {
   constructor(props) {
     super(props);
-
+    console.log(props);
     this.state = this.props.form;
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -41,6 +41,10 @@ class Form extends React.Component {
 
   update(type) {
     return (e) => this.setState({ [type]: e.target.value });
+  }
+
+  componentWillUnmount() {
+    this.props.removeErrors();
   }
 
   renderErrors() {

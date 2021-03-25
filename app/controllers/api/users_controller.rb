@@ -4,8 +4,12 @@ class Api::UsersController < ApplicationController
         if @user 
             render json: @user
         else 
-            render json: ["Invalid credentials"], status: 422
+            render json: ["User does not exist"], status: 422
         end
+    end
+
+    def no_username
+        render json: ["Username cannot be blank"], status: 422
     end
 
     def show

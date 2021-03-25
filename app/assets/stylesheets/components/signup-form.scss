@@ -73,6 +73,9 @@
       padding: 0;
       background-color: $red;
     }
+    button:hover {
+      background-color: #6a120a;
+    }
   }
 
   input {
@@ -100,5 +103,6 @@
   .error {
     margin-left: 6px;
     color: $blue;
+    line-height: 20px;
   }
 }

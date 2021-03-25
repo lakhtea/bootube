@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   
   namespace :api, defaults: {format: :json} do
     get '/validation/:username', to: 'users#validation', param: :username
+    get '/validation', to: 'users#no_username'
     resources :users, only: [:create, :index, :show]
-    resources :videos, only: [:index, :create, :show, :patch, :delete]
+    resources :videos, only: [:index, :create, :show, :patch, :delete] do
+      resources :comments, only: [:index, :create]
+    end
+    resources :comments, only: [:delete]
     resource :session, only: [:create, :destroy]
   end
 end

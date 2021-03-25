@@ -7,6 +7,8 @@ class SignUpForm extends React.Component {
 
     this.state = this.props.form;
 
+    this.errors = [];
+
     this.confirmed = "";
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -15,6 +17,7 @@ class SignUpForm extends React.Component {
 
   componentWillUnmount() {
     this.props.removeErrors();
+    this.errors = this.props.errors;
   }
 
   handleSubmit(e) {
@@ -22,6 +25,10 @@ class SignUpForm extends React.Component {
     if (this.state.password === this.confirmed) {
       this.props.action(this.state).then(() => this.props.history.push("/"));
     } else {
+      if (!this.errors.includes("Both passwords must be the same")) {
+        this.errors.push("Both passwords must be the same");
+        this.setState(this.state);
+      }
     }
   }
 
@@ -34,9 +41,10 @@ class SignUpForm extends React.Component {
   }
 
   renderErrors() {
+    this.errors = this.props.errors;
     return (
       <ul>
-        {this.props.errors.map((error, i) => (
+        {this.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {" "}
             <i className="fas fa-exclamation-circle"></i>

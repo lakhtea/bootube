@@ -7,10 +7,12 @@ const mstp = (state, ownProps) => {
     return {
       video: Object.values(state.entities.videos)[0],
       videoId: ownProps.match.params.videoId,
+      currentUser: state.session.currentUser,
     };
   }
   return {
     videoId: ownProps.match.params.videoId,
+    currentUser: state.session.currentUser,
   };
 };
 

@@ -1,5 +1,7 @@
+@import "application";
+
 .video-show-container {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .main-video-container {
@@ -32,6 +34,8 @@
     height: 184px;
     border-bottom: 1px solid rgba(55, 55, 55, 1);
     padding: 0 0 16px;
+    margin-bottom: 24px;
+
     .description-header {
       margin: 0 0 12px;
       padding: 16px 0 0;
@@ -54,13 +58,61 @@
 
 .video-content {
   position: relative;
-  top: -42px;
-  height: 40px;
+  top: -48px;
+  height: 45px;
   width: 100%;
-  background: red;
+  background: rgba(0, 0, 0, 0.1);
   z-index: 1;
-  margin-bottom: -40px;
+  margin-bottom: -45px;
+}
 
-  display: flex;
-  justify-content: space-between;
+.first-half,
+.second-half {
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  button {
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    background: none;
+    border-style: none;
+    outline: none;
+    cursor: pointer;
+    span {
+      font-size: 28px;
+      color: white;
+    }
+  }
+}
+
+.second-half {
+  float: right;
+}
+
+// .scrub {
+//   appearance: none;
+//   position: relative;
+//   z-index: 2;
+//   height: 5px;
+//   width: 100%;
+//   margin: 0;
+//   cursor: pointer;
+//   background: #d3d3d3;
+//   outline: none;
+//   opacity: 0.7;
+// }
+
+// .scrub::-webkit-slider-thumb {
+//   appearance: none;
+//   -webkit-appearance: none;
+//   width: 12px;
+//   height: 12px;
+//   border-radius: 50%;
+//   background: #4caf50;
+//   cursor: pointer;
+// }
+
+.hidden {
+  opacity: 0;
 }
