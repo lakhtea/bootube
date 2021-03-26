@@ -2,16 +2,17 @@ import { connect } from "react-redux";
 import CommentList from "./comment_list";
 import { getComments } from "../../actions/comment_actions";
 
-const mstp = ({ entities }) => {
-  console.log(entities);
+const mstp = ({ entities, session }) => {
   if (Object.keys(entities.comments).length)
     return {
       comments: Object.values(entities.comments),
       videoId: Object.values(entities.videos)[0].id,
+      currentUser: session.currentUser,
     };
   return {
     comments: [],
     videoId: Object.values(entities.videos)[0].id,
+    currentUser: session.currentUser,
   };
 };
 

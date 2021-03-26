@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+WELCOME TO BOOTUBE:
+bootube is a video sharing platform where you can upload, watch, and comment on your favorite videos!
 
-Things you may want to cover:
+Link to live site(https://bootube.herokuapp.com/#/)
 
-* Ruby version
+Using Ruby on Rails
 
-* System dependencies
+- Making use of ActiveRecord connected with a PostegresQL DB
 
-* Configuration
+- Using ActiveStorage connected with AWS to host & play videos
 
-* Database creation
+- Using JBuilder to allow for easy access of information to frontend
 
-* Database initialization
+Using React with Redux
 
-* How to run the test suite
+- Using Redux to efficiently share information between all React components
 
-* Services (job queues, cache servers, search engines, etc.)
+- Using JSX to dynamically render HTML elements with the correct configuration
 
-* Deployment instructions
+!(/readme-screenshots/signin.png?raw=true)
 
-* ...
+!(/readme-screenshots/homepage.png?raw=true)

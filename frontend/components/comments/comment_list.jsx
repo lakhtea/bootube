@@ -14,7 +14,13 @@ class CommentList extends React.Component {
     const commentList = this.props.comments.length ? (
       <div className="comment-list">
         {this.props.comments.map((comment, idx) => {
-          return <CommentItem key={idx} comment={comment} />;
+          return (
+            <CommentItem
+              key={idx}
+              currentUser={this.props.currentUser}
+              comment={comment}
+            />
+          );
         })}
       </div>
     ) : (
