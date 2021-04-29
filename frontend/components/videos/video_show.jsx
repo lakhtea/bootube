@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 class VideoShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { videoUrl: "", volume: 50 };
+    this.state = { videoUrl: "", volume: 50, buffered: 0 };
 
     this.videoRef = React.createRef();
     this.volumeRef = React.createRef();
@@ -40,6 +40,13 @@ class VideoShow extends React.Component {
       return this.videoRef.current.pause();
     }
   }
+
+  // buffer() {
+  //   setInterval(
+  //     this.setState({ buffered: this.videoRef.current.buffer }),
+  //     1000
+  //   );
+  // }
 
   mute() {
     if (this.videoRef.current.muted) {
@@ -79,6 +86,8 @@ class VideoShow extends React.Component {
           <div className="video-show-container">
             <div className="main-video-container">
               <video
+                autoPlay
+                muted={false}
                 onClick={this.playPause}
                 onDoubleClick={this.fullscreen}
                 onMouseOver={this.showControls}
@@ -88,17 +97,16 @@ class VideoShow extends React.Component {
               >
                 <source src={this.state.videoUrl} />
               </video>
+
               <div
                 onMouseOver={this.showControls}
                 onMouseLeave={this.hideControls}
                 ref={this.controls}
                 className="video-content"
               >
-                {/* <input type="range" className="scrub scrubbing"></input> */}
-
                 <div className="first-half">
                   <button ref={this.playPauseRef} onClick={this.playPause}>
-                    <span className="material-icons">play_arrow</span>
+                    <span className="material-icons">pause</span>
                   </button>
 
                   <button ref={this.volumeRef} onClick={this.mute}>
@@ -121,6 +129,13 @@ class VideoShow extends React.Component {
                   <button onClick={this.fullscreen}>
                     <span className="material-icons">fullscreen</span>
                   </button>
+                </div>
+
+                <div className="scrub-bar">
+                  <div className="loaded-scrub-bar"></div>
+                  <div className="watched-scrub-bar">
+                    <div className="slider"></div>
+                  </div>
                 </div>
               </div>
               <div className="video-primary-info">
