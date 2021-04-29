@@ -8,6 +8,10 @@ class Api::VideosController < ApplicationController
   end
 
   def create
+    if video_params[:vid] == "null"
+      render json: ["No video was attached"], status: 422 
+      return
+    end
     @video = Video.new(video_params)
     if @video.save
       render "api/videos/show"

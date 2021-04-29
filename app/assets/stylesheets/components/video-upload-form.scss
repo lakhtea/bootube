@@ -8,6 +8,15 @@
   justify-content: center;
 }
 
+.background-cover {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 2;
+  background-color: #737373;
+  opacity: 0.5;
+}
+
 .video-details {
   margin-top: 150px;
   height: 24px;
@@ -17,9 +26,9 @@
 }
 
 .video-upload-form {
-  width: 50vw;
-  height: 90vh;
-  background-color: white;
+  width: 65%;
+  height: 90%;
+  background-color: $nav-gray;
   position: fixed;
   z-index: 3;
   border-radius: 5px;
@@ -33,10 +42,11 @@
   width: 100%;
   height: 64px;
   border-bottom: 1px solid #e0e0e0;
-  color: black;
-  padding: 0 16px 0 24px;
+  color: white;
+  padding: 0 24px 0 24px;
   box-sizing: border-box;
-
+  font-size: 18px;
+  letter-spacing: 0.5px;
   display: flex;
   justify-content: space-between;
   align-items: center;

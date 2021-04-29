@@ -19,6 +19,6 @@ Using React with Redux
 
 - Using JSX to dynamically render HTML elements with the correct configuration
 
-!(/readme-screenshots/signin.png?raw=true)
+!(../readme-screenshots/signin.png?raw=true)
 
-!(/readme-screenshots/homepage.png?raw=true)
+!(../readme-screenshots/homepage.png?raw=true)
