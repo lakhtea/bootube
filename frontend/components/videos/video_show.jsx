@@ -31,7 +31,7 @@ class VideoShow extends React.Component {
   // buffer() {
   //   setInterval(
   //     this.setState({ buffered: this.videoRef.current.buffer }),
-  //     1000
+  //     100
   //   );
   // }
 
