@@ -8,6 +8,19 @@ class VideoShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = { videoUrl: "", volume: 50, buffered: 0 };
+
+    this.videoRef = React.createRef();
+    this.volumeRef = React.createRef();
+    this.playPauseRef = React.createRef();
+    this.controls = React.createRef();
+    this.volumeSlider = React.createRef();
+
+    this.playPause = this.playPause.bind(this);
+    this.mute = this.mute.bind(this);
+    this.updateVolume = this.updateVolume.bind(this);
+    this.fullscreen = this.fullscreen.bind(this);
+    this.showControls = this.showControls.bind(this);
+    this.hideControls = this.hideControls.bind(this);
   }
 
   componentDidMount() {
@@ -31,7 +44,7 @@ class VideoShow extends React.Component {
   // buffer() {
   //   setInterval(
   //     this.setState({ buffered: this.videoRef.current.buffer }),
-  //     100
+  //     1000
   //   );
   // }
 
