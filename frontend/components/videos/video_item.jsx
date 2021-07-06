@@ -16,6 +16,7 @@ class VideoItem extends React.Component {
       <div className={`video-index-item item-${this.props.idx}`}>
         <Link to={`/videos/${this.props.video.id}`}>
           <video
+            key={this.props.video.id}
             onMouseOver={(e) => e.target.play()}
             onMouseOut={(e) => {
               e.target.pause();

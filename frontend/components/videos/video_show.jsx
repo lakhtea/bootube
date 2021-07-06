@@ -2,12 +2,23 @@ import React from "react";
 import moment from "moment";
 import CommentListContainer from "../comments/comment_list_container";
 import CommentFormContainer from "../comments/comment_form_container";
+import VideoIndexSidebarContainer from "./video_index_sidebar_container";
+import LikeDislike from "../likes/likedislike";
 import { Link } from "react-router-dom";
 
 class VideoShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { videoUrl: "", volume: 50, buffered: 0 };
+    this.state = {
+      videoUrl: "",
+      volume: 50,
+      buffered: 0,
+      watched: 0,
+      duration: 0,
+    };
+
+    this.bufferInterval;
+    this.watchedInterval;
 
     this.videoRef = React.createRef();
     this.volumeRef = React.createRef();
@@ -21,12 +32,28 @@ class VideoShow extends React.Component {
     this.fullscreen = this.fullscreen.bind(this);
     this.showControls = this.showControls.bind(this);
     this.hideControls = this.hideControls.bind(this);
+    this.buffer = this.buffer.bind(this);
+    this.watching = this.watching.bind(this);
+    this.setDuration = this.setDuration.bind(this);
   }
 
   componentDidMount() {
-    this.props
-      .fetchVideo(this.props.videoId)
-      .then(() => this.setState({ videoUrl: this.props.video.videoUrl }));
+    this.props.fetchVideo(this.props.videoId);
+  }
+
+  componentWillUnmount() {
+    this.props.deleteCurrentVideo();
+    clearInterval(this.bufferedInterval);
+    clearInterval(this.watchedInterval);
+  }
+
+  componentDidUpdate() {
+    if (this.props.match.params.videoId != this.props.video.id) {
+      clearInterval(this.bufferedInterval);
+      clearInterval(this.watchedInterval);
+
+      this.props.fetchVideo(this.props.videoId);
+    }
   }
 
   playPause() {
@@ -41,12 +68,23 @@ class VideoShow extends React.Component {
     }
   }
 
-  // buffer() {
-  //   setInterval(
-  //     this.setState({ buffered: this.videoRef.current.buffer }),
-  //     1000
-  //   );
-  // }
+  buffer() {
+    if (this.videoRef.current.buffered.length <= 1) {
+      this.bufferedInterval = setInterval(() => {
+        this.setState({ buffered: this.videoRef.current.buffered.length });
+      }, 100);
+    }
+  }
+
+  watching() {
+    this.watchedInterval = setInterval(() => {
+      this.setState({ watched: this.videoRef.current.currentTime });
+    }, 10);
+  }
+
+  setDuration() {
+    this.setState({ duration: this.videoRef.current.duration });
+  }
 
   mute() {
     if (this.videoRef.current.muted) {
@@ -79,10 +117,21 @@ class VideoShow extends React.Component {
   }
 
   render() {
-    if (this.state.videoUrl != "") {
-      const video = this.props.video;
-      return (
-        <div className="video-show-page">
+    const video = this.props.video;
+    if (!video) return null;
+
+    let loadedStyle = {
+      width: `${this.state.buffered * 100}%`,
+    };
+
+    let watchedStyle = {
+      width: `${(this.state.watched / this.state.duration) * 100}%`,
+    };
+
+    // if (this.state.videoUrl != "") {
+    return (
+      <div className="video-show-page">
+        <div className="video-and-comments">
           <div className="video-show-container">
             <div className="main-video-container">
               <video
@@ -94,8 +143,14 @@ class VideoShow extends React.Component {
                 onMouseLeave={this.hideControls}
                 ref={this.videoRef}
                 className="main-video"
+                onPlay={() => {
+                  this.setDuration();
+                  this.buffer();
+                  this.watching();
+                }}
+                key={video.videoUrl}
               >
-                <source src={this.state.videoUrl} />
+                <source src={video.videoUrl} />
               </video>
 
               <div
@@ -132,8 +187,8 @@ class VideoShow extends React.Component {
                 </div>
 
                 <div className="scrub-bar">
-                  <div className="loaded-scrub-bar"></div>
-                  <div className="watched-scrub-bar">
+                  <div style={loadedStyle} className="loaded-scrub-bar"></div>
+                  <div style={watchedStyle} className="watched-scrub-bar">
                     <div className="slider"></div>
                   </div>
                 </div>
@@ -142,8 +197,13 @@ class VideoShow extends React.Component {
                 <div className="title">{video.title}</div>
 
                 <div className="updated-at">
-                  {moment(video.updated_at).format("MMM Do, YYYY")}
+                  <span>{video.views} views </span>
+
+                  <li style={{ display: "inline" }}>
+                    {moment(video.updated_at).format("MMM Do, YYYY")}
+                  </li>
                 </div>
+                <LikeDislike></LikeDislike>
               </div>
               <div className="description-container">
                 <div className="description-header">
@@ -165,9 +225,13 @@ class VideoShow extends React.Component {
             <CommentListContainer />
           </div>
         </div>
-      );
-    }
-    return <div className="loading">...Loading</div>;
+        <div className="index-sidebar-container">
+          <VideoIndexSidebarContainer
+            videoId={this.props.videoId}
+          ></VideoIndexSidebarContainer>
+        </div>
+      </div>
+    );
   }
 }
 

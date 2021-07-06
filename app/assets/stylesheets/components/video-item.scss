@@ -36,6 +36,18 @@
       margin-top: 5px;
       color: #aaa;
       font-size: 0.75vw;
+      position: relative;
+      display: flex;
+      gap: 10px;
+
+      li:before {
+        content: "";
+        display: list-item;
+        position: absolute;
+        left: 63px;
+        font-size: 8px;
+        bottom: 3px;
+      }
     }
 
     .video-uploader:hover,

@@ -6,20 +6,18 @@ class Sidebar extends React.Component {
     super(props);
     this.state = {
       home: true,
-      trending: false,
-      subs: false,
-      lib: false,
-      history: false,
+      github: false,
+      linkedin: false,
+      website: false,
     };
   }
 
   toggleActive(type) {
     this.setState({
-      home: false,
-      trending: false,
-      subs: false,
-      lib: false,
-      history: false,
+      home: true,
+      github: false,
+      linkedin: false,
+      website: false,
     });
     this.setState({ [type]: !this.state[type] });
   }
@@ -36,41 +34,48 @@ class Sidebar extends React.Component {
           Home
         </Link>
 
-        <Link
+        <a
+          target="_blank"
           className={`${this.state.trending ? "active" : ""}`}
-          onClick={() => this.toggleActive("trending")}
-          to="/"
+          onClick={() => this.toggleActive("github")}
+          href="https://github.com/lakhtea"
         >
-          <span className="material-icons">local_fire_department</span>
-          Trending
-        </Link>
+          <span>
+            <i className="material-icons fab fa-github"></i>
+          </span>
+          Github
+        </a>
 
-        <Link
+        <a
+          target="_blank"
           className={`${this.state.subs ? "active" : ""}`}
-          onClick={() => this.toggleActive("subs")}
-          to="/"
+          onClick={() => this.toggleActive("linkedin")}
+          href="https://www.linkedin.com/in/lakhte-agha-1909b11b2"
         >
-          <span className="material-icons">subscriptions</span>
-          Subscriptions
-        </Link>
+          <span>
+            <i className="fab fa-linkedin material-icons"></i>
+          </span>
+          LinkedIn
+        </a>
 
-        <Link
+        <a
+          target="_blank"
           className={`${this.state.lib ? "active" : ""}`}
-          onClick={() => this.toggleActive("lib")}
-          to="/"
+          onClick={() => this.toggleActive("website")}
+          href="http://lakhteagha.com/"
         >
-          <span className="material-icons">video_library</span>
-          Library
-        </Link>
+          <span className="material-icons">language</span>
+          Website
+        </a>
 
-        <Link
+        {/* <Link
           className={`${this.state.history ? "active" : ""}`}
           onClick={() => this.toggleActive("history")}
           to="/"
         >
           <span className="material-icons">history</span>
           History
-        </Link>
+        </Link> */}
       </div>
     );
   }

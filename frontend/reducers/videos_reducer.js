@@ -1,7 +1,9 @@
 import {
   RECEIVE_VIDEOS,
+  RECEIVE_VIDEOS_SHOW,
   RECEIVE_VIDEO,
   DELETE_VIDEO,
+  DELETE_CURRENT_VIDEO,
 } from "../actions/videos_actions";
 
 const VideosReducer = (state = {}, action) => {
@@ -10,10 +12,21 @@ const VideosReducer = (state = {}, action) => {
   const newState = {};
   switch (action.type) {
     case RECEIVE_VIDEOS:
-      return action.videos;
+      for (let i = 0; i < action.videos.length; i++) {
+        nextState[action.videos[i].id] = action.videos[i];
+      }
+      return nextState;
+    case RECEIVE_VIDEOS_SHOW:
+      for (let i = 0; i < action.videos.length; i++) {
+        nextState[action.videos[i].id] = action.videos[i];
+      }
+      return nextState;
     case RECEIVE_VIDEO:
-      newState[action.video.id] = action.video;
-      return newState;
+      nextState.currentVideo = action.video;
+      return nextState;
+    case DELETE_CURRENT_VIDEO:
+      delete nextState.currentVideo;
+      return nextState;
     case DELETE_VIDEO:
       delete nextState[action.videoId];
       return nextState;

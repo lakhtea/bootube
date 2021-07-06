@@ -1,11 +1,11 @@
 import { connect } from "react-redux";
-import { fetchVideo } from "../../actions/videos_actions";
+import { fetchVideo, deleteCurrentVideo } from "../../actions/videos_actions";
 import VideoShow from "./video_show";
 
 const mstp = (state, ownProps) => {
-  if (Object.values(state.entities.videos)[0]) {
+  if (state.entities.videos.currentVideo) {
     return {
-      video: Object.values(state.entities.videos)[0],
+      video: state.entities.videos.currentVideo,
       videoId: ownProps.match.params.videoId,
       currentUser: state.session.currentUser,
       numOfComments: Object.values(state.entities.comments).length,
@@ -20,6 +20,7 @@ const mstp = (state, ownProps) => {
 
 const mdtp = (dispatch) => {
   return {
+    deleteCurrentVideo: () => dispatch(deleteCurrentVideo()),
     fetchVideo: (videoId) => dispatch(fetchVideo(videoId)),
   };
 };

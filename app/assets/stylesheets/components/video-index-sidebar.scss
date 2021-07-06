@@ -1,0 +1,23 @@
+@import "application";
+
+.video-index-sidebar-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 80px;
+  width: 50%;
+  gap: 10px;
+  .video-index-item {
+    height: 94px;
+    width: 402px;
+    display: flex;
+    gap: 6px;
+    video {
+      width: 168px;
+      height: 94px;
+    }
+
+    .video-detail {
+    }
+  }
+}

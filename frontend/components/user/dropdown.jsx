@@ -38,7 +38,7 @@ const Dropdown = ({ currentUser, logout }) => {
           <span>Sign out</span>
         </Link>
       </div>
-      <div className="dummy-links">
+      {/* <div className="dummy-links">
         <Link to="">
           <span className="material-icons">brightness_4</span>
           <span>Appearance: Device theme</span>
@@ -71,7 +71,7 @@ const Dropdown = ({ currentUser, logout }) => {
           <span className="material-icons">keyboard</span>
           <span>Keyboard shortcuts</span>
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };

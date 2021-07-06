@@ -32,7 +32,7 @@ const App = (props) => (
         path="/videos/new"
         component={VideoUploadContainer}
       />
-      <Route exact path="/videos/:videoId" component={VideoShowContainer} />
+      <Route path="/videos/:videoId" component={VideoShowContainer} />
     </Switch>
   </div>
 );

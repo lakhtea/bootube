@@ -25,7 +25,15 @@ export default ({ currentUser, logout, fetchVideos }) => {
     <div className="nav-container">
       <nav className="main-nav">
         <div className="burger">
-          <span className="menu material-icons">menu</span>
+          {/* <div className="burgerr"> */}
+          <button className="">
+            <span className="menu material-icons">
+              menu
+              {/* <div className="menu-bubble"></div> */}
+            </span>
+          </button>
+          {/* </div> */}
+
           <h1>
             <Link onClick={fetchVideos} to="/">
               bootube

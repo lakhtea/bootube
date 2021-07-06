@@ -7,7 +7,7 @@ const mstp = ({ entities, session }) => {
     ? {
         form: {
           body: "",
-          video_id: Object.values(entities.videos)[0].id,
+          video_id: entities.videos.currentVideo.id,
           user_id: session.currentUser.id,
         },
       }

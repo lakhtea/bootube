@@ -2,15 +2,21 @@
 
 .video-show-page {
   min-height: 100vh;
+  display: flex;
+  gap: 24px;
+}
+
+.video-and-comments {
+  height: 100vh;
 }
 .video-show-container {
-  height: 100vh;
+  height: 100%;
 }
 
 .main-video-container {
   margin-top: 80px;
-  margin-left: 5.5%;
-  width: 66%;
+  margin-left: 100px;
+  width: 1280px;
   height: 100%;
   position: relative;
 
@@ -19,6 +25,7 @@
     padding: 20px 0 8px;
     margin: 0;
     border-bottom: 1px solid rgba(55, 55, 55, 1);
+    position: relative;
   }
 
   .title {
@@ -30,6 +37,17 @@
     line-height: 40px;
     font-size: 0.9rem;
     color: rgb(165, 167, 169);
+    width: 200px;
+    display: flex;
+    gap: 20px;
+
+    li:before {
+      content: "";
+      display: list-item;
+      position: absolute;
+      left: 71px;
+      font-size: 8px;
+    }
   }
 
   .description-container {
@@ -54,8 +72,8 @@
     }
   }
   video {
-    width: 100%;
-    max-height: 74%;
+    width: 1280px;
+    height: 720px;
     outline: none;
   }
 }
@@ -64,7 +82,7 @@
   position: relative;
   top: -48px;
   height: 45px;
-  width: 100%;
+  width: 1280px;
 
   z-index: 1;
   margin-bottom: -45px;
@@ -107,7 +125,6 @@
   height: 100%;
   background-color: rgba(255, 255, 255, 0.5);
   position: absolute;
-  width: 10%;
   z-index: 3;
 
   // bottom: 47px;
@@ -117,9 +134,8 @@
   height: 100%;
   position: absolute;
   background: $red;
-  width: 10%;
+  // width: 10%;
   z-index: 4;
-  bottom: 47px;
 }
 
 // .slider {
@@ -169,4 +185,23 @@
 
 .hidden {
   opacity: 0;
+}
+
+@media (max-width: 1680px) {
+  .video-show-page {
+    gap: 24px;
+  }
+
+  .main-video-container {
+    margin-left: 20px;
+    width: 1190px;
+    video {
+      width: 1190px;
+      height: 669px;
+    }
+  }
+
+  .video-content {
+    width: 1190px;
+  }
 }

@@ -6,12 +6,12 @@ const mstp = ({ entities, session }) => {
   if (Object.keys(entities.comments).length)
     return {
       comments: Object.values(entities.comments),
-      videoId: Object.values(entities.videos)[0].id,
+      videoId: entities.videos.currentVideo.id,
       currentUser: session.currentUser,
     };
   return {
     comments: [],
-    videoId: Object.values(entities.videos)[0].id,
+    videoId: entities.videos.currentVideo.id,
     currentUser: session.currentUser,
   };
 };
