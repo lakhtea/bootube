@@ -1,10 +1,10 @@
 import { queryDatabase } from "../util/search_util";
 import { receiveErrors } from "./errors_actions";
-import { RECEIVE_VIDEOS } from "./videos_actions";
+import { RECEIVE_SEARCH_RESULTS } from "./videos_actions";
 
 const receiveSearchedVideos = (videos) => {
   return {
-    type: RECEIVE_VIDEOS,
+    type: RECEIVE_SEARCH_RESULTS,
     videos,
   };
 };

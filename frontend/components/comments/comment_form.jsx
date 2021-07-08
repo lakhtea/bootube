@@ -7,6 +7,8 @@ class CommentForm extends React.Component {
 
     this.state = this.props.form;
 
+    this.inputRef = React.createRef();
+
     this.updateBody = this.updateBody.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -20,12 +22,13 @@ class CommentForm extends React.Component {
 
     this.props
       .postComment(this.state.video_id, this.state)
-      .then(() => this.setState(this.props.form));
+      .then(() => (this.inputRef.current.innerHTML = ""));
   }
 
   render() {
     const commentField = this.props.currentUser ? (
       <div
+        ref={this.inputRef}
         className="comment-field"
         contentEditable
         onInput={this.updateBody}
@@ -40,10 +43,10 @@ class CommentForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} className="comment-form">
         {commentField}
+        <button className="comment-button">COMMENT</button>
         <button className="cancel-button" type="button">
           CANCEL
         </button>
-        <button className="comment-button">COMMENT</button>
       </form>
     );
   }

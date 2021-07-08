@@ -4,6 +4,7 @@ import {
   RECEIVE_VIDEO,
   DELETE_VIDEO,
   DELETE_CURRENT_VIDEO,
+  RECEIVE_SEARCH_RESULTS,
 } from "../actions/videos_actions";
 
 const VideosReducer = (state = {}, action) => {
@@ -24,6 +25,9 @@ const VideosReducer = (state = {}, action) => {
     case RECEIVE_VIDEO:
       nextState.currentVideo = action.video;
       return nextState;
+    case RECEIVE_SEARCH_RESULTS:
+      newState = action.videos;
+      return newState;
     case DELETE_CURRENT_VIDEO:
       delete nextState.currentVideo;
       return nextState;
