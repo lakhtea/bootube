@@ -23,6 +23,7 @@ class Api::VideosController < ApplicationController
   end
 
   def search
+    p params
     @videos = Video.all
   end
 

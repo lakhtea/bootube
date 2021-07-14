@@ -4,17 +4,18 @@ import {
   RECEIVE_VIDEO,
   DELETE_VIDEO,
   DELETE_CURRENT_VIDEO,
-  RECEIVE_SEARCH_RESULTS,
 } from "../actions/videos_actions";
+
+import { RECEIVE_SEARCH_RESULTS } from "../actions/search_actions";
 
 const VideosReducer = (state = {}, action) => {
   Object.freeze(state);
   const nextState = Object.assign({}, state);
-  const newState = {};
+  let newState = {};
   switch (action.type) {
     case RECEIVE_VIDEOS:
       for (let i = 0; i < action.videos.length; i++) {
-        nextState[action.videos[i].id] = action.videos[i];
+        nextState[action.videos[i].id - 1] = action.videos[i];
       }
       return nextState;
     case RECEIVE_VIDEOS_SHOW:

@@ -1,7 +1,16 @@
 import React, { Component } from "react";
 
+import Result from "./result";
+
 export default class Results extends Component {
   render() {
-    return <div className="results-container"></div>;
+    const { videos } = this.props;
+    return (
+      <div className="results-container">
+        {videos.map((video) => (
+          <Result video={video}></Result>
+        ))}
+      </div>
+    );
   }
 }

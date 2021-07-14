@@ -1,6 +1,7 @@
 import { queryDatabase } from "../util/search_util";
 import { receiveErrors } from "./errors_actions";
-import { RECEIVE_SEARCH_RESULTS } from "./videos_actions";
+
+export const RECEIVE_SEARCH_RESULTS = "RECEIVE_SEARCH_RESULTS";
 
 const receiveSearchedVideos = (videos) => {
   return {

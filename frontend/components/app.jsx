@@ -8,6 +8,7 @@ import VideoUploadContainer from "./videos/video_upload_container";
 import VideoShowContainer from "./videos/video_show_container";
 import Sidebar from "./sidebar/sidebar";
 import Tagbar from "./navbar/tagbar";
+import ResultsContainer from "./results/results_container";
 import { AuthRoute, ProtectedRoute } from "../util/auth_route";
 
 const App = (props) => (
@@ -33,6 +34,7 @@ const App = (props) => (
         component={VideoUploadContainer}
       />
       <Route path="/videos/:videoId" component={VideoShowContainer} />
+      <Route path="/results" component={ResultsContainer}></Route>
     </Switch>
   </div>
 );
