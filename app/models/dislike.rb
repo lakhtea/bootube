@@ -1,6 +1,6 @@
 class Dislike < ApplicationRecord
-    validates :user_id,  uniqueness: { scope: [:dislikeable_id, :dislikeable_type] }
+    validates :user_id,  uniqueness: { scope: [:dis_id, :dis_type] }
 
-    belongs_to :dislikeable, polymorphic: true
+    belongs_to :dis, polymorphic: true
     belongs_to :user
 end

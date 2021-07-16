@@ -203,7 +203,11 @@ class VideoShow extends React.Component {
                     {moment(video.updated_at).format("MMM Do, YYYY")}
                   </li>
                 </div>
-                <LikeDislike></LikeDislike>
+                <LikeDislike
+                  id={video.id}
+                  likes={video.likes}
+                  dislikes={video.dislikes}
+                ></LikeDislike>
               </div>
               <div className="description-container">
                 <div className="description-header">

@@ -2,6 +2,8 @@ class Api::DislikesController < ApplicationController
 
     def create
         @dislike = Dislike.new(user_id: current_user.id, dis_id: params[:id], dis_type: params[:type])
+        p params
+        p @dislike
 
         if @dislike.save
         else
