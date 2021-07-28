@@ -29,6 +29,7 @@ export default class LikeDislike extends Component {
           <div
             className="likes-div"
             onClick={() => {
+              console.log("hello");
               like({ ...this.state, category: "Like" });
             }}
           >
