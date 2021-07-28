@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_18_222406) do
+ActiveRecord::Schema.define(version: 2021_07_28_005048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,22 +47,13 @@ ActiveRecord::Schema.define(version: 2021_05_18_222406) do
     t.index ["video_id"], name: "index_comments_on_video_id"
   end
 
-  create_table "dislikes", force: :cascade do |t|
-    t.string "dis_type", null: false
-    t.integer "dis_id", null: false
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["dis_id", "dis_type", "user_id"], name: "index_dislikes_on_dis_id_and_dis_type_and_user_id", unique: true
-    t.index ["dis_id", "dis_type"], name: "index_dislikes_on_dis_id_and_dis_type"
-  end
-
   create_table "likes", force: :cascade do |t|
     t.string "likeable_type", null: false
     t.integer "likeable_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "category"
     t.index ["likeable_id", "likeable_type", "user_id"], name: "index_likes_on_likeable_id_and_likeable_type_and_user_id", unique: true
     t.index ["likeable_id", "likeable_type"], name: "index_likes_on_likeable_id_and_likeable_type"
     t.index ["user_id"], name: "index_likes_on_user_id"

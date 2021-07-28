@@ -5,6 +5,7 @@ class Api::VideosController < ApplicationController
 
   def show
     @video = Video.find_by(id: params[:id])
+    
     @video.views += 1
     @video.save
   end
@@ -23,7 +24,6 @@ class Api::VideosController < ApplicationController
   end
 
   def search
-    p params
     @videos = Video.all
   end
 

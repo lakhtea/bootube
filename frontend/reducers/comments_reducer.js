@@ -4,6 +4,8 @@ import {
   RECEIVE_COMMENTS,
 } from "../actions/comment_actions";
 
+import { RECEIVE_LIKE } from "../actions/like_actions";
+
 const CommentsReducer = (state = {}, action) => {
   Object.freeze(state);
   const nextState = Object.assign({}, state);

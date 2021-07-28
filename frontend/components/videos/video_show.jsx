@@ -15,6 +15,9 @@ class VideoShow extends React.Component {
       buffered: 0,
       watched: 0,
       duration: 0,
+      liked: false,
+      disliked: false,
+      likeId: null,
     };
 
     this.bufferInterval;
@@ -117,7 +120,7 @@ class VideoShow extends React.Component {
   }
 
   render() {
-    const video = this.props.video;
+    const { video, currentUser } = this.props;
     if (!video) return null;
 
     let loadedStyle = {
@@ -127,8 +130,6 @@ class VideoShow extends React.Component {
     let watchedStyle = {
       width: `${(this.state.watched / this.state.duration) * 100}%`,
     };
-
-    // if (this.state.videoUrl != "") {
     return (
       <div className="video-show-page">
         <div className="video-and-comments">
@@ -207,6 +208,9 @@ class VideoShow extends React.Component {
                   id={video.id}
                   likes={video.likes}
                   dislikes={video.dislikes}
+                  currentUser={currentUser.id}
+                  like={this.props.like}
+                  unlike={this.props.unlike}
                 ></LikeDislike>
               </div>
               <div className="description-container">

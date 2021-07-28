@@ -8,6 +8,8 @@ import {
 
 import { RECEIVE_SEARCH_RESULTS } from "../actions/search_actions";
 
+import { RECEIVE_LIKE } from "../actions/like_actions";
+
 const VideosReducer = (state = {}, action) => {
   Object.freeze(state);
   const nextState = Object.assign({}, state);

@@ -1,31 +1,14 @@
-export const createLike = (type, id) => {
+export const createLike = (like) => {
   return $.ajax({
     method: "post",
     url: "/api/likes",
-    data: { type, id },
+    data: { like },
   });
 };
 
-export const destroyLike = (type, id) => {
+export const destroyLike = (like) => {
   return $.ajax({
     method: "delete",
-    url: "/api/likes",
-    data: { type, id },
-  });
-};
-
-export const createDislike = (type, id) => {
-  return $.ajax({
-    method: "post",
-    url: "/api/dislikes",
-    data: { type, id },
-  });
-};
-
-export const destroyDislike = (type, id) => {
-  return $.ajax({
-    method: "delete",
-    url: "/api/dislikes",
-    data: { type, id },
+    url: `/api/likes/${like.id}`,
   });
 };

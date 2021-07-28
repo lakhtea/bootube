@@ -6,13 +6,14 @@ Rails.application.routes.draw do
     get '/validation/:username', to: 'users#validation', param: :username
     get '/validation', to: 'users#no_username'
     get '/search', to: 'videos#search'
+    get '/liked_videos', to: 'users#liked_videos'
     resources :users, only: [:create, :index, :show]
-    resources :videos, only: [:index, :create, :show, :patch, :delete] do
+    resources :videos, only: [:index, :create, :show, :patch, :destroy] do
       resources :comments, only: [:index, :create]
     end
     resources :comments, only: [:destroy]
-    resources :likes, only: [:create, :destroy]
-    resources :dislikes, only: [:create, :destroy]
+    resources :likes, only: [:create, :destroy, :index]
+    resources :dislikes, only: [:create, :destroy, :index]
     resource :session, only: [:create, :destroy]
   end
 end

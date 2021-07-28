@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { fetchVideo, deleteCurrentVideo } from "../../actions/videos_actions";
+import { postLike, deleteLike } from "../../actions/like_actions";
 import VideoShow from "./video_show";
 
 const mstp = (state, ownProps) => {
@@ -22,6 +23,8 @@ const mdtp = (dispatch) => {
   return {
     deleteCurrentVideo: () => dispatch(deleteCurrentVideo()),
     fetchVideo: (videoId) => dispatch(fetchVideo(videoId)),
+    like: (like) => dispatch(postLike(like)),
+    unlike: (like) => dispatch(deleteLike(like)),
   };
 };
 

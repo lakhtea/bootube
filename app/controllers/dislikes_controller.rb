@@ -1,2 +1,0 @@
-class DislikesController < ApplicationController
-end
