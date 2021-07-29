@@ -11,7 +11,7 @@ export default class LikeDislike extends Component {
   }
 
   render() {
-    const { id, like, unlike } = this.props;
+    const { id, like, unlike, liked } = this.props;
 
     const likedStyle = { color: "#909090" };
     const dislikedStyle = { color: "#909090" };
@@ -29,7 +29,6 @@ export default class LikeDislike extends Component {
           <div
             className="likes-div"
             onClick={() => {
-              console.log("hello");
               like({ ...this.state, category: "Like" });
             }}
           >
