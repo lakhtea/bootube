@@ -3,8 +3,8 @@ import moment from "moment";
 import CommentListContainer from "../comments/comment_list_container";
 import CommentFormContainer from "../comments/comment_form_container";
 import VideoIndexSidebarContainer from "./video_index_sidebar_container";
-import LikeDislike from "../likes/likedislike";
 import { Link } from "react-router-dom";
+import LikeDislikeContainer from "../likes/likedislike_container";
 
 class VideoShow extends React.Component {
   constructor(props) {
@@ -204,15 +204,15 @@ class VideoShow extends React.Component {
                     {moment(video.updated_at).format("MMM Do, YYYY")}
                   </li>
                 </div>
-                <LikeDislike
+                <LikeDislikeContainer
                   id={video.id}
                   likes={video.likes}
                   dislikes={video.dislikes}
                   currentUser={currentUser.id}
-                  liked={video.like}
+                  // liked={video.like?.[0]}
                   like={this.props.like}
                   unlike={this.props.unlike}
-                ></LikeDislike>
+                ></LikeDislikeContainer>
               </div>
               <div className="description-container">
                 <div className="description-header">

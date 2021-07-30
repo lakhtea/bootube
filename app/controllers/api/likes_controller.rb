@@ -7,21 +7,12 @@ class Api::LikesController < ApplicationController
             liked = Comment.find_by(id: like_params[:likeable_id])
         end
 
-        p like_params
+        @like = liked.likes.new(like_params)
 
-        if liked.likes.create(like_params)
+        if @like.save
+            render :show
         else
             render json: @like.errors.full_messages, status: 422
-        end
-    end
-
-    def index
-        @like = Like.find_by(user_id: current_user.id)
-
-        if @like
-            render json: {liked: true, id: @like.id}
-        else
-            render json: "false"
         end
     end
 

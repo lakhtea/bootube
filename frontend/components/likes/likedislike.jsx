@@ -3,55 +3,117 @@ import React, { Component } from "react";
 export default class LikeDislike extends Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.likeObject = {
       likeable_type: "Video",
       likeable_id: this.props.id,
       user_id: this.props.currentUser,
     };
+    this.state = {
+      status: this.props.liked?.category,
+      like: this.props.liked,
+      likes: this.props.likes,
+      dislikes: this.props.dislikes,
+    };
   }
 
   render() {
-    const { id, like, unlike, liked } = this.props;
+    const { id, like, unlike, liked, likes, dislikes } = this.props;
+    const likedStyle =
+      this.state.like?.category === "Like" ? { color: "#3da6ff" } : null;
+    const dislikedStyle =
+      this.state.like?.category === "Dislike" ? { color: "#3da6ff" } : null;
+    const likebarStyle = {
+      backgroundColor: this.state.like ? "#3da6ff" : null,
+      width: `${
+        (this.state.likes / (this.state.likes + this.state.dislikes)) * 100
+      }%`,
+    };
 
-    const likedStyle = { color: "#909090" };
-    const dislikedStyle = { color: "#909090" };
-
-    // if (this.props.liked || this.state.liked) {
-    //   likedStyle.color = "blue";
-    // }
-
-    // if (this.props.disliked || this.state.disliked) {
-    //   dislikedStyle.color = "blue";
-    // }
     return (
       <div className="like-container">
         <div className="likes-dislikes">
           <div
             className="likes-div"
+            style={likedStyle}
             onClick={() => {
-              like({ ...this.state, category: "Like" });
+              if (this.state.status === "Dislike") {
+                unlike(liked)
+                  .then(() => like({ ...this.likeObject, category: "Like" }))
+                  .then(() =>
+                    this.setState({
+                      status: "Like",
+                      like: { ...this.likeObject, category: "Like" },
+                      likes: this.state.likes + 1,
+                      dislikes: this.state.dislikes - 1,
+                    })
+                  );
+              } else if (this.state.status === "Like") {
+                unlike(liked).then(() =>
+                  this.setState({
+                    status: null,
+                    like: null,
+                    likes: this.state.likes - 1,
+                  })
+                );
+              } else {
+                like({ ...this.likeObject, category: "Like" }).then(() =>
+                  this.setState({
+                    status: "Like",
+                    like: { ...this.likeObject, category: "Like" },
+                    likes: this.state.likes + 1,
+                  })
+                );
+              }
             }}
           >
-            <span style={likedStyle} className="material-icons">
-              thumb_up_alt
-            </span>
-            <span style={likedStyle} className="likes"></span>
+            <span className="material-icons">thumb_up_alt</span>
+            <span className="likes">{this.state.likes}</span>
           </div>
 
           <div
             className="dislikes-div"
+            style={dislikedStyle}
             onClick={() => {
-              like({ ...this.state, category: "Dislike" });
+              if (this.state.status === "Like") {
+                unlike(liked)
+                  .then(() => like({ ...this.likeObject, category: "Dislike" }))
+                  .then(() =>
+                    this.setState({
+                      status: "Dislike",
+                      like: { ...this.likeObject, category: "Dislike" },
+                      dislikes: this.state.dislikes + 1,
+                      likes: this.state.likes - 1,
+                    })
+                  );
+              } else if (this.state.status === "Dislike") {
+                unlike(liked).then(() =>
+                  this.setState({
+                    status: null,
+                    like: null,
+                    dislikes: this.state.dislikes - 1,
+                  })
+                );
+              } else {
+                like({ ...this.likeObject, category: "Dislike" }).then(() =>
+                  this.setState({
+                    status: "Dislike",
+                    like: {
+                      ...this.likeObject,
+                      category: "Dislike",
+                    },
+                    dislikes: this.state.dislikes + 1,
+                  })
+                );
+              }
             }}
           >
-            <span style={dislikedStyle} className="material-icons">
-              thumb_down_alt
-            </span>
-            <span style={dislikedStyle} className="dislikes"></span>
+            <span className="material-icons">thumb_down_alt</span>
+            <span className="dislikes">{this.state.dislikes}</span>
           </div>
         </div>
-
-        <div className="like-bar"></div>
+        <div className="lowerbar">
+          <div style={likebarStyle} className="like-bar"></div>
+        </div>
       </div>
     );
   }

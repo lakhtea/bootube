@@ -31,6 +31,10 @@ const VideosReducer = (state = {}, action) => {
     case RECEIVE_SEARCH_RESULTS:
       newState = action.videos;
       return newState;
+    case RECEIVE_LIKE:
+      console.log(action);
+      if (action.like) nextState.currentVideo.like = [action.like];
+      return nextState;
     case DELETE_CURRENT_VIDEO:
       delete nextState.currentVideo;
       return nextState;
