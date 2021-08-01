@@ -1,4 +1,4 @@
-json.extract! @video, :id, :title, :description, :uploader_id, :updated_at, :views
+json.extract! @video, :id, :title, :description, :uploader_id, :created_at, :views
 json.extract! @video.user, :username
 json.likes @video.likes.where(category: "Like").length
 json.dislikes @video.likes.where(category: "Dislike").length

@@ -1,0 +1,23 @@
+.results-container {
+  position: relative;
+  top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.result-container {
+  width: 1096px;
+  height: 202px;
+  display: flex;
+}
+
+.result-video {
+  width: 360px;
+  height: 202px;
+}
+
+.result-details {
+  width: 720px;
+  height: 202px;
+}

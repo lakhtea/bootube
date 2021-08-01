@@ -8,7 +8,7 @@ export default class Results extends Component {
     return (
       <div className="results-container">
         {videos.map((video) => (
-          <Result video={video}></Result>
+          <Result key={video.id} video={video}></Result>
         ))}
       </div>
     );

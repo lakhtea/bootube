@@ -13,6 +13,7 @@
 
 .likes-div,
 .dislikes-div {
+  user-select: none;
   color: #909090;
   width: 40%;
   display: flex;
