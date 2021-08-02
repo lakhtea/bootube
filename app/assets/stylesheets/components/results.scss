@@ -1,11 +1,24 @@
 .results-container {
   position: relative;
-  top: 60px;
+  left: 72px;
+  top: 56px;
+  padding: 16px 24px;
+  width: 1592px;
+}
+
+.results-list {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 1592px;
   justify-content: center;
+  align-items: center;
+}
+
+.results-filters {
+  height: 36px;
+  width: 1096px;
+  border-bottom: 1px solid gray;
+  margin-bottom: 20px;
 }
 
 .result-container {

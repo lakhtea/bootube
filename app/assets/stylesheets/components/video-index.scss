@@ -1,18 +1,18 @@
 @import "application";
 
 .video-index-container {
-    padding-left: 8.6%;
-    padding-right: 8.6%;
-    padding-top: 10px;
-    box-sizing: border-box;
-    height: 86%;
-    background: $black;
-    width: 96%;
-    display: grid;
-    grid-template-columns: repeat(4, 25%);
-    justify-content: center;
-    justify-items: center;
-    grid-template-rows: repeat(4, 36%);
-    grid-column-gap: 1%;
-    grid-row-gap: 2.5%;
+  padding-left: 8.6%;
+  padding-right: 8.6%;
+  padding-top: 10px;
+  box-sizing: border-box;
+  height: 86%;
+  background: $black;
+  width: 96%;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  justify-content: center;
+  justify-items: center;
+  grid-template-rows: repeat(4, 36%);
+  grid-column-gap: 1%;
+  grid-row-gap: 2.5%;
 }

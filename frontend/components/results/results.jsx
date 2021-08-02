@@ -7,9 +7,12 @@ export default class Results extends Component {
     const { videos } = this.props;
     return (
       <div className="results-container">
-        {videos.map((video) => (
-          <Result key={video.id} video={video}></Result>
-        ))}
+        <div className="results-list">
+          <div className="results-filters"></div>
+          {videos.map((video) => (
+            <Result key={video.id} video={video}></Result>
+          ))}
+        </div>
       </div>
     );
   }

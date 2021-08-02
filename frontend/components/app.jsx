@@ -25,6 +25,15 @@ const App = (props) => (
         </div>
       )}
     />
+    <Route
+      path="/results"
+      render={() => (
+        <div className="result-page-container">
+          <Sidebar />
+          <ResultsContainer />
+        </div>
+      )}
+    ></Route>
     <Switch>
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
@@ -34,7 +43,6 @@ const App = (props) => (
         component={VideoUploadContainer}
       />
       <Route path="/videos/:videoId" component={VideoShowContainer} />
-      <Route path="/results" component={ResultsContainer}></Route>
     </Switch>
   </div>
 );
