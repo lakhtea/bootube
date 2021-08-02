@@ -13,10 +13,9 @@ const VideoDetail = ({ video }) => {
           {video.username}
         </Link>
         <Link className="video-timestamp" to={`/videos/${video.id}`}>
-          <span>{video.views} views </span>
-
+          <span>{video.views} views </span>•
           <li style={{ display: "inline" }}>
-            {moment(video.updated_at).format("MMM Do, YYYY")}
+            {moment(video.created_at).fromNow()}
           </li>
         </Link>
       </div>

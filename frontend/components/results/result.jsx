@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import moment from "moment";
 
 export default class Result extends Component {
   render() {
@@ -21,7 +22,13 @@ export default class Result extends Component {
         </video>
         <div className="result-details">
           <div className="result-title">{video.title}</div>
-          <div className="result-views">{video.views}</div>
+          <div className="views-date">
+            <div className="result-views">{video.views} views</div>•
+            <div className="result-date">
+              {moment(video.created_at).fromNow()}
+            </div>
+          </div>
+
           <div className="result-username">{video.username}</div>
           <div className="result-description">{video.description}</div>
         </div>

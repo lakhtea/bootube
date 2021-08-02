@@ -25,6 +25,7 @@
   width: 1096px;
   height: 202px;
   display: flex;
+  gap: 10px;
 }
 
 .result-video {
@@ -35,4 +36,29 @@
 .result-details {
   width: 720px;
   height: 202px;
+  color: #aaaaaa;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.result-title {
+  color: white;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.result-username {
+  box-sizing: border-box;
+  height: 50px;
+  padding: 12px 0;
+  width: fit-content;
+}
+
+.result-username:hover {
+  color: white;
+}
+
+.views-date {
+  display: flex;
+  gap: 5px;
 }

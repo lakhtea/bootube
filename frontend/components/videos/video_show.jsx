@@ -201,7 +201,7 @@ class VideoShow extends React.Component {
                   <span>{video.views} views </span>
 
                   <li style={{ display: "inline" }}>
-                    {moment(video.updated_at).format("MMM Do, YYYY")}
+                    {moment(video.created_at).format("MMM Do, YYYY")}
                   </li>
                 </div>
                 <LikeDislikeContainer
