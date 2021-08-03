@@ -14,7 +14,7 @@ export default class Results extends Component {
     return (
       <div className="results-container">
         <div className="results-list">
-          <div className="results-filters"></div>
+          <div className="results-filters">Search Results</div>
           {videos.map((video) => (
             <Result key={video.id} video={video}></Result>
           ))}

@@ -4,6 +4,7 @@
   top: 56px;
   padding: 16px 24px;
   width: 1592px;
+  box-sizing: border-box;
 }
 
 .results-list {
@@ -19,6 +20,7 @@
   width: 1096px;
   border-bottom: 0.1px solid gray;
   margin-bottom: 20px;
+  font-size: 32px;
 }
 
 .result-container {
