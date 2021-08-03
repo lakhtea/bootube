@@ -1,5 +1,7 @@
 import { connect } from "react-redux";
 import Results from "./results";
+import { onQuery } from "../../actions/search_actions";
+import { withRouter } from "react-router";
 
 const mstp = ({ entities }) => {
   return {
@@ -8,7 +10,7 @@ const mstp = ({ entities }) => {
 };
 
 const mdtp = (dispatch) => {
-  return {};
+  return { onQuery: (term) => dispatch(onQuery(term)) };
 };
 
-export default connect(mstp, mdtp)(Results);
+export default withRouter(connect(mstp, mdtp)(Results));

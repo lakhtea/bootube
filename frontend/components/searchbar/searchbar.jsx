@@ -19,7 +19,9 @@ class Searchbar extends React.Component {
 
     this.props
       .onTermSubmit(this.state.term)
-      .then(() => this.props.history.push("/results"));
+      .then(() =>
+        this.props.history.push(`/results?search_query=${this.state.term}`)
+      );
   }
   render() {
     return (
