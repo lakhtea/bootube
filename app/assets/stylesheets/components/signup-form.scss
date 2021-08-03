@@ -40,11 +40,11 @@
     }
   }
 
-  > input:first-of-type {
+  > .signup:first-of-type {
     margin-top: 36px;
   }
 
-  > input:nth-of-type(2) {
+  > .signup:nth-of-type(2) {
     margin-top: 24px;
   }
 
@@ -78,6 +78,11 @@
     }
   }
 
+  .signup {
+    display: flex;
+    height: 32px;
+  }
+
   input {
     box-sizing: border-box;
     border-style: none;
@@ -105,4 +110,25 @@
     color: $blue;
     line-height: 20px;
   }
+}
+
+.signup label {
+  position: relative;
+}
+
+.placeholder {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  width: 100%;
+  pointer-events: none;
+  font-size: 14px;
+  color: gray;
+  transition: 0.2s;
+}
+
+.signup input:focus + .placeholder {
+  transform: translateY(-120%);
+  font-size: 14px;
+  color: blue;
 }

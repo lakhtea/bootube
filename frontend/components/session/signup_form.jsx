@@ -69,31 +69,42 @@ class SignUpForm extends React.Component {
         <h2>Create Your Boogle Account</h2>
         <h3>to continue to bootube</h3>
 
-        <input
-          type="text"
-          value={this.state.username}
-          onChange={this.update("username")}
-          placeholder="Username"
-        />
-        <input
-          type="email"
-          value={this.state.email}
-          onChange={this.update("email")}
-          placeholder="Your email address"
-        />
+        <div className="signup signup-username">
+          <label>
+            <input
+              type="text"
+              value={this.state.username}
+              onChange={this.update("username")}
+            />
+            <span className="placeholder">Username</span>
+          </label>
+        </div>
 
-        <div className="pass">
-          <input
-            type="password"
-            value={this.state.password}
-            onChange={this.update("password")}
-            placeholder="Password"
-          />
-          <input
-            type="password"
-            onChange={this.updateConfirmed}
-            placeholder="Confirm"
-          />
+        <div className="signup signup-email">
+          <label>
+            <input
+              type="email"
+              value={this.state.email}
+              onChange={this.update("email")}
+            />
+            <span className="placeholder">Your email address</span>
+          </label>
+        </div>
+
+        <div className="signup pass">
+          <label>
+            <input
+              type="password"
+              value={this.state.password}
+              onChange={this.update("password")}
+            />
+            <span className="placeholder">Password</span>
+          </label>
+
+          <label>
+            <input type="password" onChange={this.updateConfirmed} />
+            <span className="placeholder">Confirm</span>
+          </label>
         </div>
         <p>Use 6 or more characters</p>
 
