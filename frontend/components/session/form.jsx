@@ -77,12 +77,14 @@ class Form extends React.Component {
             <h3>{this.state.email}</h3>
 
             <div className="form-input">
-              <input
-                type="password"
-                value={this.state.password}
-                onChange={this.update("password")}
-                placeholder="Enter your password"
-              />
+              <label>
+                <input
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.update("password")}
+                />
+                <span className="signin-placeholder">Enter your password</span>
+              </label>
               <h5 className="errors">{this.renderErrors()}</h5>
               <p></p>
               <div className="button">
@@ -109,12 +111,14 @@ class Form extends React.Component {
             <h3>to continue to bootube</h3>
 
             <div className="form-input">
-              <input
-                type="text"
-                value={this.state.username}
-                onChange={this.update("username")}
-                placeholder="Email or username"
-              />
+              <label>
+                <input
+                  type="text"
+                  value={this.state.username}
+                  onChange={this.update("username")}
+                />
+                <span className="signin-placeholder">Email or username</span>
+              </label>
               <h5 className="errors">{this.renderErrors()}</h5>
               <p>Not your computer? Please return it, thief.</p>
               <div className="button">

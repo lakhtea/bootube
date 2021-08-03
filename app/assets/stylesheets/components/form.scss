@@ -84,6 +84,22 @@
     button:hover {
       background-color: #6a120a;
     }
+
+    a {
+      padding: 10px 5px;
+      box-sizing: border-box;
+      letter-spacing: 0.5px;
+      border-radius: 5px;
+    }
+
+    a:hover {
+      background-color: rgba(234, 67, 53, 0.05);
+    }
+  }
+
+  label {
+    position: relative;
+    display: flex;
   }
 }
 
@@ -99,4 +115,31 @@
     margin-left: 6px;
     color: $blue;
   }
+}
+
+.signin-placeholder {
+  position: absolute;
+  box-sizing: border-box;
+  padding: 0 5px;
+  top: 19px;
+  left: 7.5px;
+  width: fit-content;
+  pointer-events: none;
+  font-size: 16px;
+  color: gray;
+  transition: 0.2s ease;
+  letter-spacing: 0.25px;
+}
+
+.form-input input:focus + .signin-placeholder {
+  transform: translateY(-185%);
+  font-size: 13px;
+  color: $red;
+  width: fit-content;
+  background-color: #181818;
+}
+
+.form-input input:focus {
+  outline: none;
+  border: 1px solid $red;
 }

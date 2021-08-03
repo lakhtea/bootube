@@ -42,10 +42,16 @@
 
   > .signup:first-of-type {
     margin-top: 36px;
+    label {
+      width: 100%;
+    }
   }
 
   > .signup:nth-of-type(2) {
     margin-top: 24px;
+    label {
+      width: 100%;
+    }
   }
 
   p {
@@ -75,6 +81,16 @@
     }
     button:hover {
       background-color: #6a120a;
+    }
+    a {
+      padding: 10px 5px;
+      box-sizing: border-box;
+      letter-spacing: 0.5px;
+      border-radius: 5px;
+    }
+
+    a:hover {
+      background-color: rgba(234, 67, 53, 0.05);
     }
   }
 
@@ -118,17 +134,27 @@
 
 .placeholder {
   position: absolute;
-  top: 5px;
-  left: 10px;
-  width: 100%;
+  box-sizing: border-box;
+  padding: 0 5px;
+  top: 9px;
+  left: 7.5px;
+  width: fit-content;
   pointer-events: none;
   font-size: 14px;
   color: gray;
-  transition: 0.2s;
+  transition: 0.2s ease;
+  letter-spacing: 0.25px;
 }
 
 .signup input:focus + .placeholder {
-  transform: translateY(-120%);
-  font-size: 14px;
-  color: blue;
+  transform: translateY(-125%);
+  font-size: 12px;
+  color: $red;
+  width: fit-content;
+  background-color: #181818;
+}
+
+.signup input:focus {
+  outline: none;
+  border: 1px solid $red;
 }
