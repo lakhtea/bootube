@@ -2,5 +2,7 @@ json.extract! @video, :id, :title, :description, :uploader_id, :created_at, :vie
 json.extract! @video.user, :username
 json.likes @video.likes.where(category: "Like").length
 json.dislikes @video.likes.where(category: "Dislike").length
-json.like @video.likes.where(user_id: current_user.id)
+if current_user
+  json.like @video.likes.where(user_id: current_user.id)
+end
 json.videoUrl url_for(@video.vid)

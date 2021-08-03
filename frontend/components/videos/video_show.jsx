@@ -208,7 +208,7 @@ class VideoShow extends React.Component {
                   id={video.id}
                   likes={video.likes}
                   dislikes={video.dislikes}
-                  currentUser={currentUser.id}
+                  currentUser={currentUser?.id}
                   // liked={video.like?.[0]}
                   like={this.props.like}
                   unlike={this.props.unlike}

@@ -17,7 +17,7 @@ class UserLink extends React.Component {
     return (
       <div className="user-link">
         <button onClick={this.toggleDropdown}>
-          {currentUser.username[0].toUpperCase()}
+          {currentUser?.username[0].toUpperCase()}
         </button>
         <Dropdown logout={logout} currentUser={currentUser} />
       </div>
