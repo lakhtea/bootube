@@ -20,7 +20,6 @@ class UserLink extends React.Component {
 
   render() {
     const { currentUser, logout } = this.props;
-    console.log(this.state);
     return (
       <div ref={this.userLinkRef} className="user-link">
         <button
