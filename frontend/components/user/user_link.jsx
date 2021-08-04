@@ -1,12 +1,21 @@
 import React from "react";
 import Dropdown from "./dropdown";
+import onClickOutside from "react-onclickoutside";
 
 class UserLink extends React.Component {
   constructor(props) {
     super(props);
     this.state = { dropdownToggled: false };
+    this.handleClickOutside = this.handleClickOutside.bind(this);
 
     this.userLinkRef = React.createRef();
+  }
+
+  handleClickOutside() {
+    if (this.state.dropdownToggled)
+      this.setState({ dropdownToggled: false }, () =>
+        this.userLinkRef.current.classList.remove("toggled")
+      );
   }
 
   render() {
@@ -21,10 +30,10 @@ class UserLink extends React.Component {
                 dropdownToggled: !this.state.dropdownToggled,
               },
               () => {
-                // if (this.state.dropdownToggled)
-                this.userLinkRef.current.classList.toggle("toggled");
-                // if (!this.state.dropdownToggled)
-                // this.userLinkRef.current.classList.remove("toggled");
+                if (this.state.dropdownToggled)
+                  this.userLinkRef.current.classList.add("toggled");
+                if (!this.state.dropdownToggled)
+                  this.userLinkRef.current.classList.remove("toggled");
               }
             );
           }}
@@ -37,4 +46,4 @@ class UserLink extends React.Component {
   }
 }
 
-export default UserLink;
+export default onClickOutside(UserLink);
