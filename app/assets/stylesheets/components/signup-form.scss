@@ -149,7 +149,14 @@
 .signup input:focus + .placeholder {
   transform: translateY(-125%);
   font-size: 12px;
+  width: fit-content;
+  background-color: #181818;
   color: $red;
+}
+
+.signup input:valid + .placeholder {
+  transform: translateY(-125%);
+  font-size: 12px;
   width: fit-content;
   background-color: #181818;
 }
@@ -157,4 +164,8 @@
 .signup input:focus {
   outline: none;
   border: 1px solid $red;
+}
+
+.signup input:valid {
+  outline: none;
 }

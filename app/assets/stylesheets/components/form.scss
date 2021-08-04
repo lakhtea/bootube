@@ -134,7 +134,14 @@
 .form-input input:focus + .signin-placeholder {
   transform: translateY(-185%);
   font-size: 13px;
+  width: fit-content;
+  background-color: #181818;
   color: $red;
+}
+
+.form-input input:valid + .signin-placeholder {
+  transform: translateY(-185%);
+  font-size: 13px;
   width: fit-content;
   background-color: #181818;
 }
@@ -142,4 +149,8 @@
 .form-input input:focus {
   outline: none;
   border: 1px solid $red;
+}
+
+.form-input input:valid {
+  outline: none;
 }

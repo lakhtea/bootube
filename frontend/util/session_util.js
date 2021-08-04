@@ -1,4 +1,5 @@
 export const postUser = (user) => {
+  console.log(user);
   return $.ajax({
     method: "post",
     url: "/api/users",
@@ -8,8 +9,9 @@ export const postUser = (user) => {
 
 export const checkValidUser = (username) => {
   return $.ajax({
-    method: "get",
-    url: `/api/validation/${username}`,
+    method: "post",
+    url: `/api/validation`,
+    data: { username },
   });
 };
 

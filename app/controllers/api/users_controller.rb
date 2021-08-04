@@ -1,6 +1,8 @@
 class Api::UsersController < ApplicationController
     def validation
+        p params
         @user = User.find_username(params[:username])
+        @user = User.find_by(email: params[:username]) unless @user
         if @user 
             render json: @user
         else 

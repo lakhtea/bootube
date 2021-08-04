@@ -162,51 +162,49 @@
   cursor: pointer;
 }
 
-.user-link {
-  button:focus {
-    border-style: none;
-    border: 1px solid $blue;
-  }
-  button:focus + .dropdown,
-  button + .dropdown:hover,
-  button + .dropdown:focus-within {
-    background-color: #202020ee;
-    position: absolute;
-    z-index: 2;
-    top: 48px;
-    right: 20px;
-    width: 300px;
-    // height: 714px;
-    border: 1px solid rgba(55, 55, 55, 1);
-    border-top: none;
+button:focus {
+  border-style: none;
+  border: 1px solid $blue;
+}
+.elements .toggled > .dropdown,
+.elements .toggled > .dropdown:hover,
+.elements .toggled > .dropdown:focus-within {
+  background-color: #202020ee;
+  position: absolute;
+  z-index: 2;
+  top: 48px;
+  right: 20px;
+  width: 300px;
+  // height: 714px;
+  border: 1px solid rgba(55, 55, 55, 1);
+  border-top: none;
 
+  display: flex;
+  flex-direction: column;
+
+  .my-links {
     display: flex;
     flex-direction: column;
-
-    .my-links {
+    justify-content: center;
+    width: 298px;
+    height: 217px;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(55, 55, 55, 1);
+    a {
+      height: 40px;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 298px;
-      height: 217px;
-      box-sizing: border-box;
-      border-bottom: 1px solid rgba(55, 55, 55, 1);
-      a {
-        height: 40px;
-        display: flex;
-        align-items: center;
-        color: white;
-        font-size: 16px;
-        gap: 14px;
-        padding: 0 36px 0 16px;
-        i {
-          font-size: 21px;
-          padding-left: 3px;
-        }
+      align-items: center;
+      color: white;
+      font-size: 16px;
+      gap: 14px;
+      padding: 0 36px 0 16px;
+      i {
+        font-size: 21px;
+        padding-left: 3px;
       }
-      a:hover {
-        background-color: rgb(60, 56, 56);
-      }
+    }
+    a:hover {
+      background-color: rgb(60, 56, 56);
     }
 
     // .dummy-links {
@@ -236,10 +234,6 @@
   }
 }
 
-button + .dropdown {
-  display: none;
-}
-
 .user-card {
   display: flex;
   align-items: center;
@@ -253,7 +247,7 @@ button + .dropdown {
 
 button.user-link-dummy {
   height: 40px;
-  width: 40px;
+  min-width: 40px;
   border-style: none;
   box-sizing: border-box;
   background-color: $red;
@@ -269,6 +263,7 @@ button.user-link-dummy {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  overflow: hidden;
   h5 {
     font-size: 18px;
   }
@@ -286,4 +281,7 @@ button.user-link-dummy {
   height: 56px;
   margin-top: 1px;
   border-bottom: 1px solid rgba(55, 55, 55, 1);
+}
+.user-link > .dropdown {
+  display: none;
 }

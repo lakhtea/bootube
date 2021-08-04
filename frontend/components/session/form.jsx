@@ -73,12 +73,16 @@ class Form extends React.Component {
               <span>l</span>
               <span>e</span>
             </h1>
-            <h2 className="form-header">{this.state.username}</h2>
+            <h2 className="form-header">
+              Hi <span className="username"></span>
+              {this.state.username}
+            </h2>
             <h3>{this.state.email}</h3>
 
             <div className="form-input">
               <label>
                 <input
+                  required
                   type="password"
                   value={this.state.password}
                   onChange={this.update("password")}
@@ -113,6 +117,7 @@ class Form extends React.Component {
             <div className="form-input">
               <label>
                 <input
+                  required
                   type="text"
                   value={this.state.username}
                   onChange={this.update("username")}
