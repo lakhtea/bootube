@@ -3,13 +3,17 @@ import { Link } from "react-router-dom";
 import SearchBarContainer from "../searchbar/searchbar_container";
 import UserLink from "../user/user_link";
 
-export default ({ currentUser, logout, fetchVideos }) => {
+export default ({ ownProps, currentUser, logout, fetchVideos }) => {
+  if (
+    ownProps.location.pathname === "/login" ||
+    ownProps.location.pathname === "/signup"
+  )
+    return null;
   const display = currentUser ? (
     <div className="elements">
       <Link to="/videos/new">
         <span className="material-icons">video_call</span>
       </Link>
-      <span className="material-icons">notifications</span>
       <UserLink logout={logout} currentUser={currentUser} />
     </div>
   ) : (

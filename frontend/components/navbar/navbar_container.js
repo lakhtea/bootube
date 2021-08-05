@@ -3,8 +3,10 @@ import { connect } from "react-redux";
 import NavBar from "./navbar";
 import { logout } from "../../actions/session_actions";
 import { fetchVideos } from "../../actions/videos_actions";
+import { withRouter } from "react-router";
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
+  ownProps,
   currentUser: state.session.currentUser,
 });
 
@@ -13,4 +15,4 @@ const mapDispatchToProps = (dispatch) => ({
   fetchVideos: () => dispatch(fetchVideos()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavBar));
