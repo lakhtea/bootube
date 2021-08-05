@@ -178,9 +178,9 @@ class VideoShow extends React.Component {
                   />
                 </div>
                 <div className="second-half">
-                  <button>
+                  {/* <button>
                     <span className="material-icons">settings</span>
-                  </button>
+                  </button> */}
 
                   <button onClick={this.fullscreen}>
                     <span className="material-icons">fullscreen</span>

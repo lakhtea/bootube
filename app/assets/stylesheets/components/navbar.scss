@@ -30,6 +30,10 @@
       transform-origin: center center;
       border-style: none;
       border-radius: 50%;
+
+      span {
+        color: white;
+      }
     }
     button:active {
       background-color: gray;
