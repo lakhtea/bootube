@@ -36,14 +36,9 @@ export default ({
     <div className="nav-container">
       <nav className="main-nav">
         <div className="burger">
-          {/* <div className="burgerr"> */}
           <button onClick={toggleSideBar} className="">
-            <span className="menu material-icons">
-              menu
-              {/* <div className="menu-bubble"></div> */}
-            </span>
+            <span className="menu material-icons">menu</span>
           </button>
-          {/* </div> */}
 
           <h1>
             <Link onClick={fetchVideos} to="/">
