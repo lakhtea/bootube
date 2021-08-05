@@ -1,5 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+
+const mstp = (state) => {
+  return {
+    sidebar: state.ui.sideBarToggled,
+  };
+};
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -23,8 +30,10 @@ class Sidebar extends React.Component {
   }
 
   render() {
+    let sideBarWidth = { width: "72px" };
+    if (this.props.sidebar) sideBarWidth = { width: "240px" };
     return (
-      <div className="sidebar">
+      <div style={sideBarWidth} className="sidebar">
         <Link
           className={`${this.state.home ? "active" : ""}`}
           onClick={() => this.toggleActive("home")}
@@ -81,4 +90,4 @@ class Sidebar extends React.Component {
   }
 }
 
-export default Sidebar;
+export default connect(mstp, null)(Sidebar);

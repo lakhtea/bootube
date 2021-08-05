@@ -1,9 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { toggleSideBar } from "../../actions/ui_actions";
 import SearchBarContainer from "../searchbar/searchbar_container";
 import UserLink from "../user/user_link";
 
-export default ({ ownProps, currentUser, logout, fetchVideos }) => {
+export default ({
+  ownProps,
+  currentUser,
+  logout,
+  fetchVideos,
+  toggleSideBar,
+}) => {
   if (
     ownProps.location.pathname === "/login" ||
     ownProps.location.pathname === "/signup"
@@ -30,7 +37,7 @@ export default ({ ownProps, currentUser, logout, fetchVideos }) => {
       <nav className="main-nav">
         <div className="burger">
           {/* <div className="burgerr"> */}
-          <button className="">
+          <button onClick={toggleSideBar} className="">
             <span className="menu material-icons">
               menu
               {/* <div className="menu-bubble"></div> */}

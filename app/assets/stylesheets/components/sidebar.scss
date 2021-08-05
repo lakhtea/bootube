@@ -1,12 +1,10 @@
 @import "application";
 
 .sidebar {
-  width: 72px;
   margin: 0;
   position: fixed;
   left: 0px;
   top: 56px;
-  z-index: 1;
   height: 100vh;
   text-align: center;
   background-color: $nav-gray;

@@ -5,6 +5,7 @@ import { fetchVideos } from "../../actions/videos_actions";
 const mstp = (state) => {
   return {
     videos: Object.values(state.entities.videos),
+    sidebar: state.ui.sideBarToggled,
   };
 };
 
