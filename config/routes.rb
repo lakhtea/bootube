@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   root to: 'static_pages#root'
   
   namespace :api, defaults: {format: :json} do
-    post '/validation', to: 'users#validation'#, param: :username
-    # get '/validation', to: 'users#no_username'
+    post '/validation', to: 'users#validation'
     get '/search', to: 'videos#search'
     get '/liked_videos', to: 'users#liked_videos'
     resources :users, only: [:create, :index, :show]
