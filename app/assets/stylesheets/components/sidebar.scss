@@ -32,3 +32,37 @@
     color: white;
   }
 }
+
+.sidebar-expanded {
+  padding-top: 12px;
+  margin: 0;
+  position: fixed;
+  left: 0px;
+  top: 56px;
+  height: 100vh;
+  text-align: center;
+  background-color: $nav-gray;
+
+  a {
+    display: flex;
+    align-items: center;
+    line-height: 40px;
+    font-size: 14px;
+    padding: 0 24px;
+    box-sizing: border-box;
+    gap: 30px;
+    color: white;
+    letter-spacing: 0.25px;
+    span {
+      color: #909090;
+    }
+  }
+
+  a:hover {
+    background-color: rgb(60, 56, 56);
+  }
+
+  .active span {
+    color: white;
+  }
+}
