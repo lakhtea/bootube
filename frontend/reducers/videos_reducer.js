@@ -20,26 +20,32 @@ const VideosReducer = (state = {}, action) => {
         nextState[action.videos[i].id - 1] = action.videos[i];
       }
       return nextState;
+
     case RECEIVE_VIDEOS_SHOW:
       for (let i = 0; i < action.videos.length; i++) {
         nextState[action.videos[i].id] = action.videos[i];
       }
       return nextState;
+
     case RECEIVE_VIDEO:
       nextState.currentVideo = action.video;
       return nextState;
+
     case RECEIVE_SEARCH_RESULTS:
-      newState = action.videos;
-      return newState;
+      return action.videos;
+
     case RECEIVE_LIKE:
       if (action.like) nextState.currentVideo.like = [action.like];
       return nextState;
+
     case DELETE_CURRENT_VIDEO:
       delete nextState.currentVideo;
       return nextState;
+
     case DELETE_VIDEO:
       delete nextState[action.videoId];
       return nextState;
+
     default:
       return state;
   }

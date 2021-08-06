@@ -17,8 +17,10 @@ class Searchbar extends React.Component {
   onFormSubmit(e) {
     e.preventDefault();
 
+    this.props.onTermSubmit(this.state.term);
+
     this.props
-      .onTermSubmit(this.state.term)
+      .onTermSubmitUser(this.state.term)
       .then(() =>
         this.props.history.push(`/results?search_query=${this.state.term}`)
       );

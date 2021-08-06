@@ -20,7 +20,7 @@ const App = (props) => (
       render={() => (
         <div className="home-page-container">
           <Sidebar />
-          <Tagbar />
+          {/* <Tagbar /> */}
           <VideoIndexContainer />
         </div>
       )}

@@ -4,35 +4,42 @@ import moment from "moment";
 
 export default class Result extends Component {
   render() {
-    const { video } = this.props;
-    return (
-      <Link className="result-container" to={`/videos/${video.id}`}>
-        <video
-          className="result-video"
-          key={video.id}
-          onMouseOver={(e) => e.target.play()}
-          onMouseOut={(e) => {
-            e.target.pause();
-            e.target.currentTime = 0;
-          }}
-          muted
-          loop
-        >
-          <source src={video.videoUrl} />
-        </video>
-        <div className="result-details">
-          <div className="result-title">{video.title}</div>
-          <div className="views-date">
-            <div className="result-views">{video.views} views</div>•
-            <div className="result-date">
-              {moment(video.created_at).fromNow()}
+    const { video, user, type } = this.props;
+    if (type === "user")
+      return (
+        <Link className="result-container" to={`/channel/${user.id}`}>
+          <div className="result-user">{user.username}</div>
+        </Link>
+      );
+    if (type === "video")
+      return (
+        <Link className="result-container" to={`/videos/${video.id}`}>
+          <video
+            className="result-video"
+            key={video.id}
+            onMouseOver={(e) => e.target.play()}
+            onMouseOut={(e) => {
+              e.target.pause();
+              e.target.currentTime = 0;
+            }}
+            muted
+            loop
+          >
+            <source src={video.videoUrl} />
+          </video>
+          <div className="result-details">
+            <div className="result-title">{video.title}</div>
+            <div className="views-date">
+              <div className="result-views">{video.views} views</div>•
+              <div className="result-date">
+                {moment(video.created_at).fromNow()}
+              </div>
             </div>
-          </div>
 
-          <div className="result-username">{video.username}</div>
-          <div className="result-description">{video.description}</div>
-        </div>
-      </Link>
-    );
+            <div className="result-username">{video.username}</div>
+            <div className="result-description">{video.description}</div>
+          </div>
+        </Link>
+      );
   }
 }

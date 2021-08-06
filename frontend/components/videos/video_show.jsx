@@ -198,8 +198,7 @@ class VideoShow extends React.Component {
                 <div className="title">{video.title}</div>
 
                 <div className="updated-at">
-                  <span>{video.views} views </span>
-
+                  <span>{video.views} views </span>•
                   <li style={{ display: "inline" }}>
                     {moment(video.created_at).format("MMM Do, YYYY")}
                   </li>

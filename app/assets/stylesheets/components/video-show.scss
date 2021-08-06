@@ -39,15 +39,7 @@
     color: rgb(165, 167, 169);
     width: 200px;
     display: flex;
-    gap: 20px;
-
-    li:before {
-      content: "";
-      display: list-item;
-      position: absolute;
-      left: 71px;
-      font-size: 8px;
-    }
+    gap: 5px;
   }
 
   .description-container {
@@ -134,7 +126,6 @@
   height: 100%;
   position: absolute;
   background: $red;
-  // width: 10%;
   z-index: 4;
 }
 

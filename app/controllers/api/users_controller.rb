@@ -17,6 +17,10 @@ class Api::UsersController < ApplicationController
         
     end
 
+    def search
+        @users = User.all
+    end
+
     def liked_videos
         render "api/users/liked_videos"
     end

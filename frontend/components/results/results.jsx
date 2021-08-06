@@ -1,23 +1,21 @@
 import React, { Component } from "react";
-
-import Result from "./result";
+import UserResults from "./userResults";
+import VideoResults from "./videoResults";
 
 export default class Results extends Component {
-  componentDidMount() {
-    if (this.props.videos.length) return;
-    this.props.onQuery(this.props.location.search.slice(14));
-  }
   render() {
-    if (!this.props.videos.length) return null;
-
-    const { videos } = this.props;
+    const { users, videos, query, onQuery } = this.props;
+    const term = this.props.location.search.slice(14);
     return (
       <div className="results-container">
-        <div className="results-list">
+        <div className="results results-list">
           <div className="results-filters">Search Results</div>
-          {videos.map((video) => (
-            <Result key={video.id} video={video}></Result>
-          ))}
+          <UserResults action={query} term={term} users={users}></UserResults>
+          <VideoResults
+            action={onQuery}
+            term={term}
+            videos={videos}
+          ></VideoResults>
         </div>
       </div>
     );

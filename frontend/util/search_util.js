@@ -5,3 +5,11 @@ export const queryDatabase = (queryString) => {
     data: { queryString },
   });
 };
+
+export const queryUsers = (queryString) => {
+  return $.ajax({
+    method: "get",
+    url: "/api/search_users",
+    data: { queryString },
+  });
+};

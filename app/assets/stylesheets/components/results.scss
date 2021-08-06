@@ -18,7 +18,7 @@
 .results-filters {
   height: 36px;
   width: 1096px;
-  border-bottom: 0.1px solid gray;
+  border-bottom: 1px solid rgba($color: #606060, $alpha: 0.5);
   margin-bottom: 20px;
   font-size: 32px;
 }
@@ -63,4 +63,15 @@
 .views-date {
   display: flex;
   gap: 5px;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.user-results {
+  width: 1096px;
+  border-bottom: 1px solid rgba($color: #606060, $alpha: 0.5);
 }
