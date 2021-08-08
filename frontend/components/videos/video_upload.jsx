@@ -26,9 +26,9 @@ class VideoUploadForm extends React.Component {
     formData.append("video[vid]", this.state.videoFile);
     formData.append("video[uploader_id]", this.props.currentUser.id);
 
-    this.props.action(formData);
-
-    this.setState({ title: "", description: "", videoFile: null });
+    this.props
+      .action(formData)
+      .then(({ video }) => this.props.history.push(`/videos/${video.id}`));
   }
 
   handleFile(e) {

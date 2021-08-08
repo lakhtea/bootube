@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Dropdown = ({ currentUser, logout }) => {
+  if (!currentUser) return null;
   return (
     <div className="dropdown">
       <div className="user-card">
@@ -14,7 +15,7 @@ const Dropdown = ({ currentUser, logout }) => {
         </div>
       </div>
       <div className="my-links">
-        <Link to="/videos">
+        <Link to={`/channel/${currentUser.id}`}>
           <span className="material-icons">account_box</span>
           <span>Your Channel</span>
         </Link>
