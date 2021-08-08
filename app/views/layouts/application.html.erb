@@ -2,11 +2,6 @@
 <html>
   <head>
     <title>Bootube</title>
-    <meta name="description" content="_" />
-    <meta name="title" property="og:title" content="_" />
-    <meta property="og:type" content="_" />
-    <meta name="image" property="og:image" content="https://live.staticflickr.com/65535/51359160508_d0651fc323_h.jpg" />
-    <meta name="description" property="og:description" content="_" /><meta name="author" content="_" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -22,6 +17,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap" rel="stylesheet">
 
+    <meta name="description" content="_" />
+    <meta name="title" property="og:title" content="_" />
+    <meta property="og:type" content="_" />
+    <meta name="image" property="og:image" content="https://live.staticflickr.com/65535/51359160508_d0651fc323_h.jpg" />
+    <meta name="description" property="og:description" content="_" /><meta name="author" content="_" />
     <% if current_user %>
       <script>
         window.currentUser = {
