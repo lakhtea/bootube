@@ -16,6 +16,8 @@ class User < ApplicationRecord
     has_many :liked_videos, through: :likes, source: :likeable, source_type: "Video"
     has_many :liked_comments, through: :likes, source: :likeable, source_type: "Comment"
 
+    has_one_attached :avatar
+
     def self.find_username(username)
         user = User.find_by(username: username)
         if user 

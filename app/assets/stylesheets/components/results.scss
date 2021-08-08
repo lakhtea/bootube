@@ -19,13 +19,19 @@
   height: 36px;
   width: 1096px;
   border-bottom: 1px solid rgba($color: #606060, $alpha: 0.5);
-  margin-bottom: 20px;
   font-size: 32px;
 }
 
 .result-container {
   width: 1096px;
   height: 202px;
+  display: flex;
+  gap: 10px;
+}
+
+.user-result-container {
+  width: 1096px;
+  height: 136px;
   display: flex;
   gap: 10px;
 }
@@ -74,4 +80,5 @@
 .user-results {
   width: 1096px;
   border-bottom: 1px solid rgba($color: #606060, $alpha: 0.5);
+  padding-bottom: 10px;
 }

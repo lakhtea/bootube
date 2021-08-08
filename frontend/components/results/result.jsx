@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import Avatar from "../user/avatar";
 
 export default class Result extends Component {
   render() {
     const { video, user, type } = this.props;
     if (type === "user")
       return (
-        <Link className="result-container" to={`/channel/${user.id}`}>
+        <Link className="user-result-container" to={`/channel/${user.id}`}>
+          <Avatar username={user.username}></Avatar>
           <div className="result-user">{user.username}</div>
         </Link>
       );
