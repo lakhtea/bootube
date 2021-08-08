@@ -9,7 +9,7 @@ export default class Result extends Component {
     if (type === "user")
       return (
         <Link className="user-result-container" to={`/channel/${user.id}`}>
-          <Avatar username={user.username}></Avatar>
+          <Avatar id={user.id} username={user.username}></Avatar>
           <div className="result-user">{user.username}</div>
         </Link>
       );

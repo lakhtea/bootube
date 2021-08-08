@@ -7,7 +7,7 @@ const VideoDetail = ({ video }) => {
   return (
     <div className="video-detail">
       <div className="avatar">
-        <Avatar username={video.username}></Avatar>
+        <Avatar id={video.uploader_id} username={video.username}></Avatar>
       </div>
       <div className="info">
         <Link className="video-title" to={`/videos/${video.id}`}>

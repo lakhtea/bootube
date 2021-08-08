@@ -1,14 +1,15 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class Avatar extends Component {
   render() {
-    const { username } = this.props;
+    const { id, username } = this.props;
     return (
       <div className="renderer">
         <div className="avatar-container">
-          <div className="default-avatar">
+          <Link to={`/channel/${id}`} className="default-avatar">
             <span>{username[0].toUpperCase()}</span>
-          </div>
+          </Link>
         </div>
       </div>
     );

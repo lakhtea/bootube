@@ -1,6 +1,6 @@
 @import "application";
 
-.renderer {
+.user-result-container .renderer {
   width: 360px;
   height: 136px;
   display: flex;
@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-.avatar-container {
+.user-result-container .avatar-container {
   width: 246;
   height: 136px;
   display: flex;
@@ -53,4 +53,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.video-index-sidebar-container .default-avatar {
+  display: none;
 }
