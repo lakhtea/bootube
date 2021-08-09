@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { getUser } from "../../actions/user_actions";
-import { getUserVideos } from "../../actions/videos_actions";
+import { fetchUserVideos } from "../../actions/videos_actions";
 import Channel from "./channel";
 
 const mstp = (state) => {

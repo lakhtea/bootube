@@ -27,7 +27,7 @@ class Api::UsersController < ApplicationController
     end
 
     def videos 
-        @videos = User.find_by(id: params[:id]).videos
+        @videos = User.find_by(id: params[:userId]).videos
     end
     
     def create

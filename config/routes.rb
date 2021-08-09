@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get '/search', to: 'videos#search'
     get '/search_users', to: 'users#search'
     get '/liked_videos', to: 'users#liked_videos'
-    get '/user_videos', to: 'users#videos'
+    get '/user_videos/:userId', to: 'users#videos'
     resources :users, only: [:create, :index, :show]
     resources :videos, only: [:index, :create, :show, :patch, :destroy] do
       resources :comments, only: [:index, :create]

@@ -13,13 +13,13 @@ import { RECEIVE_LIKE } from "../actions/like_actions";
 const VideosReducer = (state = {}, action) => {
   Object.freeze(state);
   const nextState = Object.assign({}, state);
-  let newState = {};
+  const newState = {};
   switch (action.type) {
     case RECEIVE_VIDEOS:
       for (let i = 0; i < action.videos.length; i++) {
-        nextState[action.videos[i].id - 1] = action.videos[i];
+        newState[action.videos[i].id - 1] = action.videos[i];
       }
-      return nextState;
+      return newState;
 
     case RECEIVE_VIDEOS_SHOW:
       for (let i = 0; i < action.videos.length; i++) {
