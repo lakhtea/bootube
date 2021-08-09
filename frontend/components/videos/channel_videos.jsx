@@ -4,7 +4,6 @@ import VideoItem from "./video_item";
 class ChannelVideos extends Component {
   render() {
     const { videos } = this.props;
-    console.log(this.props);
     if (!videos.length) return null;
     return (
       <div className="channel-videos-container">
