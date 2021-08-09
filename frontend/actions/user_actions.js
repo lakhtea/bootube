@@ -1,4 +1,5 @@
 import { fetchUser } from "../util/user_util";
+import { receiveErrors } from "./errors_actions";
 
 export const RECEIVE_USER = "RECEIVE_USER";
 

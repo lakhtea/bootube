@@ -2,9 +2,10 @@ import React, { Component } from "react";
 
 export default class Channel extends Component {
   componentDidMount() {
-    fetchUser();
+    // this.props.fetchUser(this.props.match);
   }
   render() {
+    console.log(this.props);
     const { sidebar, username } = this.props;
     const containerWidth = sidebar
       ? { width: "calc(100% - 240px" }
