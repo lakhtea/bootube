@@ -16,10 +16,11 @@ const VideosReducer = (state = {}, action) => {
   const newState = {};
   switch (action.type) {
     case RECEIVE_VIDEOS:
-      for (let i = 0; i < action.videos.length; i++) {
-        newState[action.videos[i].id - 1] = action.videos[i];
-      }
-      return newState;
+      // for (let i = 0; i < action.videos.length; i++) {
+      //   newState[action.videos[i].id] = action.videos[i];
+      // }
+      // return newState;
+      return action.videos;
 
     case RECEIVE_VIDEOS_SHOW:
       for (let i = 0; i < action.videos.length; i++) {

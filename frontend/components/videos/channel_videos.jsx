@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import VideoItem from "./video_item";
 
-export default class ChannelVideos extends Component {
+class ChannelVideos extends Component {
   render() {
     const { videos } = this.props;
+    console.log(this.props);
+    if (!videos.length) return null;
     return (
       <div className="channel-videos-container">
         <div className="channel-videos">
@@ -20,3 +22,5 @@ export default class ChannelVideos extends Component {
     );
   }
 }
+
+export default ChannelVideos;

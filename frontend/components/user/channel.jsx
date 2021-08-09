@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ChannelVideos from "../videos/channel_videos";
 
 export default class Channel extends Component {
   componentDidMount() {
@@ -7,8 +8,7 @@ export default class Channel extends Component {
   }
 
   render() {
-    console.log(this.props);
-    const { sidebar, username } = this.props;
+    const { sidebar, username, videos } = this.props;
     const containerWidth = sidebar
       ? { width: "calc(100% - 240px" }
       : { width: "calc(100% - 72px)" };
@@ -29,7 +29,9 @@ export default class Channel extends Component {
             <div className="channel-content-selector-video">Videos</div>
           </div>
         </div>
-        <div className="channel-content"></div>
+        <div className="channel-content">
+          <ChannelVideos videos={videos}></ChannelVideos>
+        </div>
       </div>
     );
   }

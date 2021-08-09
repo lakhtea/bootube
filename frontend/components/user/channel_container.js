@@ -8,6 +8,7 @@ const mstp = (state) => {
   return {
     sidebar: state.ui.sideBarToggled,
     username: state.entities.users.username,
+    videos: state.entities.videos,
   };
 };
 
