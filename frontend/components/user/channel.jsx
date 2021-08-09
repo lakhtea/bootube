@@ -16,11 +16,17 @@ export default class Channel extends Component {
       <div style={containerWidth} className="channel-container">
         <div className="channel-header">
           <div className="channel-label">
-            <div className="default-avatar">
-              <span>{username[0].toUpperCase()}</span>
+            <div className="channel-owner-detail">
+              <div className="default-avatar">
+                <span>{username[0].toUpperCase()}</span>
+              </div>
+              <div className="channel-username">{username}</div>
             </div>
           </div>
-          <div className="channel-content-selectors"></div>
+
+          <div className="channel-content-selectors">
+            <div className="channel-content-selector-video">Videos</div>
+          </div>
         </div>
         <div className="channel-content"></div>
       </div>
