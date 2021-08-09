@@ -10,6 +10,12 @@ export const getVideo = (videoId) =>
     url: `/api/videos/${videoId}`,
   });
 
+export const getUserVideos = (userId) =>
+  $.ajax({
+    method: "get",
+    url: `/api/user_videos/${userId}`,
+  });
+
 export const createVideo = (formData) =>
   $.ajax({
     method: "post",

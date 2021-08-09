@@ -3,6 +3,7 @@ import React, { Component } from "react";
 export default class Channel extends Component {
   componentDidMount() {
     this.props.fetchUser(this.props.location.pathname.slice(9));
+    this.props.fetchUserVideos(this.props.location.pathname.slice(9));
   }
 
   render() {

@@ -2,6 +2,7 @@ import {
   getVideos,
   getVideo,
   createVideo,
+  getUserVideos,
   destroyVideo,
 } from "../util/video_util";
 import { receiveErrors } from "../actions/errors_actions";
@@ -61,6 +62,12 @@ export const fetchVideosShow = () => (dispatch) =>
 export const fetchVideo = (videoId) => (dispatch) =>
   getVideo(videoId).then(
     (video) => dispatch(receiveVideo(video)),
+    (err) => dispatch(receiveErrors(err.responseJSON))
+  );
+
+export const fetchUserVideos = (userId) => (dispatch) =>
+  getUserVideos(userId).then(
+    (videos) => dispatch(receiveVideos(videos)),
     (err) => dispatch(receiveErrors(err.responseJSON))
   );
 

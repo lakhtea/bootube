@@ -25,6 +25,10 @@ class Api::UsersController < ApplicationController
     def liked_videos
         render "api/users/liked_videos"
     end
+
+    def videos 
+        @videos = User.find_by(id: params[:id]).videos
+    end
     
     def create
         @user = User.new(user_params)
