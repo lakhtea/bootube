@@ -14,7 +14,8 @@ class Api::UsersController < ApplicationController
     end
 
     def show
-        
+        p params
+        @user = User.find_by(id: params[:id])
     end
 
     def search

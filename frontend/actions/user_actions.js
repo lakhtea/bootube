@@ -12,6 +12,6 @@ const receiveUser = (user) => {
 
 export const getUser = (userId) => (dispatch) =>
   fetchUser(userId).then(
-    (user) => receiveUser(user),
+    (user) => dispatch(receiveUser(user)),
     (err) => dispatch(receiveErrors(err.responseJSON))
   );

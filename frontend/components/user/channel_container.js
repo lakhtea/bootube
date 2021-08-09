@@ -4,7 +4,10 @@ import { getUser } from "../../actions/user_actions";
 import Channel from "./channel";
 
 const mstp = (state) => {
-  return { sidebar: state.ui.sideBarToggled, user: state.users };
+  return {
+    sidebar: state.ui.sideBarToggled,
+    username: state.entities.users.username,
+  };
 };
 
 const mdtp = (dispatch) => {
