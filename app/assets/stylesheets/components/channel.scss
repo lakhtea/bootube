@@ -6,9 +6,15 @@
 }
 
 .channel-container {
-  position: relative;
+  margin: 0;
+  position: absolute;
   background-color: black;
   height: calc(100% - 56px);
-  bottom: 0;
-  right: 0;
+  bottom: 0px;
+  right: 0px;
+}
+
+.channel-header {
+  height: 148px;
+  background-color: #181818;
 }
