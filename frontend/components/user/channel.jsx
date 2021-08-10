@@ -8,20 +8,20 @@ export default class Channel extends Component {
   }
 
   render() {
-    const { sidebar, username, videos } = this.props;
+    const { sidebar, user, videos, currentUser } = this.props;
     const containerWidth = sidebar
       ? { width: "calc(100% - 240px" }
       : { width: "calc(100% - 72px)" };
-    if (!username) return null;
+    if (!user.username) return null;
     return (
       <div style={containerWidth} className="channel-container">
         <div className="channel-header">
           <div className="channel-label">
             <div className="channel-owner-detail">
               <div className="default-avatar">
-                <span>{username[0].toUpperCase()}</span>
+                <span>{user.username[0].toUpperCase()}</span>
               </div>
-              <div className="channel-username">{username}</div>
+              <div className="channel-username">{user.username}</div>
             </div>
           </div>
 
@@ -30,7 +30,11 @@ export default class Channel extends Component {
           </div>
         </div>
         <div className="channel-content">
-          <ChannelVideos videos={videos}></ChannelVideos>
+          <ChannelVideos
+            currentUser={currentUser}
+            user={user}
+            videos={videos}
+          ></ChannelVideos>
         </div>
       </div>
     );

@@ -1,20 +1,20 @@
 import React, { Component } from "react";
-import VideoItem from "./video_item";
+import ChannelVideoItem from "./channel_video_item";
 
 class ChannelVideos extends Component {
   render() {
-    const { videos } = this.props;
+    const { videos, currentUser, user } = this.props;
     if (!videos.length) return null;
     return (
       <div className="channel-videos-container">
         <div className="channel-videos">
           {videos.map((video, idx) => (
-            <VideoItem
+            <ChannelVideoItem
+              user={user}
+              currentUser={currentUser}
               key={idx}
-              loc={video.id}
-              idx={idx}
               video={video}
-            ></VideoItem>
+            ></ChannelVideoItem>
           ))}
         </div>
       </div>

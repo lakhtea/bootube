@@ -87,3 +87,77 @@
   height: 100%;
   gap: 10px;
 }
+
+.channel-videos .video-uploader,
+.channel-videos .avatar {
+  display: none;
+}
+
+.channel-owner-detail .default-avatar {
+  cursor: default;
+}
+
+.channel-container .video-detail,
+.channel-container .info {
+  width: 100%;
+}
+
+.channel-container .video-title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.channel-container .video-index-item-container {
+  position: relative;
+}
+
+.more-vert {
+  width: 30px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  z-index: 3;
+  border-radius: 50%;
+  transition: background-color 0.25s ease;
+  transform-origin: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.more-vert:active {
+  background-color: gray;
+}
+
+.expanded-menu {
+  height: 52px;
+  width: 216px;
+  background-color: $nav-gray;
+  position: absolute;
+  z-index: 4;
+  right: -195px;
+  bottom: -35px;
+  padding: 8px 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.delete-video {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.delete-video:hover {
+  background-color: #4f4f4f;
+}
+
+.delete-video .material-icons {
+  color: #909090;
+}

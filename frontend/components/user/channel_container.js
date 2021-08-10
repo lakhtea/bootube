@@ -7,7 +7,8 @@ import Channel from "./channel";
 const mstp = (state) => {
   return {
     sidebar: state.ui.sideBarToggled,
-    username: state.entities.users.username,
+    user: state.entities.users,
+    currentUser: state.session.currentUser,
     videos: state.entities.videos,
   };
 };

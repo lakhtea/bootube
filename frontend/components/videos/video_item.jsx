@@ -7,10 +7,6 @@ class VideoItem extends React.Component {
     super(props);
   }
 
-  hover() {
-    return true;
-  }
-
   render() {
     return (
       <div className={`video-index-item item-${this.props.idx}`}>
