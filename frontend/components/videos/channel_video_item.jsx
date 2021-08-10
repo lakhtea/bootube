@@ -2,12 +2,22 @@ import React, { Component } from "react";
 import moment from "moment";
 import { withRouter } from "react-router";
 import onClickOutside from "react-onclickoutside";
+import EditVideo from "./edit_video";
 
 class ChannelVideoItem extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { hover: false, menuToggled: false, deleteVideo: false };
+    this.state = {
+      hover: false,
+      menuToggled: false,
+      deleteVideo: false,
+      editVideo: false,
+    };
+  }
+
+  handleEditClick() {
+    this.setState({ editVideo: true });
   }
 
   handleClickOutside() {
@@ -16,6 +26,12 @@ class ChannelVideoItem extends Component {
 
   render() {
     const { video, currentUser, user, deleteVideo } = this.props;
+    const editVideoModal = this.state.editVideo ? (
+      <EditVideo
+        video={video}
+        handleEditClick={this.handleEditClick}
+      ></EditVideo>
+    ) : null;
     const deleteVideoModal = this.state.deleteVideo ? (
       <div className="delete-video-modal-background">
         <div className="delete-video-modal">
@@ -30,7 +46,9 @@ class ChannelVideoItem extends Component {
               Delete
             </button>
             <button
-              onClick={() => this.setState({ deleteVideo: false })}
+              onClick={() =>
+                this.setState({ deleteVideo: false, menuToggled: false })
+              }
               className="cancel-delete-video-button"
             >
               Cancel
@@ -63,12 +81,22 @@ class ChannelVideoItem extends Component {
         >
           <span className="material-icons">delete</span> Delete Video
         </div>
+        <div
+          onClick={(e) => {
+            e.stopPropagation();
+            this.setState({ editVideo: true });
+          }}
+          className="edit-video"
+        >
+          <span className="material-icons">edit</span> Edit Video
+        </div>
       </div>
     ) : null;
 
     return (
       <div className="video-index-item-container">
         {deleteVideoModal}
+        {editVideoModal}
         <div
           onMouseOver={(e) => this.setState({ hover: true })}
           onMouseLeave={(e) => this.setState({ hover: false })}

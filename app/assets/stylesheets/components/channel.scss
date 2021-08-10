@@ -131,7 +131,6 @@
 }
 
 .expanded-menu {
-  height: 52px;
   width: 216px;
   background-color: $nav-gray;
   position: absolute;
@@ -141,12 +140,15 @@
   padding: 8px 0;
   box-sizing: border-box;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
   font-size: 14px;
   cursor: pointer;
 }
 
-.delete-video {
+.delete-video,
+.edit-video {
   box-sizing: border-box;
   width: 100%;
   display: flex;
@@ -154,11 +156,13 @@
   gap: 10px;
 }
 
-.delete-video:hover {
+.delete-video:hover,
+.edit-video:hover {
   background-color: #4f4f4f;
 }
 
-.delete-video .material-icons {
+.delete-video .material-icons,
+.edit-video .material-icons {
   color: #909090;
 }
 

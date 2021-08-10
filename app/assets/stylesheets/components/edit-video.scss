@@ -1,0 +1,27 @@
+.edit-video-modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba($color: #4f4f4f, $alpha: 0.6);
+}
+
+.edit-video-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  padding: 48px 40px 36px;
+  background-color: black;
+  border-radius: 7.5px;
+  width: 960px;
+  height: 860px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
