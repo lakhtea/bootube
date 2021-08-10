@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import moment from "moment";
 import { withRouter } from "react-router";
 import onClickOutside from "react-onclickoutside";
+import { deleteVideo } from "../../actions/videos_actions";
 
 class ChannelVideoItem extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { hover: false, menuToggled: false };
+    this.state = { hover: false, menuToggled: false, deleteVideo: false };
   }
 
   handleClickOutside() {
@@ -16,6 +17,29 @@ class ChannelVideoItem extends Component {
 
   render() {
     const { video, currentUser, user } = this.props;
+    const deleteVideoModal = this.state.deleteVideo ? (
+      <div className="delete-video-modal-background">
+        <div className="delete-video-modal">
+          <h1 className="delete-verification-message">
+            Delete video permanently?
+          </h1>
+          <div className="buttons">
+            <button
+              onClick={() => deleteVideo(video.id)}
+              className="delete-video-button"
+            >
+              Delete
+            </button>
+            <button
+              onClick={() => this.setState({ deleteVideo: false })}
+              className="cancel-delete-video-button"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    ) : null;
     const menu =
       this.state.hover && user.id === currentUser.id ? (
         <div
@@ -31,13 +55,21 @@ class ChannelVideoItem extends Component {
       ) : null;
     const expandedMenu = this.state.menuToggled ? (
       <div className="expanded-menu">
-        <div className="delete-video">
+        <div
+          onClick={(e) => {
+            e.stopPropagation();
+            this.setState({ deleteVideo: true });
+          }}
+          className="delete-video"
+        >
           <span className="material-icons">delete</span> Delete Video
         </div>
       </div>
     ) : null;
+
     return (
       <div className="video-index-item-container">
+        {deleteVideoModal}
         <div
           onMouseOver={(e) => this.setState({ hover: true })}
           onMouseLeave={(e) => this.setState({ hover: false })}

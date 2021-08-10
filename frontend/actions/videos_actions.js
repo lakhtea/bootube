@@ -77,5 +77,7 @@ export const postVideo = (formData) => (dispatch) =>
     (err) => dispatch(receiveErrors(err.responseJSON))
   );
 
-export const deleteVideo = (videoId) => (dispatch) =>
+export const deleteVideo = (videoId) => (dispatch) => {
+  console.log(videoId);
   destroyVideo(videoId).then((video) => dispatch(removeVideo(video.id)));
+};

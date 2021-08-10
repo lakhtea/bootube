@@ -44,7 +44,8 @@ const VideosReducer = (state = {}, action) => {
       return nextState;
 
     case DELETE_VIDEO:
-      delete nextState[action.videoId];
+      const index = nextState.findIndex((video) => video.id === action.videoId);
+      delete nextState[index];
       return nextState;
 
     default:

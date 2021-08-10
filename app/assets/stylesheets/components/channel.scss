@@ -161,3 +161,80 @@
 .delete-video .material-icons {
   color: #909090;
 }
+
+.delete-video-modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba($color: #4f4f4f, $alpha: 0.6);
+}
+
+.delete-video-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  padding: 48px 40px 36px;
+  background-color: black;
+  border-radius: 7.5px;
+  width: 405px;
+  height: 200px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.delete-verification-message {
+  font-family: "Roboto", "Noto", sans-serif;
+
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.delete-video-button {
+  background-color: $red;
+  height: 56px;
+  width: 104px;
+  font-size: 20px;
+  letter-spacing: 0.25px;
+  color: white;
+  font-family: "Roboto", "Noto", sans-serif;
+  border: none;
+  border-radius: 7.5px;
+  outline: none;
+}
+
+.delete-video-button:active {
+  background-color: #6a120a;
+  transition: background-color 0.25s;
+}
+
+.cancel-delete-video-button {
+  height: 56px;
+  width: 104px;
+  font-size: 20px;
+  letter-spacing: 0.25px;
+  color: black;
+  font-family: "Roboto", "Noto", sans-serif;
+  border: none;
+  border-radius: 7.5px;
+  outline: none;
+}
+
+.cancel-delete-video-button:active {
+  background-color: #909090;
+  transition: background-color 0.25s;
+}
