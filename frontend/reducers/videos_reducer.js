@@ -16,11 +16,11 @@ const VideosReducer = (state = {}, action) => {
   const newState = {};
   switch (action.type) {
     case RECEIVE_VIDEOS:
-      // for (let i = 0; i < action.videos.length; i++) {
-      //   newState[action.videos[i].id] = action.videos[i];
-      // }
-      // return newState;
-      return action.videos;
+      for (let i = 0; i < action.videos.length; i++) {
+        newState[action.videos[i].id] = action.videos[i];
+      }
+      return newState;
+    // return action.videos;
 
     case RECEIVE_VIDEOS_SHOW:
       for (let i = 0; i < action.videos.length; i++) {
@@ -44,8 +44,7 @@ const VideosReducer = (state = {}, action) => {
       return nextState;
 
     case DELETE_VIDEO:
-      const index = nextState.findIndex((video) => video.id === action.videoId);
-      delete nextState[index];
+      delete nextState[action.videoId];
       return nextState;
 
     default:

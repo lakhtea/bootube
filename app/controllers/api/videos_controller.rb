@@ -27,9 +27,10 @@ class Api::VideosController < ApplicationController
     @videos = Video.all
   end
 
-  def delete
+  def destroy
     @video = Video.find_by(id: params[:id])
     if @video.delete
+      render :destroy
     else
       render json: ["Video could not be deleted"], status: 422
     end

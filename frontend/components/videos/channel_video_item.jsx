@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import moment from "moment";
 import { withRouter } from "react-router";
 import onClickOutside from "react-onclickoutside";
-import { deleteVideo } from "../../actions/videos_actions";
 
 class ChannelVideoItem extends Component {
   constructor(props) {
@@ -16,7 +15,7 @@ class ChannelVideoItem extends Component {
   }
 
   render() {
-    const { video, currentUser, user } = this.props;
+    const { video, currentUser, user, deleteVideo } = this.props;
     const deleteVideoModal = this.state.deleteVideo ? (
       <div className="delete-video-modal-background">
         <div className="delete-video-modal">
