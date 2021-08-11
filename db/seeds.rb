@@ -14,6 +14,8 @@ Video.destroy_all
 ApplicationRecord.connection.reset_pk_sequence!('videos')
 Comment.destroy_all
 ApplicationRecord.connection.reset_pk_sequence!('comments')
+Like.destroy_all
+ApplicationRecord.connection.reset_pk_sequence!('likes')
 
 lakhte = User.create!(username: "Lakhte", email: "lakhte@lakhte.com", password: "Lakhte")
 # ryan = User.create!(username: "RyanNaing", email: "ryan@ryan", password: "RyanNaing")
