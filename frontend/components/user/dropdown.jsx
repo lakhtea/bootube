@@ -1,14 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Avatar from "./avatar";
 
 const Dropdown = ({ currentUser, logout }) => {
   if (!currentUser) return null;
   return (
     <div className="dropdown">
       <div className="user-card">
-        <button className="user-link-dummy">
-          {currentUser?.username[0].toUpperCase()}
-        </button>
+        <Avatar
+          id={currentUser.id}
+          username={currentUser.username}
+          avatar={currentUser.avatarUrl}
+        ></Avatar>
         <div className="user-info">
           <h5>{currentUser?.username}</h5>
           <span>{currentUser?.email}</span>

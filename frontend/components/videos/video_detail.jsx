@@ -6,8 +6,13 @@ import Avatar from "../user/avatar";
 const VideoDetail = ({ video }) => {
   return (
     <div className="video-detail">
-      <div className="avatar">
-        <Avatar id={video.uploader_id} username={video.username}></Avatar>
+      <div>
+        <Avatar
+          avatar={video.avatarUrl}
+          id={video.uploader_id}
+          username={video.username}
+          clickable={true}
+        ></Avatar>
       </div>
       <div className="info">
         <Link className="video-title" to={`/videos/${video.id}`}>

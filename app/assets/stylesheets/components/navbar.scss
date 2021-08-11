@@ -162,22 +162,19 @@
 }
 
 .user-link button {
-  height: 32px;
-  width: 32px;
+  // height: 32px;
+  // width: 32px;
   border-style: none;
-  box-sizing: border-box;
-  background-color: $red;
+  // box-sizing: border-box;
+  background-color: $nav-gray;
   border-radius: 50%;
-  color: white;
-  font-size: 16px;
+  // color: white;
+  // font-size: 16px;
   outline: none;
-  cursor: pointer;
+  // cursor: pointer;
+  user-select: none;
 }
 
-button:focus {
-  border-style: none;
-  border: 1px solid $blue;
-}
 .elements .toggled > .dropdown,
 .elements .toggled > .dropdown:hover,
 .elements .toggled > .dropdown:focus-within {

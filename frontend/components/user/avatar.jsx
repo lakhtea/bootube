@@ -1,9 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
 
-export default class Avatar extends Component {
+class Avatar extends Component {
   render() {
-    const { id, username } = this.props;
+    const { id, username, avatar, clickable } = this.props;
+    const click = clickable
+      ? () => this.props.history.push(`/channel/${id}`)
+      : null;
+    if (avatar)
+      return <img onClick={click} className="avatar" src={avatar} alt="" />;
     return (
       <div className="renderer">
         <div className="avatar-container">
@@ -15,3 +21,5 @@ export default class Avatar extends Component {
     );
   }
 }
+
+export default withRouter(Avatar);

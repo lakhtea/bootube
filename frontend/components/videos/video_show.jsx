@@ -6,6 +6,7 @@ import VideoIndexSidebarContainer from "./video_index_sidebar_container";
 import { Link } from "react-router-dom";
 import LikeDislikeContainer from "../likes/likedislike_container";
 import UploadModal from "../videos/video_upload_container";
+import Avatar from "../user/avatar";
 
 class VideoShow extends React.Component {
   constructor(props) {
@@ -217,6 +218,12 @@ class VideoShow extends React.Component {
               </div>
               <div className="description-container">
                 <div className="description-header">
+                  <Avatar
+                    id={video.uploader_id}
+                    username={video.username}
+                    avatar={video.avatarUrl}
+                    clickable={true}
+                  ></Avatar>
                   <Link to={`/channel/${video.uploader_id}`}>
                     {video.username}
                   </Link>

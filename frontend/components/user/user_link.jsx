@@ -1,6 +1,7 @@
 import React from "react";
 import Dropdown from "./dropdown";
 import onClickOutside from "react-onclickoutside";
+import Avatar from "./avatar";
 
 class UserLink extends React.Component {
   constructor(props) {
@@ -37,7 +38,11 @@ class UserLink extends React.Component {
             );
           }}
         >
-          {currentUser?.username[0].toUpperCase()}
+          <Avatar
+            id={currentUser.id}
+            username={currentUser.username}
+            avatar={currentUser.avatarUrl}
+          ></Avatar>
         </button>
         <Dropdown logout={logout} currentUser={currentUser} />
       </div>

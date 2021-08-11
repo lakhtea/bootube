@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ChannelVideos from "../videos/channel_videos";
 import UploadModal from "../videos/video_upload_container";
+import Avatar from "./avatar";
 
 export default class Channel extends Component {
   componentDidMount() {
@@ -28,9 +29,11 @@ export default class Channel extends Component {
         <div className="channel-header">
           <div className="channel-label">
             <div className="channel-owner-detail">
-              <div className="default-avatar">
-                <span>{user.username[0].toUpperCase()}</span>
-              </div>
+              <Avatar
+                avatar={user.avatarUrl}
+                id={user.id}
+                username={user.username}
+              ></Avatar>
               <div className="channel-username">{user.username}</div>
             </div>
           </div>
