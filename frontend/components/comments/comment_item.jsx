@@ -1,19 +1,23 @@
 import React from "react";
 import moment from "moment";
-import UserLink from "../user/user_link";
+import Avatar from "../user/avatar";
 
 class CommentItem extends React.Component {
   render() {
+    const { comment } = this.props;
     return (
-      <div key={this.props.comment.id} className="comment">
+      <div key={comment.id} className="comment">
         <div className="comment-info">
-          <UserLink currentUser={this.props.currentUser} />
-          <div className="comment-user">{this.props.comment.username}</div>
-          <div className="updated">
-            {moment(this.props.comment.updated_at).fromNow()}
-          </div>
+          <Avatar
+            id={comment.user_id}
+            username={comment.username}
+            avatar={comment.avatarUrl}
+            clickable={true}
+          />
+          <div className="comment-user">{comment.username}</div>
+          <div className="updated">{moment(comment.updated_at).fromNow()}</div>
         </div>
-        <div className="comment-body">{this.props.comment.body}</div>
+        <div className="comment-body">{comment.body}</div>
       </div>
     );
   }
