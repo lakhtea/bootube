@@ -41,7 +41,7 @@ export default ({
           </button>
 
           <h1>
-            <Link onClick={fetchVideos} to="/">
+            <Link className="bootube-logo" onClick={fetchVideos} to="/">
               bootube
             </Link>
           </h1>
