@@ -15,14 +15,22 @@ ApplicationRecord.connection.reset_pk_sequence!('videos')
 Comment.destroy_all
 ApplicationRecord.connection.reset_pk_sequence!('comments')
 
-# lakhte = User.create!(username: "Lakhte", email: "lakhte@lakhte", password: "Lakhte")
+lakhte = User.create!(username: "Lakhte", email: "lakhte@lakhte.com", password: "Lakhte")
 # ryan = User.create!(username: "RyanNaing", email: "ryan@ryan", password: "RyanNaing")
 # john = User.create!(username: "JohnCheung", email: "john@john", password: "JohnCheung")
 demo = User.create!(username: "Demo User", email: "demo_user@demo.com", password: "password")
 # dane = User.create!(username: "Dane the TA", email: "dane@appacademy.com", password: "stonks")
+anon = User.create!(username: "Anonymous", email: "anon@anon.com", password: "Anonymous")
+
 
 file = open("./app/assets/images/OrangePeel.jpeg")
 demo.avatar.attach(io: file, filename: 'orangepeel')
+
+file = open("./app/assets/images/Lakhte.jpeg")
+lakhte.avatar.attach(io: file, filename: 'lakhte')
+
+file = open("./app/assets/images/Anonymous.jpeg")
+anon.avatar.attach(io: file, filename: 'anon')
 # demo_video = Video.create!(title: "Demo 0", description: "Real programmers start counting at 0", uploader_id: 4)
 # # file = open("https://bootube-seeds.s3.amazonaws.com/deadlift.mp4")
 # file = open("../videos/deadlift.mp4")
