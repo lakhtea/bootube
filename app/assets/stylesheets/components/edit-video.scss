@@ -22,6 +22,7 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -39,6 +40,7 @@
 
 .edit-video-modal .material-icons {
   color: #aaaaaa;
+  cursor: pointer;
 }
 
 .edit-video-modal-container {
@@ -162,7 +164,20 @@
 .edit-description-content {
   outline: none;
   margin-top: 10px;
-  font-size: 15px;
+  font: 15px "Roboto", "Noto Sans", sans-serif;
+  color: white;
+  background-color: #282828;
+  border: none;
+  resize: none;
+  width: 100%;
+}
+
+.edit-title-content {
+  height: 60%;
+}
+
+.edit-description-content {
+  height: 80%;
 }
 
 .edit-title:focus-within .header,
@@ -173,4 +188,25 @@
 .edit-title:focus-within,
 .edit-description:focus-within {
   border-color: #3ea6ff;
+}
+
+.bottom-bar {
+  border-top: 1px solid rgba($color: #606060, $alpha: 0.5);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.finish-editing {
+  align-self: flex-end;
+  margin: 15px 48px 15px 0;
+  border: none;
+  box-sizing: border-box;
+  padding: 8px;
+  background-color: #3ea6ff;
+  border-radius: 2.5px;
+  font-size: 15px;
+  color: black;
+  user-select: none;
+  cursor: pointer;
 }

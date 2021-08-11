@@ -14,10 +14,12 @@ class ChannelVideoItem extends Component {
       deleteVideo: false,
       editVideo: false,
     };
+
+    this.handleEditClick = this.handleEditClick.bind(this);
   }
 
   handleEditClick() {
-    this.setState({ editVideo: true });
+    this.setState({ editVideo: false, menuToggled: false });
   }
 
   handleClickOutside() {
