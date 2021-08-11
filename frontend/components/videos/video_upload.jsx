@@ -55,7 +55,13 @@ class UploadModal extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul
+        style={{
+          color: "#3ea6ff",
+          alignSelf: "flex-start",
+          paddingLeft: "48px",
+        }}
+      >
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {" "}
