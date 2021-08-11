@@ -2,6 +2,15 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 export default class EditVideo extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      title: this.props.video.title,
+      description: this.props.video.description,
+    };
+  }
+
   render() {
     const { video } = this.props;
     return (
@@ -17,8 +26,23 @@ export default class EditVideo extends Component {
 
           <div className="edit-video-modal-container">
             <div className="edit-video-details-container">
-              <div className="edit-title"></div>
-              <div className="edit-description"></div>
+              <div className="edit-title">
+                <div className="header">Title (required)</div>
+                <div
+                  placeholder="Add a title that describes your video"
+                  className="edit-title-content"
+                  contentEditable
+                ></div>
+              </div>
+
+              <div className="edit-description">
+                <div className="header">Description (required)</div>
+                <div
+                  placeholder="Tell viewers about your video"
+                  className="edit-description-content"
+                  contentEditable
+                ></div>
+              </div>
             </div>
 
             <div className="edit-video-container">
@@ -32,17 +56,22 @@ export default class EditVideo extends Component {
                     localhost:3000/#/videos/{video.id}
                   </Link>
                 </div>
-                <div className="filename">
-                  <div>Filename</div>
+                <div className="file-container">
+                  <div className="filename-container">
+                    <div className="filename-header">
+                      <div>Filename</div>
+                    </div>
+                    <div className="filename">{video.title}</div>
+                  </div>
+                  <input
+                    id="file-upload"
+                    className="video-upload-file"
+                    type="file"
+                  />
+                  <label className="edit-file" htmlFor="file-upload">
+                    Update video file
+                  </label>
                 </div>
-                <input
-                  id="file-upload"
-                  className="video-upload-file"
-                  type="file"
-                />
-                <label className="upload-file" htmlFor="file-upload">
-                  Update Video File
-                </label>
               </div>
             </div>
           </div>

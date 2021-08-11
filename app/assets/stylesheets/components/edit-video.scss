@@ -1,3 +1,4 @@
+@import "application";
 .edit-video-modal-background {
   position: fixed;
   top: 0;
@@ -68,14 +69,29 @@
   width: 536px;
   height: 81px;
   border: 1px solid gray;
-  border-radius: 7.5px;
+  border-radius: 5px;
+  padding: 0 12px 11px;
+  box-sizing: border-box;
+}
+.edit-title .header {
+  margin: 8px 0 3px;
+  color: #aaaaaa;
+  font: 12px "Roboto", "Noto", sans-serif;
 }
 
 .edit-description {
   width: 536px;
   height: 165px;
   border: 1px solid gray;
-  border-radius: 7.5px;
+  border-radius: 5px;
+  padding: 0 12px 11px;
+  box-sizing: border-box;
+}
+
+.edit-description .header {
+  margin: 8px 0 3px;
+  color: #aaaaaa;
+  font: 12px "Roboto", "Noto", sans-serif;
 }
 
 .edit-modal-video {
@@ -98,20 +114,63 @@
   background-color: #1f1f1f;
 }
 
-.video-link,
-.filename {
+.video-link {
   color: #aaaaaa;
   font: 12px "Noto", "Roboto", sans-serif;
-  padding: 0 16px 0 12px;
-  margin-top: 12px;
+  margin: 0 16px 0 12px;
+  padding-top: 12px;
+  box-sizing: border-box;
+}
+
+.filename-header {
+  color: #aaaaaa;
+  font: 12px "Noto", "Roboto", sans-serif;
+  margin: 0 16px 0 12px;
   box-sizing: border-box;
 }
 
 .video-link a {
   color: #3ea6ff;
   padding: 0 0 5px;
+  line-height: 29px;
 }
 
-.filename .upload-file {
+.edit-file {
+  background-color: #3ea6ff;
+  color: black;
   padding: 5px;
+  box-sizing: border-box;
+  line-height: 24px;
+  height: 36px;
+  cursor: pointer;
+  border-radius: 2.5px;
+}
+
+.filename {
+  line-height: 29px;
+  margin: 0 16px 0 12px;
+  padding: 0 0 5px;
+  font-size: 15px;
+}
+
+.file-container {
+  display: flex;
+  align-items: center;
+}
+
+.edit-title-content,
+.edit-description-content {
+  outline: none;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.edit-title:focus-within .header,
+.edit-description:focus-within .header {
+  color: #3ea6ff;
+}
+
+.edit-title:focus-within,
+.edit-description:focus-within {
+  border-color: #3ea6ff;
 }
