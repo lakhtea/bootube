@@ -30,14 +30,9 @@ class Api::VideosController < ApplicationController
   def update 
     @video = Video.find_by(id: params[:id])
 
-    @video.title = params[:title]
-    @video.description = params[:description]
-    if params[:vid]
-      p "poopie"
+    if @video.update(video_params)
+      render "api/videos/show"
     end
-
-    @video.save
-    render "api/videos/show"
   end
 
   def destroy

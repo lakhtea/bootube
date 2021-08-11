@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
 
-export default class EditVideo extends Component {
+class EditVideo extends Component {
   constructor(props) {
     super(props);
 
@@ -96,7 +97,7 @@ export default class EditVideo extends Component {
                   <div className="video-link">
                     <div>Video Link</div>
                     <Link to={`/videos/${video.id}`}>
-                      localhost:3000/#/videos/{video.id}
+                      bootube.herokuapp.com/#/videos/{video.id}
                     </Link>
                   </div>
                   <div className="file-container">
@@ -131,3 +132,5 @@ export default class EditVideo extends Component {
     );
   }
 }
+
+export default withRouter(EditVideo);
