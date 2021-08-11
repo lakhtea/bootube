@@ -8,7 +8,8 @@ export default class Channel extends Component {
   }
 
   render() {
-    const { sidebar, user, videos, currentUser, deleteVideo } = this.props;
+    const { sidebar, user, videos, currentUser, deleteVideo, updateVideo } =
+      this.props;
     const containerWidth = sidebar
       ? { width: "calc(100% - 240px" }
       : { width: "calc(100% - 72px)" };
@@ -32,6 +33,7 @@ export default class Channel extends Component {
         <div className="channel-content">
           <ChannelVideos
             deleteVideo={deleteVideo}
+            updateVideo={updateVideo}
             currentUser={currentUser}
             user={user}
             videos={videos}

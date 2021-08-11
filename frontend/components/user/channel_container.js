@@ -1,7 +1,11 @@
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { getUser } from "../../actions/user_actions";
-import { fetchUserVideos, deleteVideo } from "../../actions/videos_actions";
+import {
+  fetchUserVideos,
+  deleteVideo,
+  updateVideo,
+} from "../../actions/videos_actions";
 import Channel from "./channel";
 
 const mstp = (state) => {
@@ -18,6 +22,8 @@ const mdtp = (dispatch) => {
     fetchUser: (userId) => dispatch(getUser(userId)),
     fetchUserVideos: (userId) => dispatch(fetchUserVideos(userId)),
     deleteVideo: (videoId) => dispatch(deleteVideo(videoId)),
+    updateVideo: (formData, videoId) =>
+      dispatch(updateVideo(formData, videoId)),
   };
 };
 

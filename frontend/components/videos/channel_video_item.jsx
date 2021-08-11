@@ -27,11 +27,12 @@ class ChannelVideoItem extends Component {
   }
 
   render() {
-    const { video, currentUser, user, deleteVideo } = this.props;
+    const { video, currentUser, user, deleteVideo, updateVideo } = this.props;
     const editVideoModal = this.state.editVideo ? (
       <EditVideo
         video={video}
         handleEditClick={this.handleEditClick}
+        updateVideo={updateVideo}
       ></EditVideo>
     ) : null;
     const deleteVideoModal = this.state.deleteVideo ? (

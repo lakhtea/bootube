@@ -4,6 +4,7 @@ import {
   createVideo,
   getUserVideos,
   destroyVideo,
+  patchVideo,
 } from "../util/video_util";
 import { receiveErrors } from "../actions/errors_actions";
 
@@ -73,6 +74,12 @@ export const fetchUserVideos = (userId) => (dispatch) =>
 
 export const postVideo = (formData) => (dispatch) =>
   createVideo(formData).then(
+    (video) => dispatch(receiveVideo(video)),
+    (err) => dispatch(receiveErrors(err.responseJSON))
+  );
+
+export const updateVideo = (formData, videoId) => (dispatch) =>
+  patchVideo(formData, videoId).then(
     (video) => dispatch(receiveVideo(video)),
     (err) => dispatch(receiveErrors(err.responseJSON))
   );

@@ -25,6 +25,15 @@ export const createVideo = (formData) =>
     processData: false,
   });
 
+export const patchVideo = (formData, videoId) =>
+  $.ajax({
+    method: "patch",
+    url: `/api/videos/${videoId}`,
+    data: formData,
+    contentType: false,
+    processData: false,
+  });
+
 export const destroyVideo = (videoId) =>
   $.ajax({
     method: "delete",

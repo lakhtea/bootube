@@ -8,15 +8,44 @@ export default class EditVideo extends Component {
     this.state = {
       title: this.props.video.title,
       description: this.props.video.description,
+      filename: null,
+      videoFile: null,
     };
 
-    this.handleUpdate = this.handleUpdate.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.update = this.update.bind(this);
   }
 
-  handleUpdate() {}
+  handleSubmit(e) {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("video[title]", this.state.title);
+    formData.append("video[description]", this.state.description);
+    if (this.state.videoFile)
+      formData.append("video[vid]", this.state.videoFile);
+
+    this.props
+      .updateVideo(formData, this.props.video.id)
+      .then(({ video }) => this.props.history.push(`/videos/${video.id}`));
+  }
+
+  update(type) {
+    return (e) => this.setState({ [type]: e.target.value });
+  }
+
+  updateFile() {
+    return (e) =>
+      this.setState({
+        filename: e.target.files[0].name,
+        videoFile: e.target.files[0],
+      });
+  }
 
   render() {
     const { video } = this.props;
+    const videoUrl = this.state.videoFile
+      ? URL.createObjectURL(this.state.videoFile)
+      : video.videoUrl;
     return (
       <div className="edit-video-modal-background">
         <div className="edit-video-modal">
@@ -42,7 +71,8 @@ export default class EditVideo extends Component {
                     placeholder="Add a title that describes your video"
                     className="edit-title-content"
                     required
-                    value={this.state.title}
+                    defaultValue={this.state.title}
+                    onChange={this.update("title")}
                   ></textarea>
                 </div>
 
@@ -52,14 +82,15 @@ export default class EditVideo extends Component {
                     placeholder="Tell viewers about your video"
                     className="edit-description-content"
                     required
-                    value={this.state.description}
+                    defaultValue={this.state.description}
+                    onChange={this.update("description")}
                   ></textarea>
                 </div>
               </div>
 
               <div className="edit-video-container">
                 <div className="edit-modal-video">
-                  <video src={video.videoUrl}></video>
+                  <video src={videoUrl}></video>
                 </div>
                 <div className="edit-modal-video-info">
                   <div className="video-link">
@@ -73,15 +104,17 @@ export default class EditVideo extends Component {
                       <div className="filename-header">
                         <div>Filename</div>
                       </div>
-                      <div className="filename">{video.title}</div>
+                      <div className="filename">{this.state.filename}</div>
                     </div>
                     <input
-                      id="file-upload"
+                      onChange={this.updateFile()}
+                      id="file-edit-upload"
                       className="video-upload-file"
                       type="file"
+                      defaultValue={this.state.filename}
                     />
-                    <label className="edit-file" htmlFor="file-upload">
-                      Update video file
+                    <label className="edit-file" htmlFor="file-edit-upload">
+                      <span>Update video</span>
                     </label>
                   </div>
                 </div>
@@ -89,7 +122,9 @@ export default class EditVideo extends Component {
             </div>
           </div>
           <div className="bottom-bar">
-            <div className="finish-editing">Save changes</div>
+            <div onClick={this.handleSubmit} className="finish-editing">
+              Save changes
+            </div>
           </div>
         </div>
       </div>

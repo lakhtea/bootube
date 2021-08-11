@@ -142,10 +142,19 @@
   color: black;
   padding: 5px;
   box-sizing: border-box;
-  line-height: 24px;
   height: 36px;
   cursor: pointer;
   border-radius: 2.5px;
+  margin-right: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  width: 98px;
+}
+
+.edit-file span {
+  width: 100%;
 }
 
 .filename {
@@ -158,6 +167,7 @@
 .file-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .edit-title-content,
