@@ -107,6 +107,7 @@ class ChannelVideoItem extends Component {
           className={`video-index-item`}
         >
           <video
+            id="channel-video-item"
             key={video.id}
             onMouseOver={(e) => e.target.play()}
             onMouseOut={(e) => {
