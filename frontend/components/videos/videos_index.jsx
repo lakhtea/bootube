@@ -1,5 +1,6 @@
 import React from "react";
 import VideoItem from "./video_item";
+import UploadModal from "../videos/video_upload_container";
 
 class VideosIndex extends React.Component {
   constructor(props) {
@@ -11,6 +12,8 @@ class VideosIndex extends React.Component {
   }
 
   render() {
+    if (this.props.uploadModal) return <UploadModal></UploadModal>;
+
     let paddingLeft = { paddingLeft: "90px" };
     this.props.sidebar
       ? (paddingLeft = { paddingLeft: "260px" })

@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { toggleSideBar } from "../../actions/ui_actions";
 import SearchBarContainer from "../searchbar/searchbar_container";
 import UserLink from "../user/user_link";
 
@@ -10,6 +9,7 @@ export default ({
   logout,
   fetchVideos,
   toggleSideBar,
+  uploadModal,
 }) => {
   if (
     ownProps.location.pathname === "/login" ||
@@ -18,9 +18,9 @@ export default ({
     return null;
   const display = currentUser ? (
     <div className="elements">
-      <Link to="/videos/new">
+      <div onClick={() => uploadModal(true)}>
         <span className="material-icons">video_call</span>
-      </Link>
+      </div>
       <UserLink logout={logout} currentUser={currentUser} />
     </div>
   ) : (

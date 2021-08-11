@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-class VideoUploadForm extends React.Component {
+class UploadModal extends React.Component {
   constructor(props) {
     super(props);
 
@@ -98,4 +98,4 @@ class VideoUploadForm extends React.Component {
   }
 }
 
-export default VideoUploadForm;
+export default UploadModal;

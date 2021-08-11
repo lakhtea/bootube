@@ -10,6 +10,7 @@ const mstp = (state, ownProps) => {
       videoId: ownProps.match.params.videoId,
       currentUser: state.session.currentUser,
       numOfComments: Object.values(state.entities.comments).length,
+      uploadModal: state.ui.uploadModal,
     };
   }
   return {

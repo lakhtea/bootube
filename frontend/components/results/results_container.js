@@ -3,10 +3,11 @@ import Results from "./results";
 import { onQuery, query } from "../../actions/search_actions";
 import { withRouter } from "react-router";
 
-const mstp = ({ entities }) => {
+const mstp = ({ entities, ui }) => {
   return {
     videos: entities.videos,
     users: entities.users,
+    uploadModal: ui.uploadModal,
   };
 };
 

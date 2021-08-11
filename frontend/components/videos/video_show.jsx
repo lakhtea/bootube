@@ -5,6 +5,7 @@ import CommentFormContainer from "../comments/comment_form_container";
 import VideoIndexSidebarContainer from "./video_index_sidebar_container";
 import { Link } from "react-router-dom";
 import LikeDislikeContainer from "../likes/likedislike_container";
+import UploadModal from "../videos/video_upload_container";
 
 class VideoShow extends React.Component {
   constructor(props) {
@@ -120,7 +121,8 @@ class VideoShow extends React.Component {
   }
 
   render() {
-    const { video, currentUser } = this.props;
+    const { video, currentUser, uploadModal } = this.props;
+    if (uploadModal) return <UploadModal></UploadModal>;
     if (!video) return null;
 
     let loadedStyle = {

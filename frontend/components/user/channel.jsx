@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ChannelVideos from "../videos/channel_videos";
+import UploadModal from "../videos/video_upload_container";
 
 export default class Channel extends Component {
   componentDidMount() {
@@ -8,8 +9,16 @@ export default class Channel extends Component {
   }
 
   render() {
-    const { sidebar, user, videos, currentUser, deleteVideo, updateVideo } =
-      this.props;
+    const {
+      sidebar,
+      user,
+      videos,
+      currentUser,
+      deleteVideo,
+      updateVideo,
+      uploadModal,
+    } = this.props;
+    if (uploadModal) return <UploadModal></UploadModal>;
     const containerWidth = sidebar
       ? { width: "calc(100% - 240px" }
       : { width: "calc(100% - 72px)" };

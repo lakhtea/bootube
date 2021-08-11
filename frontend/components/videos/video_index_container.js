@@ -6,6 +6,7 @@ const mstp = (state) => {
   return {
     videos: Object.values(state.entities.videos),
     sidebar: state.ui.sideBarToggled,
+    uploadModal: state.ui.uploadModal,
   };
 };
 
