@@ -45,11 +45,6 @@ const App = (props) => (
       ></Route>
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <ProtectedRoute
-        exact
-        path="/videos/new"
-        component={VideoUploadContainer}
-      />
       <Route path="/videos/:videoId" component={VideoShowContainer} />
     </Switch>
   </div>

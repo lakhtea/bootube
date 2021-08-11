@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
     has_many :videos, foreign_key: :uploader_id, dependent: :destroy
     has_many :comments, dependent: :destroy
-    has_many :likes
+    has_many :likes, dependent: :destroy
 
     has_many :liked_videos, through: :likes, source: :likeable, source_type: "Video"
     has_many :liked_comments, through: :likes, source: :likeable, source_type: "Comment"

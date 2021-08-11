@@ -5,7 +5,7 @@ class Api::CommentsController < ApplicationController
 
     def create
         @comment = Comment.new(comment_params)
-
+        @comment.body = @comment.body.squish
         if @comment.save
             render "api/comments/show"
         else

@@ -14,7 +14,7 @@ class CommentForm extends React.Component {
   }
 
   updateBody(e) {
-    this.setState({ body: e.target.innerHTML });
+    this.setState({ body: e.target.value });
   }
 
   handleSubmit(e) {
@@ -22,18 +22,18 @@ class CommentForm extends React.Component {
 
     this.props
       .postComment(this.state.video_id, this.state)
-      .then(() => (this.inputRef.current.innerHTML = ""));
+      .then(() => this.setState({ body: "" }));
   }
 
   render() {
     const commentField = this.props.currentUser ? (
-      <div
+      <textarea
         ref={this.inputRef}
         className="comment-field"
-        contentEditable
-        onInput={this.updateBody}
+        value={this.state.body}
+        onChange={this.updateBody}
         placeholder="Add a public comment..."
-      ></div>
+      ></textarea>
     ) : (
       <Link className="dummy-comment-field" to="/login">
         <div className="comment-field" contentEditable></div>

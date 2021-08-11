@@ -7,10 +7,19 @@
 }
 
 .comment-field {
+  border: none;
+  outline: none;
   border-bottom: 1px solid #737373;
   line-height: 24px;
   outline: 0px solid transparent;
   font-size: 14px;
+  display: inline-block;
+  width: 100%;
+  background-color: #181818;
+  border: none;
+  color: white;
+  font: 14px "Noto Sans", sans-serif;
+  resize: none;
 }
 
 .comment-field:focus {
