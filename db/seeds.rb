@@ -25,13 +25,13 @@ demo = User.create!(username: "Demo User", email: "demo_user@demo.com", password
 anon = User.create!(username: "Anonymous", email: "anon@anon.com", password: "Anonymous")
 
 
-file = open("./app/assets/images/OrangePeel.jpeg")
+file = open("https://bootube-seeds.s3.amazonaws.com/OrangePeel.jpeg")
 demo.avatar.attach(io: file, filename: 'orangepeel')
 
-file = open("./app/assets/images/Lakhte.jpeg")
+file = open("https://bootube-seeds.s3.amazonaws.com/Lakhte.jpeg")
 lakhte.avatar.attach(io: file, filename: 'lakhte')
 
-file = open("./app/assets/images/Anonymous.jpeg")
+file = open("https://bootube-seeds.s3.amazonaws.com/Anonymous.jpeg")
 anon.avatar.attach(io: file, filename: 'anon')
 # demo_video = Video.create!(title: "Demo 0", description: "Real programmers start counting at 0", uploader_id: 4)
 # # file = open("https://bootube-seeds.s3.amazonaws.com/deadlift.mp4")

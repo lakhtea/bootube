@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     end
     resources :comments, only: [:destroy]
     resources :likes, only: [:create, :destroy, :index]
-    resources :dislikes, only: [:create, :destroy, :index]
     resource :session, only: [:create, :destroy]
   end
 end
