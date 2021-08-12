@@ -5,10 +5,16 @@ import Avatar from "./avatar";
 
 export default class Channel extends Component {
   componentDidMount() {
-    this.props.fetchUser(this.props.location.pathname.slice(9));
-    this.props.fetchUserVideos(this.props.location.pathname.slice(9));
+    this.props.fetchUser(this.props.currentChannel);
+    this.props.fetchUserVideos(this.props.currentChannel);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.currentChannel !== prevProps.currentChannel) {
+      this.props.fetchUser(this.props.currentChannel);
+      this.props.fetchUserVideos(this.props.currentChannel);
+    }
+  }
   render() {
     const {
       sidebar,
@@ -18,6 +24,7 @@ export default class Channel extends Component {
       deleteVideo,
       updateVideo,
       uploadModal,
+      currentChannel,
     } = this.props;
     if (uploadModal) return <UploadModal></UploadModal>;
     const containerWidth = sidebar
@@ -49,6 +56,7 @@ export default class Channel extends Component {
             currentUser={currentUser}
             user={user}
             videos={videos}
+            key={currentChannel}
           ></ChannelVideos>
         </div>
       </div>

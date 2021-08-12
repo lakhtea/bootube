@@ -9,7 +9,13 @@ class Avatar extends Component {
       ? () => this.props.history.push(`/channel/${id}`)
       : null;
     if (avatar)
-      return <img onClick={click} className="avatar" src={avatar} alt="" />;
+      return (
+        <div className="renderer">
+          <div className="avatar-container">
+            <img onClick={click} className="avatar" src={avatar} alt="" />
+          </div>
+        </div>
+      );
     const link = clickable ? (
       <Link to={`/channel/${id}`} className="default-avatar">
         <span>{username[0].toUpperCase()}</span>

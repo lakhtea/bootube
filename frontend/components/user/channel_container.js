@@ -8,13 +8,14 @@ import {
 } from "../../actions/videos_actions";
 import Channel from "./channel";
 
-const mstp = (state) => {
+const mstp = (state, ownProps) => {
   return {
     sidebar: state.ui.sideBarToggled,
     user: state.entities.users,
     currentUser: state.session.currentUser,
     videos: Object.values(state.entities.videos),
     uploadModal: state.ui.uploadModal,
+    currentChannel: ownProps.match.params.userId,
   };
 };
 

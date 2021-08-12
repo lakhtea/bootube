@@ -4,7 +4,6 @@ import SignupFormContainer from "./session/signup_form_container";
 import LoginFormContainer from "./session/login_form_container";
 import NavbarContainer from "./navbar/navbar_container";
 import VideoIndexContainer from "./videos/video_index_container";
-import VideoUploadContainer from "./videos/video_upload_container";
 import VideoShowContainer from "./videos/video_show_container";
 import Sidebar from "./sidebar/sidebar";
 import ChannelContainer from "./user/channel_container";
@@ -35,7 +34,8 @@ const App = (props) => (
         )}
       ></Route>
       <Route
-        path="/channel"
+        exact
+        path="/channel/:userId"
         render={() => (
           <div className="channel-page-container">
             <Sidebar />
