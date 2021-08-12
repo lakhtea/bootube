@@ -61,7 +61,7 @@ class ChannelVideoItem extends Component {
       </div>
     ) : null;
     const menu =
-      this.state.hover && user.id === currentUser.id ? (
+      this.state.hover && user.id === currentUser?.id ? (
         <div
           onMouseOver={() => this.setState({ hover: true })}
           onClick={(e) => {
