@@ -19,7 +19,7 @@ export default ({
   const display = currentUser ? (
     <div className="elements">
       <div onClick={() => uploadModal(true)}>
-        <span className="material-icons">video_call</span>
+        <span className="camcorder material-icons">video_call</span>
       </div>
       <UserLink logout={logout} currentUser={currentUser} />
     </div>
