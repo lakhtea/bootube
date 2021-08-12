@@ -207,6 +207,7 @@ class VideoShow extends React.Component {
                   </li>
                 </div>
                 <LikeDislikeContainer
+                  key={video.id}
                   id={video.id}
                   likes={video.likes}
                   dislikes={video.dislikes}
