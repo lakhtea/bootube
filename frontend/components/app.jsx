@@ -45,7 +45,7 @@ const App = (props) => (
       ></Route>
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <Route path="/videos/:videoId" component={VideoShowContainer} />
+      <Route exact path="/videos/:videoId" component={VideoShowContainer} />
     </Switch>
   </div>
 );

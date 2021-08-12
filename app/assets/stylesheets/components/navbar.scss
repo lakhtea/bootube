@@ -175,6 +175,12 @@
   user-select: none;
 }
 
+.elements .camcorder {
+  cursor: pointer;
+  color: $red;
+  font-size: 32px;
+}
+
 .elements .toggled > .dropdown,
 .elements .toggled > .dropdown:hover,
 .elements .toggled > .dropdown:focus-within {

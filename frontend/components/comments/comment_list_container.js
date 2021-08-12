@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import CommentList from "./comment_list";
 import { getComments } from "../../actions/comment_actions";
+import { withRouter } from "react-router";
 
 const mstp = ({ entities, session }) => {
   if (Object.keys(entities.comments).length)
@@ -22,4 +23,4 @@ const mdtp = (dispatch) => {
   };
 };
 
-export default connect(mstp, mdtp)(CommentList);
+export default withRouter(connect(mstp, mdtp)(CommentList));

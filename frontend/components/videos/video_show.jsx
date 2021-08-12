@@ -239,7 +239,7 @@ class VideoShow extends React.Component {
               {this.props.numOfComments} comments
             </div>
             <CommentFormContainer currentUser={this.props.currentUser} />
-            <CommentListContainer />
+            <CommentListContainer key={video.id} />
           </div>
         </div>
         <div className="index-sidebar-container">
