@@ -36,7 +36,10 @@ class CommentForm extends React.Component {
       ></textarea>
     ) : (
       <Link className="dummy-comment-field" to="/login">
-        <div className="comment-field" contentEditable></div>
+        <textarea
+          className="comment-field"
+          placeholder="Add a public comment..."
+        ></textarea>
       </Link>
     );
 

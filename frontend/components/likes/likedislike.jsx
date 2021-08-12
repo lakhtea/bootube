@@ -17,7 +17,8 @@ export default class LikeDislike extends Component {
   }
 
   render() {
-    const { id, like, unlike, liked, likes, dislikes } = this.props;
+    const { id, like, unlike, liked, likes, dislikes, currentUser } =
+      this.props;
     const likedStyle =
       this.state.like?.category === "Like" ? { color: "#3da6ff" } : null;
     const dislikedStyle =
@@ -36,6 +37,7 @@ export default class LikeDislike extends Component {
             className="likes-div"
             style={likedStyle}
             onClick={() => {
+              if (!currentUser) this.props.history.push("/login");
               if (this.state.status === "Dislike") {
                 unlike(liked)
                   .then(() => like({ ...this.likeObject, category: "Like" }))
@@ -74,6 +76,7 @@ export default class LikeDislike extends Component {
             className="dislikes-div"
             style={dislikedStyle}
             onClick={() => {
+              if (!currentUser) this.props.history.push("/login");
               if (this.state.status === "Like") {
                 unlike(liked)
                   .then(() => like({ ...this.likeObject, category: "Dislike" }))

@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import LikeDislike from "./likedislike";
+import { withRouter } from "react-router";
 
 const mstp = (state) => {
   return {
@@ -7,4 +8,4 @@ const mstp = (state) => {
   };
 };
 
-export default connect(mstp, null)(LikeDislike);
+export default withRouter(connect(mstp, null)(LikeDislike));
