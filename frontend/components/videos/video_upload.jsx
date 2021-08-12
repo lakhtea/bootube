@@ -150,7 +150,12 @@ class UploadModal extends React.Component {
 
               <div className="edit-video-container">
                 <div className="edit-modal-video">
-                  <video src={this.state.videoUrl}></video>
+                  <video
+                    controls
+                    autoPlay
+                    muted={false}
+                    src={this.state.videoUrl}
+                  ></video>
                 </div>
                 <div className="edit-modal-video-info">
                   <div className="file-container">

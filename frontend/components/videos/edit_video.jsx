@@ -91,7 +91,7 @@ class EditVideo extends Component {
 
               <div className="edit-video-container">
                 <div className="edit-modal-video">
-                  <video src={videoUrl}></video>
+                  <video controls autoPlay muted={false} src={videoUrl}></video>
                 </div>
                 <div className="edit-modal-video-info">
                   <div className="video-link">
