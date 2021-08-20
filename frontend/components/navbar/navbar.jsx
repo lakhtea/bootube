@@ -16,6 +16,7 @@ export default ({
     ownProps.location.pathname === "/signup"
   )
     return null;
+
   const display = currentUser ? (
     <div className="elements">
       <div onClick={() => uploadModal(true)}>

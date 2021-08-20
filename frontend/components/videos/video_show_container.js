@@ -11,6 +11,7 @@ const mstp = (state, ownProps) => {
       currentUser: state.session.currentUser,
       numOfComments: Object.values(state.entities.comments).length,
       uploadModal: state.ui.uploadModal,
+      sidebar: state.ui.sideBarToggled,
     };
   }
   return {

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import LikeDislikeContainer from "../likes/likedislike_container";
 import UploadModal from "../videos/video_upload_container";
 import Avatar from "../user/avatar";
+import SideBar from "../sidebar/sidebar";
 
 class VideoShow extends React.Component {
   constructor(props) {
@@ -122,8 +123,9 @@ class VideoShow extends React.Component {
   }
 
   render() {
-    const { video, currentUser, uploadModal } = this.props;
+    const { video, currentUser, uploadModal, sidebar } = this.props;
     if (uploadModal) return <UploadModal></UploadModal>;
+    const sideBar = sidebar ? <SideBar /> : null;
     if (!video) return null;
 
     let loadedStyle = {
@@ -135,6 +137,7 @@ class VideoShow extends React.Component {
     };
     return (
       <div className="video-show-page">
+        {sideBar}
         <div className="video-and-comments">
           <div className="video-show-container">
             <div className="main-video-container">

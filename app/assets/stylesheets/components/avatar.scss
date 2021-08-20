@@ -120,7 +120,8 @@
   cursor: pointer;
 }
 
-.comment-components-container .avatar {
+.comment-components-container .avatar,
+.comment-components-container .default-avatar {
   object-fit: cover;
 
   height: 48px;
@@ -131,6 +132,7 @@
   user-select: none;
   cursor: pointer;
   margin: 0;
+  font-size: 24px;
 }
 
 .index-sidebar-container .avatar {
