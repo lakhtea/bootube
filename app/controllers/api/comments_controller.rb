@@ -13,16 +13,21 @@ class Api::CommentsController < ApplicationController
         end
     end
 
-    def show
-        
+    def update
+         @comment = Comment.find_by(id: params[:id])
+
+        if @comment.update(comment_params)
+            render :show
+        end
     end
 
     def destroy
         @comment = Comment.find_by(id: params[:id])
 
         if @comment.delete
+            render :show
         else
-        render json: ["Comment could not be deleted"], status: 422
+            render json: ["Comment could not be deleted"], status: 422
         end
     end
 

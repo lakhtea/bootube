@@ -2,6 +2,7 @@ import {
   fetchComments,
   postComment,
   destroyComment,
+  patchComment,
 } from "../util/comment_util";
 import { receiveErrors } from "./errors_actions";
 
@@ -43,4 +44,9 @@ export const addComment = (videoId, comment) => (dispatch) =>
   );
 
 export const deleteComment = (commentId) => (dispatch) =>
-  destroyComment(commentId).then((comment) => dispatch(removeComment(comment)));
+  destroyComment(commentId).then((comment) =>
+    dispatch(removeComment(comment.id))
+  );
+
+export const editComment = (comment) => (dispatch) =>
+  patchComment(comment).then((comment) => dispatch(receiveComment(comment)));

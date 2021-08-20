@@ -1,10 +1,18 @@
 .comment {
   margin-bottom: 24px;
+  position: relative;
+  display: flex;
+
+  .more-vert {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 }
 .comment-info {
   display: flex;
   gap: 6px;
-  margin-bottom: 10px;
+  margin: 0 0 10px 10px;
 }
 .comment-user {
   font-size: 13px;
@@ -17,6 +25,7 @@
 }
 
 .comment-body {
+  margin: 0 0 0 10px;
   font-size: 14px;
   color: #ffffff;
 }

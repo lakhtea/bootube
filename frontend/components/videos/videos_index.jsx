@@ -14,12 +14,12 @@ class VideosIndex extends React.Component {
   render() {
     if (this.props.uploadModal) return <UploadModal></UploadModal>;
 
-    let paddingLeft = { paddingLeft: "90px" };
+    let marginLeft = { marginLeft: "90px" };
     this.props.sidebar
-      ? (paddingLeft = { paddingLeft: "260px" })
-      : (paddingLeft = { paddingLeft: "90px" });
+      ? (marginLeft = { marginLeft: "260px" })
+      : (marginLeft = { marginLeft: "90px" });
     return (
-      <div style={paddingLeft} className="video-index-container">
+      <div style={marginLeft} className="video-index-container">
         {this.props.videos.map((video, idx) => {
           return <VideoItem key={idx} idx={idx} video={video} />;
         })}
