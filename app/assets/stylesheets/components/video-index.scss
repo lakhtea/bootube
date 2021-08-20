@@ -12,14 +12,15 @@
   justify-content: center;
   justify-items: center;
   column-gap: 1%;
-  row-gap: 5%;
   grid-auto-rows: 15vw;
+  row-gap: 1vw;
 }
 
 @media screen and (max-width: 1800px) {
   .video-index-container {
     grid-template-columns: repeat(4, 24%);
     grid-auto-rows: 16vw;
+    row-gap: 4vw;
   }
 }
 
@@ -39,6 +40,7 @@
   .video-index-container {
     grid-template-columns: repeat(2, 45%);
     grid-auto-rows: 30vw;
+    row-gap: 5vw;
   }
 }
 
@@ -46,5 +48,6 @@
   .video-index-container {
     grid-template-columns: repeat(1, 90%);
     grid-auto-rows: 40vw;
+    row-gap: 15vw;
   }
 }
