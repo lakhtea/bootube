@@ -18,6 +18,8 @@ class CommentList extends React.Component {
             <CommentItem
               key={idx}
               currentUser={this.props.currentUser}
+              editComment={this.props.editComment}
+              deleteComment={this.props.deleteComment}
               comment={comment}
             />
           );

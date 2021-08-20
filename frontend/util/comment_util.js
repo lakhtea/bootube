@@ -13,6 +13,14 @@ export const postComment = (videoId, comment) => {
   });
 };
 
+export const patchComment = (comment) => {
+  return $.ajax({
+    method: "patch",
+    url: `/api/comments/${comment.id}`,
+    data: { comment },
+  });
+};
+
 export const destroyComment = (commentId) => {
   return $.ajax({
     method: "delete",

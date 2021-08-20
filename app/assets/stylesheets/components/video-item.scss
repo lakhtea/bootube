@@ -2,16 +2,26 @@
 
 .video-index-item {
   width: 100%;
-  height: 100%;
-  video {
-    width: 360px;
-    height: 202.5px;
+
+  .video-container {
+    width: 100%;
+    padding-top: 56.25%;
+    height: 0;
+    position: relative;
+    font-size: 14px;
+    video {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   }
 
   .video-detail {
     display: flex;
     gap: 10px;
-    margin-top: 5px;
+    margin-top: 10px;
   }
   .info {
     height: 5vw;
@@ -21,25 +31,24 @@
 
     .video-title {
       color: white;
-      font-size: 1rem;
+      font-size: 16px;
       font-weight: 600;
       height: 30px;
     }
 
     .up-time {
+      font-size: 14px;
       display: flex;
       flex-direction: column;
     }
 
     .video-uploader {
       color: #aaa;
-      font-size: 0.75vw;
     }
 
     .video-timestamp {
       margin-top: 5px;
       color: #aaa;
-      font-size: 0.75vw;
       position: relative;
       display: flex;
       gap: 5px;

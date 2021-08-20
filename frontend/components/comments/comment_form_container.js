@@ -5,8 +5,7 @@ import CommentForm from "./comment_form";
 const mstp = ({ entities, session }) => {
   return session.currentUser
     ? {
-        form: {
-          body: "",
+        info: {
           video_id: entities.videos.currentVideo.id,
           user_id: session.currentUser.id,
         },

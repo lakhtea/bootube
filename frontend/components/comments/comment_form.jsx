@@ -5,7 +5,7 @@ class CommentForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = this.props.form;
+    this.state = { body: "", open: false };
 
     this.inputRef = React.createRef();
 
@@ -21,7 +21,11 @@ class CommentForm extends React.Component {
     e.preventDefault();
 
     this.props
-      .postComment(this.state.video_id, this.state)
+      .postComment(this.props.info.video_id, {
+        body: this.state.body,
+        video_id: this.props.info.video_id,
+        user_id: this.props.info.user_id,
+      })
       .then(() => this.setState({ body: "" }));
   }
 
@@ -33,6 +37,7 @@ class CommentForm extends React.Component {
         value={this.state.body}
         onChange={this.updateBody}
         placeholder="Add a public comment..."
+        onClick={() => this.setState({ open: true })}
       ></textarea>
     ) : (
       <Link className="dummy-comment-field" to="/login">
@@ -43,15 +48,25 @@ class CommentForm extends React.Component {
       </Link>
     );
 
-    return (
+    const openForm = this.state.open ? (
       <form onSubmit={this.handleSubmit} className="comment-form">
         {commentField}
         <button className="comment-button">COMMENT</button>
-        <button className="cancel-button" type="button">
+        <button
+          onClick={() => this.setState({ open: false })}
+          className="cancel-button"
+          type="button"
+        >
           CANCEL
         </button>
       </form>
+    ) : (
+      <form onSubmit={this.handleSubmit} className="comment-form">
+        {commentField}
+      </form>
     );
+
+    return openForm;
   }
 }
 

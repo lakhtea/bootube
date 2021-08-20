@@ -9,17 +9,16 @@
 .comment-field {
   border: none;
   outline: none;
-  border-bottom: 1px solid #737373;
+  border-bottom: 1px solid #73737345;
   line-height: 24px;
-  outline: 0px solid transparent;
   font-size: 14px;
   display: inline-block;
   width: 100%;
   background-color: #181818;
-  border: none;
   color: white;
   font: 14px "Noto Sans", sans-serif;
   resize: none;
+  box-sizing: border-box;
 }
 
 .comment-field:focus {
@@ -50,11 +49,6 @@
   width: 85.08px;
 }
 
-[placeholder]:empty::before {
-  content: attr(placeholder);
-  color: #a1a1a1;
-}
-
 // .comment-field::after {
 //   content: "";
 //   position: relative;
@@ -69,3 +63,11 @@
 //   width: 69.5%;
 //   background: blue;
 // }
+
+.edit-comment-form {
+  margin-bottom: 100px;
+}
+
+.editable {
+  margin: 0 0 0 10px;
+}

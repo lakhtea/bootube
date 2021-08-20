@@ -1,6 +1,10 @@
 import { connect } from "react-redux";
 import CommentList from "./comment_list";
-import { getComments } from "../../actions/comment_actions";
+import {
+  getComments,
+  deleteComment,
+  editComment,
+} from "../../actions/comment_actions";
 import { withRouter } from "react-router";
 
 const mstp = ({ entities, session }) => {
@@ -20,6 +24,8 @@ const mstp = ({ entities, session }) => {
 const mdtp = (dispatch) => {
   return {
     fetchComments: (videoId) => dispatch(getComments(videoId)),
+    deleteComment: (commentId) => dispatch(deleteComment(commentId)),
+    editComment: (comment) => dispatch(editComment(comment)),
   };
 };
 

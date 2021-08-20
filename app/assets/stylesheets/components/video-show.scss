@@ -7,10 +7,7 @@
 }
 
 .video-and-comments {
-  height: 100vh;
-}
-.video-show-container {
-  height: 100%;
+  min-height: 100vh;
 }
 
 .main-video-container {
@@ -180,7 +177,7 @@
   opacity: 0;
 }
 
-@media (max-width: 1680px) {
+@media (max-width: 1800px) {
   .video-show-page {
     gap: 24px;
   }
@@ -196,5 +193,23 @@
 
   .video-content {
     width: 1190px;
+  }
+}
+
+@media screen and (max-width: 1680px) {
+  .video-show-page {
+    gap: 24px;
+  }
+
+  .main-video-container {
+    margin-left: 20px;
+    width: 1000px;
+    video {
+      width: 100%;
+    }
+  }
+
+  .video-content {
+    width: 100%;
   }
 }

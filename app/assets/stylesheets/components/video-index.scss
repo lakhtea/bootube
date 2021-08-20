@@ -1,17 +1,50 @@
 @import "application";
 
 .video-index-container {
-  padding-right: 8.6%;
-  padding-top: 10px;
+  margin-right: 30px;
+  margin-top: 86px;
   box-sizing: border-box;
-  height: 86%;
-  background: $black;
-  width: 96%;
+  background: #181818;
+  width: 100%;
+  min-height: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 25%);
+  grid-template-columns: repeat(5, 19%);
   justify-content: center;
   justify-items: center;
-  grid-template-rows: repeat(4, 36%);
-  grid-column-gap: 1%;
-  grid-row-gap: 2.5%;
+  column-gap: 1%;
+  row-gap: 5%;
+  grid-auto-rows: 15vw;
+}
+
+@media screen and (max-width: 1800px) {
+  .video-index-container {
+    grid-template-columns: repeat(4, 24%);
+    grid-auto-rows: 16vw;
+  }
+}
+
+// @media screen and (max-width: 1536px) {
+//   .video-index-container {
+//   }
+// }
+
+@media screen and (max-width: 1144px) {
+  .video-index-container {
+    grid-template-columns: repeat(3, 32%);
+    grid-auto-rows: 20vw;
+  }
+}
+
+@media screen and (max-width: 888px) {
+  .video-index-container {
+    grid-template-columns: repeat(2, 45%);
+    grid-auto-rows: 30vw;
+  }
+}
+
+@media screen and (max-width: 512px) {
+  .video-index-container {
+    grid-template-columns: repeat(1, 90%);
+    grid-auto-rows: 40vw;
+  }
 }
