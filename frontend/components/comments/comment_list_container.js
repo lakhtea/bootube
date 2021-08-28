@@ -4,6 +4,7 @@ import {
   getComments,
   deleteComment,
   editComment,
+  getChildComments,
 } from "../../actions/comment_actions";
 import { withRouter } from "react-router";
 
@@ -26,6 +27,7 @@ const mdtp = (dispatch) => {
     fetchComments: (videoId) => dispatch(getComments(videoId)),
     deleteComment: (commentId) => dispatch(deleteComment(commentId)),
     editComment: (comment) => dispatch(editComment(comment)),
+    fetchChildComments: (commentId) => dispatch(getChildComments(commentId)),
   };
 };
 

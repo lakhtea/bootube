@@ -3,12 +3,14 @@ import {
   postComment,
   destroyComment,
   patchComment,
+  fetchChildComments,
 } from "../util/comment_util";
 import { receiveErrors } from "./errors_actions";
 
 export const RECEIVE_COMMENTS = "RECEIVE_COMMENTS";
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
+export const RECEIVE_CHILD_COMMENTS = "RECEIVE_CHILD_COMMENTS";
 
 const receiveComments = (comments) => {
   return {
@@ -31,6 +33,13 @@ const removeComment = (commentId) => {
   };
 };
 
+const receiveChildComments = (comments) => {
+  return {
+    type: RECEIVE_CHILD_COMMENTS,
+    comments,
+  };
+};
+
 export const getComments = (videoId) => (dispatch) =>
   fetchComments(videoId).then(
     (comments) => dispatch(receiveComments(comments)),
@@ -50,3 +59,8 @@ export const deleteComment = (commentId) => (dispatch) =>
 
 export const editComment = (comment) => (dispatch) =>
   patchComment(comment).then((comment) => dispatch(receiveComment(comment)));
+
+export const getChildComments = (commentId) => (dispatch) =>
+  fetchChildComments(commentId).then((comments) =>
+    dispatch(receiveChildComments(comments))
+  );

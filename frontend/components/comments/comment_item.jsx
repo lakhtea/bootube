@@ -3,6 +3,8 @@ import moment from "moment";
 import Avatar from "../user/avatar";
 import onClickOutside from "react-onclickoutside";
 import EditCommentForm from "./edit_comment_form";
+import CommentLikeContainer from "../likes/comment_like_container";
+import ChildCommentFormContainer from "./child_comment_form_container";
 
 class CommentItem extends React.Component {
   constructor(props) {
@@ -13,9 +15,11 @@ class CommentItem extends React.Component {
       menuToggled: false,
       editComment: false,
       deleteComment: false,
+      replyFormToggled: false,
     };
 
     this.handleCloseEdit = this.handleCloseEdit.bind(this);
+    this.handleCloseReply = this.handleCloseReply.bind(this);
   }
 
   handleClickOutside() {
@@ -26,8 +30,24 @@ class CommentItem extends React.Component {
     this.setState({ editComment: false, menuToggled: false });
   }
 
+  handleCloseReply() {
+    this.setState({ replyFormToggled: false });
+  }
+
   render() {
-    const { comment, currentUser, editComment, deleteComment } = this.props;
+    const {
+      comment,
+      currentUser,
+      editComment,
+      deleteComment,
+      fetchChildComments,
+    } = this.props;
+    const replyForm = this.state.replyFormToggled ? (
+      <ChildCommentFormContainer
+        handleClose={this.handleCloseReply}
+        parentCommentId={comment.id}
+      />
+    ) : null;
     const deleteCommentModal = this.state.deleteComment ? (
       <div className="delete-video-modal-background">
         <div className="delete-video-modal">
@@ -70,7 +90,7 @@ class CommentItem extends React.Component {
           <span className="material-icons">more_vert</span>
         </div>
       ) : null;
-    const expandedMenu = this.state.menuToggled ? (
+    const expandedMenu = this.state.menuToggled && (
       <div className="expanded-menu">
         <div
           onClick={(e) => {
@@ -91,7 +111,7 @@ class CommentItem extends React.Component {
           <span className="material-icons">edit</span> Edit Comment
         </div>
       </div>
-    ) : null;
+    );
     const editable = this.state.editComment ? (
       <EditCommentForm
         handleCloseEdit={this.handleCloseEdit}
@@ -106,7 +126,6 @@ class CommentItem extends React.Component {
       <div
         onMouseOver={() => this.setState({ hover: true })}
         onMouseLeave={() => this.setState({ hover: false })}
-        // onClick={() => this.setState({ menuToggled: true })}
         key={comment.id}
         className="comment"
       >
@@ -124,6 +143,20 @@ class CommentItem extends React.Component {
             </div>
           </div>
           {editable}
+          <CommentLikeContainer />
+          <div
+            onClick={() => this.setState({ replyFormToggled: true })}
+            className="reply-button"
+          >
+            Reply
+          </div>
+          {replyForm}
+          <div
+            onClick={() => fetchChildComments(comment.id)}
+            className="view-replies"
+          >
+            View Replies
+          </div>
         </div>
         {menu}
         {expandedMenu}

@@ -1,5 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect, Link } from "react-router-dom";
+import { useForm } from "../hooks/useForm";
+
+const FormHook = (props) => {
+  const [values, setValues] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  useEffect(() => {
+    return () => {
+      props.removeErrors();
+    };
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await props.action(values);
+    await props.history.push("/");
+  };
+
+  const handleUsernameSubmit = async (e) => {
+    e.preventDefault();
+    await props.removeErrors();
+    await props.validUser(values.username);
+    await setValues({
+      username: "",
+      email: "",
+      password: "",
+    });
+  };
+
+  const loginDemoUser = async () => {
+    await props.action({
+      username: "Demo User",
+      email: "demo_user@demo.com",
+      password: "password",
+    });
+    await props.history.push("/");
+
+    const renderErorrs = (
+      <ul>
+        {props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            <i className="fas fa-exclamation-circle"></i>
+            <span className="error">{error}</span>
+          </li>
+        ))}
+      </ul>
+    );
+  };
+
+  return null;
+};
 
 class Form extends React.Component {
   constructor(props) {
@@ -11,9 +65,10 @@ class Form extends React.Component {
     this.loginDemoUser = this.loginDemoUser.bind(this);
   }
 
-  handleSubmit(e) {
+  async handleSubmit(e) {
     e.preventDefault();
-    this.props.action(this.state).then(() => this.props.history.push("/"));
+    await this.props.action(this.state);
+    await this.props.history.push("/");
   }
 
   handleUsernameSubmit(e) {
