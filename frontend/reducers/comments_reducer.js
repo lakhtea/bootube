@@ -3,6 +3,7 @@ import {
   RECEIVE_COMMENT,
   RECEIVE_COMMENTS,
   RECEIVE_CHILD_COMMENTS,
+  RECEIVE_CHILD_COMMENT,
 } from "../actions/comment_actions";
 
 import { RECEIVE_LIKE } from "../actions/like_actions";
@@ -18,8 +19,10 @@ const CommentsReducer = (state = {}, action) => {
       return nextState;
     case RECEIVE_CHILD_COMMENTS:
       const comments = Object.values(action.comments);
-      nextState[comments[0].parent_comment_id]["child_comments"] =
-        action.comments;
+      nextState[comments[0].parent_comment_id].replies = action.comments;
+      return nextState;
+    case RECEIVE_CHILD_COMMENT:
+      nextState[action.comment.parent_comment_id].replies.push(action.comment);
       return nextState;
     case DELETE_COMMENT:
       delete nextState[action.commentId];

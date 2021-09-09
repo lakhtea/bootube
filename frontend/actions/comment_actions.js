@@ -11,6 +11,7 @@ export const RECEIVE_COMMENTS = "RECEIVE_COMMENTS";
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
 export const RECEIVE_CHILD_COMMENTS = "RECEIVE_CHILD_COMMENTS";
+export const RECEIVE_CHILD_COMMENT = "RECEIVE_CHILD_COMMENT";
 
 const receiveComments = (comments) => {
   return {
@@ -40,17 +41,32 @@ const receiveChildComments = (comments) => {
   };
 };
 
+const receiveChildComment = (comment) => {
+  return {
+    type: RECEIVE_CHILD_COMMENT,
+    comment,
+  };
+};
+
 export const getComments = (videoId) => (dispatch) =>
   fetchComments(videoId).then(
     (comments) => dispatch(receiveComments(comments)),
     (err) => dispatch(receiveErrors(err.responseJSON))
   );
 
-export const addComment = (videoId, comment) => (dispatch) =>
-  postComment(videoId, comment).then(
-    (comment) => dispatch(receiveComment(comment)),
-    (err) => dispatch(receiveErrors(err.responseJSON))
-  );
+export const addComment = (videoId, comment) => (dispatch) => {
+  if (comment.parent_comment_id) {
+    return postComment(videoId, comment).then(
+      (comment) => dispatch(receiveChildComment(comment)),
+      (err) => dispatch(receiveErrors(err.responseJSON))
+    );
+  } else {
+    return postComment(videoId, comment).then(
+      (comment) => dispatch(receiveComment(comment)),
+      (err) => dispatch(receiveErrors(err.responseJSON))
+    );
+  }
+};
 
 export const deleteComment = (commentId) => (dispatch) =>
   destroyComment(commentId).then((comment) =>

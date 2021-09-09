@@ -5,6 +5,8 @@ import onClickOutside from "react-onclickoutside";
 import EditCommentForm from "./edit_comment_form";
 import CommentLikeContainer from "../likes/comment_like_container";
 import ChildCommentFormContainer from "./child_comment_form_container";
+import ChildCommentsContainer from "./child_comment_container";
+import { withRouter } from "react-router";
 
 class CommentItem extends React.Component {
   constructor(props) {
@@ -16,6 +18,7 @@ class CommentItem extends React.Component {
       editComment: false,
       deleteComment: false,
       replyFormToggled: false,
+      repliesToggled: false,
     };
 
     this.handleCloseEdit = this.handleCloseEdit.bind(this);
@@ -35,13 +38,12 @@ class CommentItem extends React.Component {
   }
 
   render() {
-    const {
-      comment,
-      currentUser,
-      editComment,
-      deleteComment,
-      fetchChildComments,
-    } = this.props;
+    const { comment, currentUser, editComment, deleteComment } = this.props;
+
+    const childCommentsContainer = this.state.repliesToggled && (
+      <ChildCommentsContainer commentId={comment.id} />
+    );
+
     const replyForm = this.state.replyFormToggled ? (
       <ChildCommentFormContainer
         handleClose={this.handleCloseReply}
@@ -152,11 +154,14 @@ class CommentItem extends React.Component {
           </div>
           {replyForm}
           <div
-            onClick={() => fetchChildComments(comment.id)}
+            onClick={() =>
+              this.setState({ repliesToggled: !this.state.repliesToggled })
+            }
             className="view-replies"
           >
             View Replies
           </div>
+          {childCommentsContainer}
         </div>
         {menu}
         {expandedMenu}
@@ -166,4 +171,4 @@ class CommentItem extends React.Component {
   }
 }
 
-export default onClickOutside(CommentItem);
+export default withRouter(onClickOutside(CommentItem));
