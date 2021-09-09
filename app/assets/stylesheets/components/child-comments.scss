@@ -1,0 +1,31 @@
+.reply {
+  margin-bottom: 0;
+}
+
+.reply-comment-button,
+.reply-cancel-button {
+  outline: none;
+  cursor: pointer;
+  border-radius: 2.5px;
+  margin: 10px 10px 0 10px;
+  float: right;
+  border-style: none;
+}
+
+.reply-comment-button {
+  background-color: #606060;
+  color: #181818;
+  width: 101.53px;
+  height: 36px;
+}
+.reply-cancel-button {
+  background-color: #181818;
+  color: #a8a8a8;
+  height: 36px;
+  width: 85.08px;
+}
+
+.reply-form {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}

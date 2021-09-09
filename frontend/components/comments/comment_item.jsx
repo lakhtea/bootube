@@ -40,8 +40,15 @@ class CommentItem extends React.Component {
   render() {
     const { comment, currentUser, editComment, deleteComment } = this.props;
 
+    const replyAction = this.state.repliesToggled ? "Hide" : "View";
+    const viewReplies =
+      comment.replies.length > 0
+        ? comment.replies.length === 1
+          ? `${replyAction} reply`
+          : `${replyAction} ${comment.replies.length} replies`
+        : null;
     const childCommentsContainer = this.state.repliesToggled && (
-      <ChildCommentsContainer commentId={comment.id} />
+      <ChildCommentsContainer replies={comment.replies} />
     );
 
     const replyForm = this.state.replyFormToggled ? (
@@ -137,7 +144,7 @@ class CommentItem extends React.Component {
           avatar={comment.avatarUrl}
           clickable={true}
         />
-        <div style={{ width: "100%" }}>
+        <div className="comment-info-container">
           <div className="comment-info">
             <div className="comment-user">{comment.username}</div>
             <div className="updated">
@@ -145,13 +152,16 @@ class CommentItem extends React.Component {
             </div>
           </div>
           {editable}
-          <CommentLikeContainer />
-          <div
-            onClick={() => this.setState({ replyFormToggled: true })}
-            className="reply-button"
-          >
-            Reply
+          <div className="likes-reply">
+            <CommentLikeContainer />
+            <div
+              onClick={() => this.setState({ replyFormToggled: true })}
+              className="reply-button"
+            >
+              REPLY
+            </div>
           </div>
+
           {replyForm}
           <div
             onClick={() =>
@@ -159,7 +169,10 @@ class CommentItem extends React.Component {
             }
             className="view-replies"
           >
-            View Replies
+            {viewReplies ? (
+              <span className="material-icons">arrow_drop_down</span>
+            ) : null}
+            {viewReplies}
           </div>
           {childCommentsContainer}
         </div>

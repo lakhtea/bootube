@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
 import ChildComments from "./child_comments";
 
-const mstp = (state, { commentId }) => {
+const mstp = (state, { replies }) => {
   return {
-    replies: [...state.entities.comments[commentId].replies],
+    replies: [...replies],
   };
 };
 

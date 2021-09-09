@@ -1,0 +1,12 @@
+.comment-likes-container {
+  display: flex;
+  gap: 1rem;
+  margin-right: 1rem;
+}
+
+.comment-like,
+.comment-dislike {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
