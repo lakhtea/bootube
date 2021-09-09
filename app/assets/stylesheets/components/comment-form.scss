@@ -67,3 +67,14 @@
 .editable {
   margin: 0 0 0 10px;
 }
+
+.edit-comment-form .cancel-button,
+.edit-comment-form .comment-button,
+.reply-button + .comment-form .cancel-button,
+.reply-button + .comment-form .comment-button {
+  margin-bottom: 0;
+}
+
+.reply-button + .comment-form {
+  margin: 0;
+}

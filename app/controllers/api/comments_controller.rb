@@ -1,6 +1,13 @@
 class Api::CommentsController < ApplicationController
     def index
-        @comments = Video.find_by(id: params[:video_id]).comments
+        comments = Video.find_by(id: params[:video_id]).comments
+        p comments
+        @comments = comments.select { |comment| comment.parent_comment_id == nil}
+    end
+
+    def child_comments
+        @comments = Comment.find_by(id: params[:commentId]).replies
+        render :index
     end
 
     def create

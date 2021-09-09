@@ -27,3 +27,10 @@ export const destroyComment = (commentId) => {
     url: `/api/comments/${commentId}`,
   });
 };
+
+export const fetchChildComments = (commentId) => {
+  return $.ajax({
+    method: "get",
+    url: `/api/comments/${commentId}`,
+  });
+};

@@ -21,6 +21,7 @@ class CommentList extends React.Component {
               editComment={this.props.editComment}
               deleteComment={this.props.deleteComment}
               comment={comment}
+              fetchChildComments={this.props.fetchChildComments}
             />
           );
         })}
