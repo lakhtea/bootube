@@ -14,7 +14,6 @@ export default function CommentLikes() {
         <span className="material-icons-outlined comment-dislike-icon">
           thumb_down
         </span>
-        <span className="comment-dislikes">92</span>
       </div>
     </div>
   );

@@ -1,7 +1,6 @@
 class Api::CommentsController < ApplicationController
     def index
         comments = Video.find_by(id: params[:video_id]).comments
-        p comments
         @comments = comments.select { |comment| comment.parent_comment_id == nil}
     end
 

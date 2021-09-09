@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Avatar from "../user/avatar";
 export default function ChildCommentForm({
   postComment,
   info,
@@ -24,17 +24,18 @@ export default function ChildCommentForm({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="comment-form">
+    <form onSubmit={handleSubmit} className="reply-form">
+      <Avatar></Avatar>
       <textarea
         className="comment-field"
         value={body}
         onChange={updateBody}
         placeholder="Add a public reply..."
       ></textarea>
-      <button className="comment-button">REPLY</button>
+      <button className="reply-comment-button">REPLY</button>
       <button
         onClick={() => handleClose()}
-        className="cancel-button"
+        className="reply-cancel-button"
         type="button"
       >
         CANCEL
