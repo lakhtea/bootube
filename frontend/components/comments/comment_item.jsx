@@ -48,7 +48,10 @@ class CommentItem extends React.Component {
           : `${replyAction} ${comment.replies.length} replies`
         : null;
     const childCommentsContainer = this.state.repliesToggled && (
-      <ChildCommentsContainer replies={comment.replies} />
+      <ChildCommentsContainer
+        handleClose={this.handleCloseReply}
+        replies={comment.replies}
+      />
     );
 
     const replyForm = this.state.replyFormToggled ? (

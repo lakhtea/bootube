@@ -25,7 +25,12 @@ export default function ChildCommentForm({
 
   return (
     <form onSubmit={handleSubmit} className="reply-form">
-      <Avatar></Avatar>
+      {/* <Avatar
+        id={comment.user_id}
+        username={comment.username}
+        avatar={comment.avatarUrl}
+        clickable={true}
+      /> */}
       <textarea
         className="comment-field"
         value={body}
