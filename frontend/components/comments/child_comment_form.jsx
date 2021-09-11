@@ -5,8 +5,10 @@ export default function ChildCommentForm({
   info,
   parentCommentId,
   handleClose,
+  replyTo,
 }) {
-  const [body, setBody] = useState("");
+  const replying = replyTo ? `@${replyTo} ` : "";
+  const [body, setBody] = useState(replying);
 
   const updateBody = (e) => {
     setBody(e.target.value);

@@ -41,7 +41,9 @@
 .likes-reply {
   display: flex;
   font-size: 12px;
-  .material-icons-outlined {
+  cursor: pointer;
+  .material-icons-outlined,
+  .material-icons {
     font-size: 16px;
   }
 
@@ -55,8 +57,10 @@
   color: #3ea6ff;
   display: flex;
   align-items: center;
-  font: 14px;
+  font-size: 14px;
   gap: 5px;
+  cursor: pointer;
+  width: fit-content;
   .material-icons {
     margin: 0 0 0 -8px;
   }

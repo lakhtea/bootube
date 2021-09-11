@@ -6,9 +6,9 @@ export const createLike = (like) => {
   });
 };
 
-export const destroyLike = (like) => {
+export const destroyLike = (likeId) => {
   return $.ajax({
     method: "delete",
-    url: `/api/likes/${like.id}`,
+    url: `/api/likes/${likeId}`,
   });
 };

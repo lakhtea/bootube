@@ -24,7 +24,7 @@ class EditCommentForm extends React.Component {
   }
 
   render() {
-    const { comment, editComment, currentUser, handleCloseEdit } = this.props;
+    const { handleCloseEdit } = this.props;
 
     const commentField = (
       <textarea

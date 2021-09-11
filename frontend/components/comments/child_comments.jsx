@@ -1,7 +1,7 @@
 import React from "react";
 import ChildComment from "./child_comment";
 
-export default function ChildComments({ replies, handleClose }) {
+export default function ChildComments({ replies, editComment }) {
   if (!replies.length) return null;
 
   return (
@@ -9,7 +9,7 @@ export default function ChildComments({ replies, handleClose }) {
       {replies.map((comment) => (
         <ChildComment
           key={comment.id}
-          handleClose={handleClose}
+          editComment={editComment}
           comment={comment}
         />
       ))}

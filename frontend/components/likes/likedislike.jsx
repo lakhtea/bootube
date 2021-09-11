@@ -17,8 +17,7 @@ export default class LikeDislike extends Component {
   }
 
   render() {
-    const { id, like, unlike, liked, likes, dislikes, currentUser } =
-      this.props;
+    const { like, unlike, liked, currentUser } = this.props;
     const likedStyle =
       this.state.like?.category === "Like" ? { color: "#3da6ff" } : null;
     const dislikedStyle =
