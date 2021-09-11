@@ -15,8 +15,9 @@ export const postLike = (like) => (dispatch) => {
   );
 };
 
-export const deleteLike = (like) => (dispatch) => {
-  return destroyLike(like).then(receiveLike(like), (err) =>
-    dispatch(receiveErrors(err.responseJSON))
+export const deleteLike = (likeId) => (dispatch) => {
+  return destroyLike(likeId).then(
+    (like) => dispatch(receiveLike(like)),
+    (err) => dispatch(receiveErrors(err.responseJSON))
   );
 };

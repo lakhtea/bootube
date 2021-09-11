@@ -25,7 +25,51 @@
   width: 85.08px;
 }
 
-.reply-form {
-  margin-top: 30px;
-  margin-bottom: 50px;
+.child-comment-container {
+  min-height: 90px;
+  position: relative;
+  display: flex;
+  gap: 1rem;
+}
+
+.reply-info-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reply-user-container {
+  display: flex;
+  gap: 6px;
+}
+
+.reply-user {
+  font-size: 13px;
+  color: #ffffff;
+}
+
+.reply-updated {
+  font-size: 13px;
+  color: #aaaaaa;
+}
+
+.reply-body {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.reply-comments-likes-container {
+  display: flex;
+  font-size: 12px;
+  cursor: pointer;
+  .material-icons-outlined,
+  .material-icons {
+    font-size: 16px;
+  }
+
+  .reply-button {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
 }

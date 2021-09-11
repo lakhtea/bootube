@@ -5,8 +5,10 @@ export default function ChildCommentForm({
   info,
   parentCommentId,
   handleClose,
+  replyTo,
 }) {
-  const [body, setBody] = useState("");
+  const replying = replyTo ? `@${replyTo} ` : "";
+  const [body, setBody] = useState(replying);
 
   const updateBody = (e) => {
     setBody(e.target.value);
@@ -25,7 +27,12 @@ export default function ChildCommentForm({
 
   return (
     <form onSubmit={handleSubmit} className="reply-form">
-      <Avatar></Avatar>
+      {/* <Avatar
+        id={comment.user_id}
+        username={comment.username}
+        avatar={comment.avatarUrl}
+        clickable={true}
+      /> */}
       <textarea
         className="comment-field"
         value={body}

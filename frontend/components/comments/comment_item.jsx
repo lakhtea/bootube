@@ -91,7 +91,6 @@ class CommentItem extends React.Component {
           onMouseOver={() => this.setState({ hover: true })}
           onClick={(e) => {
             e.stopPropagation();
-            console.log("why is this running");
             this.setState({ menuToggled: !this.state.menuToggled });
           }}
           className="more-vert"
@@ -153,7 +152,7 @@ class CommentItem extends React.Component {
           </div>
           {editable}
           <div className="likes-reply">
-            <CommentLikeContainer />
+            <CommentLikeContainer comment={comment} />
             <div
               onClick={() => this.setState({ replyFormToggled: true })}
               className="reply-button"
