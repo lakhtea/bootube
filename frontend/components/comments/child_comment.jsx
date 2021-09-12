@@ -5,7 +5,12 @@ import CommentLikeContainer from "../likes/comment_like_container";
 import EditCommentForm from "./edit_comment_form";
 import ChildCommentFormContainer from "./child_comment_form_container";
 
-export default function ChildComment({ comment, editComment }) {
+export default function ChildComment({
+  comment,
+  editComment,
+  currentUser,
+  history,
+}) {
   const [reply, toggleReply] = useState(false);
   const [edit, toggleEdit] = useState(false);
 
@@ -45,7 +50,13 @@ export default function ChildComment({ comment, editComment }) {
         {editable}
         <div className="reply-comments-likes-container">
           <CommentLikeContainer comment={comment} />
-          <div onClick={() => toggleReply(true)} className="reply-button">
+          <div
+            onClick={() => {
+              if (!currentUser) history.push("/login");
+              toggleReply(true);
+            }}
+            className="reply-button"
+          >
             REPLY
           </div>
         </div>

@@ -6,4 +6,6 @@ if @comment.user.avatar.attached?
 end
 if current_user
     json.like @comment.likes.where(user_id: current_user.id)
+else
+    json.like []
 end

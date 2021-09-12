@@ -38,7 +38,8 @@ class CommentItem extends React.Component {
   }
 
   render() {
-    const { comment, currentUser, editComment, deleteComment } = this.props;
+    const { comment, currentUser, editComment, deleteComment, history } =
+      this.props;
 
     const replyAction = this.state.repliesToggled ? "Hide" : "View";
     const viewReplies =
@@ -154,7 +155,10 @@ class CommentItem extends React.Component {
           <div className="likes-reply">
             <CommentLikeContainer comment={comment} />
             <div
-              onClick={() => this.setState({ replyFormToggled: true })}
+              onClick={() => {
+                if (!currentUser) history.push("/login");
+                this.setState({ replyFormToggled: true });
+              }}
               className="reply-button"
             >
               REPLY

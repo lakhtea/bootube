@@ -8,6 +8,8 @@
         end
         if current_user
             json.like comment.likes.where(user_id: current_user.id)
+        else
+            json.like []
         end
         replies = comment.replies
         json.replies replies.each do |reply|
@@ -19,6 +21,8 @@
             end
             if current_user
                 json.like reply.likes.where(user_id: current_user.id)
+            else
+                json.like []
             end
         end
     end

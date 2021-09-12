@@ -1,18 +1,24 @@
 import React, { useState } from "react";
 
-export default function CommentLikes({ comment, currentUser, like, unlike }) {
+export default function CommentLikes({
+  comment,
+  currentUser,
+  like,
+  unlike,
+  history,
+}) {
   const [liked, setLiked] = useState(comment.like[0]);
   const [likes, setLikes] = useState(comment.likes);
 
   const likeObj = {
-    user_id: currentUser.id,
+    user_id: currentUser?.id,
     likeable_id: comment.id,
     likeable_type: "Comment",
     category: "Like",
   };
 
   const dislikeObj = {
-    user_id: currentUser.id,
+    user_id: currentUser?.id,
     likeable_id: comment.id,
     likeable_type: "Comment",
     category: "Dislike",
@@ -38,6 +44,7 @@ export default function CommentLikes({ comment, currentUser, like, unlike }) {
       <div
         className="comment-like"
         onClick={() => {
+          if (!currentUser) history.push("/login");
           if (liked && liked.category === "Dislike") {
             unlike(liked.id).then(() =>
               like(likeObj).then((like) => {
@@ -65,6 +72,7 @@ export default function CommentLikes({ comment, currentUser, like, unlike }) {
       <div
         className="comment-dislike"
         onClick={() => {
+          if (!currentUser) history.push("/login");
           if (liked && liked.category === "Like") {
             unlike(liked.id).then(() =>
               like(dislikeObj).then((like) => {
