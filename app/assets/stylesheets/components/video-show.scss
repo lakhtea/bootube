@@ -8,6 +8,7 @@
     "video index"
     "comments index";
   grid-template-columns: 1fr 402px;
+  grid-template-rows: 1fr 3fr;
   column-gap: 24px;
   margin-left: 25px;
 }
@@ -150,6 +151,7 @@
       "index"
       "comments";
     grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
   }
 }
 
