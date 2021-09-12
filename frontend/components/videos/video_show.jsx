@@ -21,10 +21,9 @@ class VideoShow extends React.Component {
       liked: false,
       disliked: false,
       likeId: null,
+      paused: false,
+      playing: true,
     };
-
-    this.bufferInterval;
-    this.watchedInterval;
 
     this.videoRef = React.createRef();
     this.volumeRef = React.createRef();
@@ -65,11 +64,13 @@ class VideoShow extends React.Component {
   playPause() {
     if (this.videoRef.current.paused) {
       this.playPauseRef.current.firstElementChild.innerHTML = "pause";
+      this.setState({ paused: false, playing: true });
       return this.videoRef.current.play();
     }
 
     if (!this.videoRef.current.paused) {
       this.playPauseRef.current.firstElementChild.innerHTML = "play_arrow";
+      this.setState({ paused: true, playing: false });
       return this.videoRef.current.pause();
     }
   }
@@ -138,113 +139,115 @@ class VideoShow extends React.Component {
     return (
       <div className="video-show-page">
         {sideBar}
-        <div className="video-and-comments">
-          <div className="video-show-container">
-            <div className="main-video-container">
-              <video
-                autoPlay
-                muted={false}
-                onClick={this.playPause}
-                onDoubleClick={this.fullscreen}
-                onMouseOver={this.showControls}
-                onMouseLeave={this.hideControls}
-                ref={this.videoRef}
-                className="main-video"
-                onPlay={() => {
-                  this.setDuration();
-                  this.buffer();
-                  this.watching();
-                }}
-                key={video.videoUrl}
-              >
-                <source src={video.videoUrl} />
-              </video>
+        {/* <div className="video-and-comments"> */}
+        <div className="video-show-container">
+          <div className="main-video-container">
+            <video
+              autoPlay
+              muted={false}
+              onClick={this.playPause}
+              onDoubleClick={this.fullscreen}
+              onMouseOver={this.showControls}
+              onMouseLeave={this.state.playing ? this.hideControls : null}
+              ref={this.videoRef}
+              className="main-video"
+              onPlay={() => {
+                this.setDuration();
+                this.buffer();
+                this.watching();
+              }}
+              key={video.videoUrl}
+            >
+              <source src={video.videoUrl} />
+            </video>
 
-              <div
-                onMouseOver={this.showControls}
-                onMouseLeave={this.hideControls}
-                ref={this.controls}
-                className="video-content"
-              >
-                <div className="first-half">
-                  <button ref={this.playPauseRef} onClick={this.playPause}>
-                    <span className="material-icons">pause</span>
-                  </button>
+            <div
+              onMouseOver={this.showControls}
+              onMouseLeave={this.state.playing ? this.hideControls : null}
+              ref={this.controls}
+              className="video-content"
+            >
+              <div className="first-half">
+                <button ref={this.playPauseRef} onClick={this.playPause}>
+                  <span className="material-icons">pause</span>
+                </button>
 
-                  <button ref={this.volumeRef} onClick={this.mute}>
-                    <span className="material-icons">volume_up</span>
-                  </button>
+                <button ref={this.volumeRef} onClick={this.mute}>
+                  <span className="material-icons">volume_up</span>
+                </button>
 
-                  <input
-                    ref={this.volumeSlider}
-                    type="range"
-                    className="volume-slider"
-                    value={this.state.volume}
-                    onChange={this.updateVolume}
-                  />
-                </div>
-                <div className="second-half">
-                  {/* <button>
+                <input
+                  ref={this.volumeSlider}
+                  type="range"
+                  className="volume-slider"
+                  value={this.state.volume}
+                  onChange={this.updateVolume}
+                />
+              </div>
+              <div className="second-half">
+                {/* <button>
                     <span className="material-icons">settings</span>
                   </button> */}
 
-                  <button onClick={this.fullscreen}>
-                    <span className="material-icons">fullscreen</span>
-                  </button>
-                </div>
+                <button onClick={this.fullscreen}>
+                  <span className="material-icons">fullscreen</span>
+                </button>
+              </div>
 
-                <div className="scrub-bar">
-                  <div style={loadedStyle} className="loaded-scrub-bar"></div>
-                  <div style={watchedStyle} className="watched-scrub-bar">
-                    <div className="slider"></div>
-                  </div>
+              <div className="scrub-bar">
+                <div style={loadedStyle} className="loaded-scrub-bar"></div>
+                <div style={watchedStyle} className="watched-scrub-bar">
+                  <div className="slider"></div>
                 </div>
               </div>
-              <div className="video-primary-info">
-                <div className="title">{video.title}</div>
+            </div>
+            <div className="video-primary-info">
+              <div className="title">{video.title}</div>
 
-                <div className="updated-at">
-                  <span>{video.views} views </span>•
-                  <li style={{ display: "inline" }}>
-                    {moment(video.created_at).format("MMM Do, YYYY")}
-                  </li>
-                </div>
-                <LikeDislikeContainer
-                  key={video.id}
-                  id={video.id}
-                  likes={video.likes}
-                  dislikes={video.dislikes}
-                  currentUser={currentUser?.id}
-                  like={this.props.like}
-                  unlike={this.props.unlike}
-                ></LikeDislikeContainer>
+              <div className="updated-at">
+                <span>{video.views} views </span>•
+                <li style={{ display: "inline" }}>
+                  {moment(video.created_at).format("MMM Do, YYYY")}
+                </li>
               </div>
-              <div className="description-container">
-                <div className="description-header">
-                  <Avatar
-                    id={video.uploader_id}
-                    username={video.username}
-                    avatar={video.avatarUrl}
-                    clickable={true}
-                  ></Avatar>
+              <LikeDislikeContainer
+                key={video.id}
+                id={video.id}
+                likes={video.likes}
+                dislikes={video.dislikes}
+                currentUser={currentUser?.id}
+                like={this.props.like}
+                unlike={this.props.unlike}
+              ></LikeDislikeContainer>
+            </div>
+            <div className="description-container">
+              <div className="description-header">
+                <Avatar
+                  id={video.uploader_id}
+                  username={video.username}
+                  avatar={video.avatarUrl}
+                  clickable={true}
+                ></Avatar>
+                <div className="description-user-info">
                   <Link to={`/channel/${video.uploader_id}`}>
                     {video.username}
                   </Link>
                 </div>
-                <div className="description">
-                  <p>{video.description}</p>
-                </div>
+              </div>
+              <div className="description">
+                <p>{video.description}</p>
               </div>
             </div>
           </div>
-          <div className="comment-components-container">
-            <div className="comment-amount">
-              {this.props.numOfComments} comments
-            </div>
-            <CommentFormContainer currentUser={this.props.currentUser} />
-            <CommentListContainer key={video.id} />
-          </div>
         </div>
+        <div className="comment-components-container">
+          <div className="comment-amount">
+            {this.props.numOfComments} comments
+          </div>
+          <CommentFormContainer currentUser={this.props.currentUser} />
+          <CommentListContainer key={video.id} />
+        </div>
+        {/* </div> */}
         <div className="index-sidebar-container">
           <VideoIndexSidebarContainer
             videoId={this.props.videoId}

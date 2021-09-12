@@ -22,7 +22,7 @@ export default function ChildCommentForm({
       video_id: info.video_id,
       user_id: info.user_id,
       parent_comment_id: parentCommentId,
-    }).then(() => setBody(""));
+    }).then(() => handleClose());
   };
 
   return (
