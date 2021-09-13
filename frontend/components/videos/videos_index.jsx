@@ -1,31 +1,33 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import VideoItem from "./video_item";
 import UploadModal from "../videos/video_upload_container";
 
-class VideosIndex extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+export default function VideosIndex({
+  uploadModal,
+  sidebar,
+  videos,
+  fetchVideos,
+}) {
+  const expandedSidebarIndexRef = useRef();
 
-  componentDidMount() {
-    this.props.fetchVideos();
-  }
+  useEffect(() => {
+    fetchVideos();
+  }, []);
 
-  render() {
-    if (this.props.uploadModal) return <UploadModal></UploadModal>;
+  useEffect(() => {
+    if (sidebar)
+      expandedSidebarIndexRef.current.classList.add("expanded-sidebar");
+    if (!sidebar)
+      expandedSidebarIndexRef.current.classList.remove("expanded-sidebar");
+  }, [sidebar]);
 
-    let marginLeft = { marginLeft: "90px" };
-    this.props.sidebar
-      ? (marginLeft = { marginLeft: "260px" })
-      : (marginLeft = { marginLeft: "90px" });
-    return (
-      <div style={marginLeft} className="video-index-container">
-        {this.props.videos.map((video, idx) => {
-          return <VideoItem key={idx} idx={idx} video={video} />;
-        })}
-      </div>
-    );
-  }
+  if (uploadModal) return <UploadModal></UploadModal>;
+
+  return (
+    <div ref={expandedSidebarIndexRef} className="video-index-container">
+      {videos.map((video, idx) => {
+        return <VideoItem key={idx} idx={idx} video={video} />;
+      })}
+    </div>
+  );
 }
-
-export default VideosIndex;

@@ -1,6 +1,7 @@
 @import "application";
 
 .sidebar {
+  width: 72px;
   margin: 0;
   position: fixed;
   left: 0px;
@@ -35,6 +36,7 @@
 }
 
 .sidebar-expanded {
+  width: 240px;
   padding-top: 12px;
   margin: 0;
   position: fixed;
@@ -66,5 +68,11 @@
 
   .active span {
     color: white;
+  }
+}
+
+@media screen and (max-width: 741px) {
+  .sidebar {
+    display: none;
   }
 }

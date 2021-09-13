@@ -30,11 +30,9 @@ class Sidebar extends React.Component {
   }
 
   render() {
-    let sideBarWidth = { width: "72px" };
     if (this.props.sidebar) {
-      sideBarWidth = { width: "240px" };
       return (
-        <div style={sideBarWidth} className="sidebar-expanded">
+        <div className="sidebar-expanded">
           <Link
             className={`${this.state.home ? "active" : ""}`}
             onClick={() => this.toggleActive("home")}
@@ -81,7 +79,7 @@ class Sidebar extends React.Component {
     }
 
     return (
-      <div style={sideBarWidth} className="sidebar">
+      <div className="sidebar">
         <Link
           className={`${this.state.home ? "active" : ""}`}
           onClick={() => this.toggleActive("home")}
@@ -124,15 +122,6 @@ class Sidebar extends React.Component {
           <span className="material-icons">language</span>
           Website
         </a>
-
-        {/* <Link
-          className={`${this.state.history ? "active" : ""}`}
-          onClick={() => this.toggleActive("history")}
-          to="/"
-        >
-          <span className="material-icons">history</span>
-          History
-        </Link> */}
       </div>
     );
   }
