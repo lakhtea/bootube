@@ -36,3 +36,9 @@
   width: 0%;
   background-color: #909090;
 }
+
+@media (max-width: 1000px) {
+  .like-container {
+    right: 0px;
+  }
+}
