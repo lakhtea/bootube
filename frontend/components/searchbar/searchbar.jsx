@@ -1,50 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 
-class Searchbar extends React.Component {
-  constructor(props) {
-    super(props);
+export default function Searchbar({
+  onTermSubmitUser,
+  onTermSubmit,
+  history,
+  myRef,
+}) {
+  const [term, setTerm] = useState("");
 
-    this.state = { term: "" };
+  const onInputChange = (e) => {
+    setTerm(e.target.value);
+  };
 
-    this.onInputChange = this.onInputChange.bind(this);
-    this.onFormSubmit = this.onFormSubmit.bind(this);
-  }
-
-  onInputChange(e) {
-    this.setState({ term: e.target.value });
-  }
-
-  onFormSubmit(e) {
+  const onFormSubmit = (e) => {
     e.preventDefault();
 
-    this.props.onTermSubmit(this.state.term);
+    onTermSubmit(term);
 
-    this.props
-      .onTermSubmitUser(this.state.term)
-      .then(() =>
-        this.props.history.push(`/results?search_query=${this.state.term}`)
-      );
-  }
-  render() {
-    return (
-      <div>
-        <form className="search-form" onSubmit={this.onFormSubmit}>
-          <div className="search">
-            <input
-              className="search-bar"
-              type="text"
-              onChange={this.onInputChange}
-              value={this.state.term}
-              placeholder="Search"
-            />
-          </div>
-          <button className="search-button">
-            <span className="material-icons">search</span>
-          </button>
-        </form>
-      </div>
+    onTermSubmitUser(term).then(() =>
+      history.push(`/results?search_query=${term}`)
     );
-  }
-}
+  };
 
-export default Searchbar;
+  return (
+    <form
+      ref={myRef}
+      id="search-form"
+      className="search-form"
+      onSubmit={onFormSubmit}
+    >
+      <div className="search">
+        <input
+          className="search-bar"
+          type="text"
+          onChange={onInputChange}
+          value={term}
+          placeholder="Search"
+        />
+      </div>
+      <button className="search-button">
+        <span className="material-icons">search</span>
+      </button>
+    </form>
+  );
+}
