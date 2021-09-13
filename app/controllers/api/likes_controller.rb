@@ -6,7 +6,7 @@ class Api::LikesController < ApplicationController
         elsif like_params[:likeable_type] == "Comment"
             liked = Comment.find_by(id: like_params[:likeable_id])
         end
-
+        
         @like = liked.likes.new(like_params)
 
         if @like.save

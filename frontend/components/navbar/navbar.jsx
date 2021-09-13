@@ -11,7 +11,6 @@ export default ({
   toggleSideBar,
   uploadModal,
 }) => {
-  const [openSearch, setOpenSearch] = useState(false);
   const burgerRef = useRef();
   const navElements = useRef();
   const searchIconRef = useRef();

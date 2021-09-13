@@ -38,7 +38,7 @@ export default class LikeDislike extends Component {
             onClick={() => {
               if (!currentUser) this.props.history.push("/login");
               if (this.state.status === "Dislike") {
-                unlike(liked)
+                unlike(liked.id)
                   .then(() => like({ ...this.likeObject, category: "Like" }))
                   .then(() =>
                     this.setState({
@@ -49,7 +49,7 @@ export default class LikeDislike extends Component {
                     })
                   );
               } else if (this.state.status === "Like") {
-                unlike(liked).then(() =>
+                unlike(liked.id).then(() =>
                   this.setState({
                     status: null,
                     like: null,
@@ -77,7 +77,7 @@ export default class LikeDislike extends Component {
             onClick={() => {
               if (!currentUser) this.props.history.push("/login");
               if (this.state.status === "Like") {
-                unlike(liked)
+                unlike(liked.id)
                   .then(() => like({ ...this.likeObject, category: "Dislike" }))
                   .then(() =>
                     this.setState({
@@ -88,7 +88,7 @@ export default class LikeDislike extends Component {
                     })
                   );
               } else if (this.state.status === "Dislike") {
-                unlike(liked).then(() =>
+                unlike(liked.id).then(() =>
                   this.setState({
                     status: null,
                     like: null,

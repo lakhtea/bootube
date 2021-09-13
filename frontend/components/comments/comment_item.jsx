@@ -58,6 +58,7 @@ class CommentItem extends React.Component {
         parentCommentId={comment.id}
       />
     ) : null;
+
     const deleteCommentModal = this.state.deleteComment ? (
       <div className="delete-video-modal-background">
         <div className="delete-video-modal">
