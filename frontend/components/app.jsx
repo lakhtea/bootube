@@ -8,6 +8,7 @@ import VideoShowContainer from "./videos/video_show_container";
 import Sidebar from "./sidebar/sidebar";
 import ChannelContainer from "./user/channel_container";
 import ResultsContainer from "./results/results_container";
+import TrendingResultsContainer from "./library/trending_results_container";
 import { AuthRoute, ProtectedRoute } from "../util/auth_route";
 
 const App = (props) => (
@@ -40,6 +41,16 @@ const App = (props) => (
           <div className="channel-page-container">
             <Sidebar />
             <ChannelContainer />
+          </div>
+        )}
+      ></Route>
+      <Route
+        exact
+        path="/trending"
+        render={() => (
+          <div className="trending-page-container">
+            <Sidebar />
+            <TrendingResultsContainer />
           </div>
         )}
       ></Route>

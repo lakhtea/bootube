@@ -39,3 +39,9 @@ export const destroyVideo = (videoId) =>
     method: "delete",
     url: `/api/videos/${videoId}`,
   });
+
+export const fetchTrending = () =>
+  $.ajax({
+    method: "get",
+    url: "/api/trending",
+  });

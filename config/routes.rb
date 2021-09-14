@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     post '/validation', to: 'users#validation'
     get '/search', to: 'videos#search'
+    get '/trending', to: 'videos#trending'
     get '/search_users', to: 'users#search'
     get '/liked_videos', to: 'users#liked_videos'
     get '/user_videos/:userId', to: 'users#videos'

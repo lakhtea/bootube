@@ -27,6 +27,10 @@ class Api::VideosController < ApplicationController
     @videos = Video.all
   end
 
+  def trending
+    @videos = Video.all.order(views: :desc).limit(5)
+  end
+
   def update 
     @video = Video.find_by(id: params[:id])
 

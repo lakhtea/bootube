@@ -10,6 +10,8 @@ import { RECEIVE_SEARCH_RESULTS } from "../actions/search_actions";
 
 import { RECEIVE_LIKE } from "../actions/like_actions";
 
+import { RECEIVE_TRENDING } from "../actions/library_actions";
+
 const VideosReducer = (state = {}, action) => {
   Object.freeze(state);
   const nextState = Object.assign({}, state);
@@ -20,13 +22,18 @@ const VideosReducer = (state = {}, action) => {
         newState[action.videos[i].id] = action.videos[i];
       }
       return newState;
-    // return action.videos;
 
     case RECEIVE_VIDEOS_SHOW:
       for (let i = 0; i < action.videos.length; i++) {
         nextState[action.videos[i].id] = action.videos[i];
       }
       return nextState;
+
+    case RECEIVE_TRENDING:
+      for (let i = 0; i < action.videos.length; i++) {
+        newState[i] = action.videos[i];
+      }
+      return newState;
 
     case RECEIVE_VIDEO:
       nextState.currentVideo = action.video;

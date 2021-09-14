@@ -1,0 +1,30 @@
+.trending-videos-container {
+  margin: 30px 30px 0 90px;
+  display: grid;
+  grid-template-rows: repeat(auto-fill, 138px);
+  gap: 10px;
+
+  .video-index-item {
+    display: flex;
+    max-width: 862px;
+
+    a {
+      width: 246px;
+    }
+  }
+}
+
+.trending-header {
+  margin: 86px 30px 0 90px;
+  height: fit-content;
+  font: 16px 600 "Roboto", "Arial", sans-serif;
+}
+
+@media screen and (max-width: 741px) {
+  .trending-header {
+    margin: 86px 30px 0 30px;
+  }
+  .trending-videos-container {
+    margin: 30px 30px 0 30px;
+  }
+}

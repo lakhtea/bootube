@@ -1,10 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { getTrending } from "../../actions/library_actions";
 
 const mstp = (state) => {
   return {
     sidebar: state.ui.sideBarToggled,
+  };
+};
+
+const mdtp = (dispatch) => {
+  return {
+    trending: () => dispatch(getTrending()),
   };
 };
 
@@ -16,20 +23,23 @@ class Sidebar extends React.Component {
       github: false,
       linkedin: false,
       website: false,
+      trending: false,
     };
   }
 
   toggleActive(type) {
     this.setState({
-      home: true,
+      home: false,
       github: false,
       linkedin: false,
       website: false,
+      trending: false,
     });
     this.setState({ [type]: !this.state[type] });
   }
 
   render() {
+    const { trending } = this.props;
     if (this.props.sidebar) {
       return (
         <div className="sidebar-expanded">
@@ -43,7 +53,7 @@ class Sidebar extends React.Component {
           </Link>
           <a
             target="_blank"
-            className={`${this.state.trending ? "active" : ""}`}
+            className={`${this.state.github ? "active" : ""}`}
             onClick={() => this.toggleActive("github")}
             href="https://github.com/lakhtea"
           >
@@ -55,7 +65,7 @@ class Sidebar extends React.Component {
 
           <a
             target="_blank"
-            className={`${this.state.subs ? "active" : ""}`}
+            className={`${this.state.linkedin ? "active" : ""}`}
             onClick={() => this.toggleActive("linkedin")}
             href="https://www.linkedin.com/in/lakhte-agha-1909b11b2"
           >
@@ -67,13 +77,24 @@ class Sidebar extends React.Component {
 
           <a
             target="_blank"
-            className={`${this.state.lib ? "active" : ""}`}
+            className={`${this.state.website ? "active" : ""}`}
             onClick={() => this.toggleActive("website")}
             href="http://lakhteagha.com/"
           >
             <span className="material-icons">language</span>
             Website
           </a>
+          <Link
+            className={`${this.state.trending ? "active" : ""}`}
+            onClick={() => {
+              this.toggleActive("trending");
+              trending();
+            }}
+            to="/trending"
+          >
+            <span className="material-icons">whatshot</span>
+            Trending
+          </Link>
         </div>
       );
     }
@@ -91,7 +112,7 @@ class Sidebar extends React.Component {
 
         <a
           target="_blank"
-          className={`${this.state.trending ? "active" : ""}`}
+          className={`${this.state.github ? "active" : ""}`}
           onClick={() => this.toggleActive("github")}
           href="https://github.com/lakhtea"
         >
@@ -103,11 +124,11 @@ class Sidebar extends React.Component {
 
         <a
           target="_blank"
-          className={`${this.state.subs ? "active" : ""}`}
+          className={`${this.state.linkedin ? "active" : ""}`}
           onClick={() => this.toggleActive("linkedin")}
           href="https://www.linkedin.com/in/lakhte-agha-1909b11b2"
         >
-          <span>
+          <span className>
             <i className="fab fa-linkedin material-icons"></i>
           </span>
           LinkedIn
@@ -115,16 +136,27 @@ class Sidebar extends React.Component {
 
         <a
           target="_blank"
-          className={`${this.state.lib ? "active" : ""}`}
+          className={`${this.state.website ? "active" : ""}`}
           onClick={() => this.toggleActive("website")}
           href="http://lakhteagha.com/"
         >
           <span className="material-icons">language</span>
           Website
         </a>
+        <Link
+          className={`${this.state.trending ? "active" : ""}`}
+          onClick={() => {
+            this.toggleActive("trending");
+            trending();
+          }}
+          to="/trending"
+        >
+          <span className="material-icons">whatshot</span>
+          Trending
+        </Link>
       </div>
     );
   }
 }
 
-export default connect(mstp, null)(Sidebar);
+export default connect(mstp, mdtp)(Sidebar);
