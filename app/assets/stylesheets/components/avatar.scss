@@ -160,5 +160,18 @@
 .trending-videos-container {
   .avatar-container {
     display: none;
+    .avatar {
+      object-fit: cover;
+      height: 32px;
+      width: 32px;
+      border-style: none;
+      box-sizing: border-box;
+      border-radius: 50%;
+      outline: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }

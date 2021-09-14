@@ -1,7 +1,6 @@
 .trending-videos-container {
   margin: 30px 30px 0 90px;
   display: grid;
-  grid-template-rows: repeat(auto-fill, 138px);
   gap: 10px;
 
   .video-index-item {
@@ -26,5 +25,16 @@
   }
   .trending-videos-container {
     margin: 30px 30px 0 30px;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    .avatar-container {
+      display: block;
+    }
+    .video-index-item {
+      flex-direction: column;
+      a {
+        width: 100%;
+      }
+    }
   }
 }
